@@ -1,0 +1,42 @@
+@import "variables";
+@import "_mixins.scss";
+
+#background{
+  opacity: 0.1;
+  @include vendor-prefix(background-size, cover);
+  overflow:hidden;
+  position:fixed;
+  height:100%;
+  width:100%;
+  top:0;
+  left:0;
+  z-index: -1;
+}
+#big-video-wrap {
+display:none;
+}
+
+.big-video-wrap-faded {
+  opacity: 0.1;
+}
+
+#play-video,
+#pause-video {
+  position: absolute;
+  bottom: 0;
+  z-index: 10;
+  display: none;
+  width: 100%;
+  text-align: right;
+  & i {
+    padding: 2%;
+  }
+
+  color: $controls_color;
+
+}
+
+#big-video-vid {
+  display:none;
+  text-indent: -9999px;
+}

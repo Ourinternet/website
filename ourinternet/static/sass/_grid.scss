@@ -1,0 +1,49 @@
+@import "variables";
+@import "mixins";
+
+$base_column_width: 70;
+$gutter_column_width: 20;
+$number_of_columns: 12;
+
+$total_width: $base_column_width * $number_of_columns + $gutter_column_width * ($number_of_columns - 1) ;
+
+@for $column_number from 1 through $number_of_columns{
+  .grid_#{$column_number} {
+    width: percentage((($base_column_width * $column_number + $gutter_column_width * ($column_number - 1)) / $total_width));
+	float: left;
+	display: block;
+
+    @include screen-at-most($small) {
+      width: 100%;
+    }
+
+    @if $column_number == $number_of_columns / 2 {
+        &:first-child{
+          @include screen-at-least($small) {
+            text-align: right;
+            & img {
+              padding-right: 5%;
+            }
+
+          }
+        }
+
+        &:last-child{
+            @include screen-at-least($small) {
+              text-align: left;
+            & img {
+              padding-left: 5%;
+            }
+            }
+        }
+    }
+  }
+}
+
+.container{
+	width: 90%;
+	margin: auto;
+
+}
+
+

@@ -1,0 +1,31 @@
+@mixin screen-at-least($device-width)
+{
+  @media only screen and (min-width: $device-width)
+  {
+    @content 
+  }
+}
+
+@mixin screen-at-most($device-width)
+{
+  @media only screen and (max-width: $device-width)
+  {
+    @content 
+  }
+}
+
+@mixin screen-between($min-device-width, $max-device-width)
+{
+  @media only screen and (min-width: $min-device-width) and (max-width: $max-device-width)
+  {
+    @content
+  }
+}
+
+@mixin vendor-prefix($name, $argument) {
+  -webkit-#{$name}: #{$argument};
+  -ms-#{$name}: #{$argument};
+  -moz-#{$name}: #{$argument};
+  -o-#{$name}: #{$argument};
+  #{$name}: #{$argument};
+}

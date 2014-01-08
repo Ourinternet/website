@@ -1,0 +1,25 @@
+// Fonts
+$main_font: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+
+$heading_font: Georgia, "Times New Roman", Times, serif;
+$menu_font: sans-serif;
+
+// Colours
+$background_color: rgba(29, 65, 95, 0.91);
+$controls_color: rgba(255, 255, 255, 0.65);
+
+$menu_background_color: rgba(0,0,0,0.4);
+$menu_border_color: #8f8f8f;
+$menu_text_color: #d6ddff;
+
+$twitter_color: #5dd7fc;
+
+// Static Paths
+$twitter_bird_url: url(/static/img/twitter.png);
+
+// Screen Sizes
+$small: 30em; //480px;
+$medium: 48em; // 768px;
+$large: 61.25em; //980px;
+$extra-large: 75em; //1200px;
+

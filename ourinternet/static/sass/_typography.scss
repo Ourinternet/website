@@ -1,0 +1,94 @@
+@import "variables";
+@import "mixins";
+
+body {
+  @include screen-at-least($medium){
+    font-size: 1.0em;
+    letter-spacing: 0.1em;
+  }
+}
+.content{
+    font-family: $main_font;
+    text-align: center;
+
+  .heading {
+    font-family: $heading_font;
+  }
+}
+
+.main-page{
+    font-size: 1.5em;
+}
+
+.medium {
+  /* 20px / 30px */
+  font-size: 0.95em;
+  line-height: 1.5em;
+
+  @include screen-at-most($small){
+    font-size: 0.5em;
+  }
+  @include screen-between($small, $medium){
+    font-size: 0.75em;
+  }
+  @include screen-between($medium, $large){
+    font-size: 1.05em;
+  }
+  @include screen-at-least($large){
+    font-size: 1.25em;
+  }
+}
+.medium.wide{
+  letter-spacing: 0.15em;
+  @include screen-at-least($medium){
+    letter-spacing: 0.15em;
+  }
+  @include screen-at-least($large){
+    letter-spacing: 0.15em;
+  }
+}
+.massive {
+  /* 68px / 72px */
+  line-height: 1.0588235294117647em;
+
+  @include screen-at-most($small){
+    font-size: 1.5em;
+  }
+  @include screen-between($small, $medium){
+    font-size: 2.5em;
+  }
+  @include screen-between($medium, $large){
+    font-size: 3.25em;
+  }
+  @include screen-at-least($large){
+    font-size: 4.25em;
+  }
+
+}
+.massive.wide{
+  letter-spacing: 0.05em;
+
+  @include screen-at-least($medium){
+    letter-spacing: 0.05em;
+  }
+
+  @include screen-at-least($large){
+    letter-spacing: 0.05em;
+  }
+
+}
+
+
+.press-release-notice{
+  text-transform: uppercase;
+  text-align: left;
+}
+
+.content-page{
+  text-align: left;
+
+  .heading {
+    font-size: 2em;
+  }
+
+}

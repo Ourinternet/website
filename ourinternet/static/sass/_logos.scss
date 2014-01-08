@@ -1,0 +1,33 @@
+@import "variables";
+@import "mixins";
+
+.logos
+{
+  margin-top: 10%;
+  height: 160px;
+
+  @include screen-at-least($small) {
+    margin-top: 10%;
+    height: 80px;
+  }
+  @include screen-at-least($extra-large) {
+    margin: 10% 5.555555555555555%;
+  }
+
+  .logo
+  {
+
+    img
+    {
+      width: 221px !important;
+      height: 71px !important;
+      position: static !important;
+      z-index: 10 !important;
+    }
+
+
+  }
+
+}
+
+
