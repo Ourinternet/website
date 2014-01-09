@@ -92,3 +92,9 @@ body {
   }
 
 }
+
+.contact-form {
+  input, textarea{
+    color: $contrast_color;
+  }
+}

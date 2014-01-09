@@ -117,3 +117,42 @@ $(function(){
     }
 
 });
+
+$(function(){
+
+    var submit_function = function(e){
+        var form_parent = $(this).parent();
+        var postData = $(this).serializeArray();
+        var formURL = $(this).attr("action");
+
+        $.ajax(
+        {
+            url : formURL,
+            type: "POST",
+            data : postData,
+            success:function(data, textStatus, jqXHR)
+            {
+                form_parent.html(data);
+                $(".contact-form").submit(submit_function);
+
+                $(".messages .success").prepend("<i class='fa fa-check'></i>");
+
+                errors = $(".messages .error");
+
+                if (errors.length > 0){
+                    errors.prepend("<i class='fa fa-times-circle'></i>");
+                }
+
+                $(".errorlist").addClass("fa-ul");
+                $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                //if fails
+            }
+        });
+        e.preventDefault(); //STOP default action
+    }
+
+    $(".contact-form").submit(submit_function);
+});

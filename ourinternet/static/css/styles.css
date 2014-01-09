@@ -182,6 +182,9 @@
   .content-page .heading {
     font-size: 2em; }
 
+.contact-form input, .contact-form textarea {
+  color: black; }
+
 /* Navigation */
 .custom-slides-pagination {
   position: absolute;
@@ -417,3 +420,50 @@ body {
 .content-page a {
   color: #5dd7fc;
   text-decoration: none; }
+
+.contact-form table {
+  width: 100%; }
+  .contact-form table th {
+    width: 10%; }
+  .contact-form table td {
+    padding: 1em;
+    vertical-align: top; }
+.contact-form #id_message {
+  height: 20em; }
+.contact-form input, .contact-form textarea {
+  width: 100%; }
+.contact-form .submit-row {
+  text-align: right; }
+  .contact-form .submit-row input {
+    width: inherit; }
+
+.messages {
+  font-size: 1.25em; }
+  .messages .error i {
+    color: #a50000;
+    padding-right: 1em;
+    -webkit-text-fill-color: #a50000;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.65);
+    font-size: 2em; }
+  .messages .success i {
+    font-size: 2em;
+    color: green;
+    padding-right: 1em;
+    -webkit-text-fill-color: green;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.65); }
+
+.errorlist li {
+  height: 100% !important;
+  top: 0 !important;
+  list-style: none; }
+  .errorlist li .fa-exclamation-triangle, .errorlist li .fa-times-circle {
+    color: #a50000;
+    padding-right: 1em;
+    -webkit-text-fill-color: #a50000;
+    /* Will override color (regardless of order) */
+    -webkit-text-stroke-width: 1px;
+    -webkit-text-stroke-color: rgba(255, 255, 255, 0.65); }

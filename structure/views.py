@@ -1,8 +1,10 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from random import randint
 from django.conf import settings
 import tweepy
-
+from forms import ContactForm
+from django.core.mail import EmailMessage
+from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 
 
@@ -24,12 +26,14 @@ def home(request, template="structure/home.html"):
     main_page = FlatPage.objects.get(url='/main/')
     about_page = FlatPage.objects.get(url='/about/')
     press_page = FlatPage.objects.get(url='/press/')
+    contact_form = ContactForm()
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
                'about_page': about_page,
                'press_page': press_page,
+               'contact_form': contact_form,
                'GA_SITE_ID': settings.GA_SITE_ID,
                }
 
@@ -62,3 +66,38 @@ def process_tweets(tweets):
             tweet_text = tweet_text.replace(original_mention, markup)
 
         tweet.text = tweet_text
+
+
+def contact_submit(request):
+    #request.is_ajax() and
+    if request.method == 'POST':
+        form = ContactForm(request.POST)
+        if form.is_valid():
+
+            subject = form.cleaned_data['subject']
+            message = form.cleaned_data['message']
+            sender = form.cleaned_data['sender']
+            cc_sender = form.cleaned_data['cc_myself']
+
+            recipients = ["csimpson@cigionline.org"]
+
+            cc_list = []
+            if cc_sender:
+                cc_list = [sender]
+
+            email = EmailMessage(subject, message, from_email=sender, to=recipients, cc=cc_list)
+            email.send()
+
+            form = ContactForm()
+            messages.add_message(request, messages.SUCCESS, 'Your email has been sent.')
+
+        else:
+            messages.add_message(request, messages.ERROR,
+                                 'There has been an error submitting your form.')
+
+        return render(request, 'structure/_contact.html', {'contact_form': form})
+    else:
+        form = ContactForm()
+
+    return render(request, 'structure/_contact.html', {'contact_form': form})
+

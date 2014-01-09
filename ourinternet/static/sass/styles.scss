@@ -54,5 +54,80 @@ body{
   }
 }
 
+.contact-form {
+  & table {
+    width: 100%;
+    th{
+      width: 10%;
+    }
+    td {
+      padding: 1em;
+      vertical-align: top;
+    }
+  }
+
+  #id_message {
+
+    height: 20em;
+
+  }
+
+  input, textarea {
+    width: 100%;
+  }
+
+  .submit-row{
+    text-align: right;
+
+    input {
+      width: inherit;
+    }
+  }
+}
+
+@mixin stroke-icon($color) {
+  color: $color;
+  padding-right: 1em;
+
+  -webkit-text-fill-color: $color; /* Will override color (regardless of order) */
+  -webkit-text-stroke-width: 1px;
+  -webkit-text-stroke-color: $controls_color;
+}
+
+.messages{
+  font-size: 1.25em;
+//  padding: 1em;
+
+  .error {
+    i {
+
+      @include stroke-icon($error_color);
+      font-size: 2em;
+
+    }
+  }
+  .success {
+    i {
+//      color: green;
+      font-size: 2em;
+      @include stroke-icon(green);
+    }
+  }
+
+
+}
+
+.errorlist {
+  li {
+    height: 100% !important;
+    top: 0 !important;
+    list-style: none;
+
+    .fa-exclamation-triangle, .fa-times-circle {
+      @include stroke-icon($error_color);
+    }
+  }
+}
+
 
 
