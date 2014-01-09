@@ -3,10 +3,18 @@
 
 .footer {
   width: 90%;
-  margin: 0 auto;
+  margin: 4em auto;
   border-top: 1px solid $main_color;
   z-index: 10;
+
   font-size: 1em;
+
+  .content-page & {
+    width: 120%;
+    text-align: center;
+    margin: 4em -25%;
+    width: 150%;
+  }
 
   & p {
     font-size: 0.9em;

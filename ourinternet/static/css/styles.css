@@ -361,10 +361,15 @@
 
 .footer {
   width: 90%;
-  margin: 0 auto;
+  margin: 4em auto;
   border-top: 1px solid white;
   z-index: 10;
   font-size: 1em; }
+  .content-page .footer {
+    width: 120%;
+    text-align: center;
+    margin: 4em -25%;
+    width: 150%; }
   .footer p {
     font-size: 0.9em; }
   .footer p.open-source-message {
@@ -384,7 +389,7 @@ body {
 
 .main-page {
   position: absolute;
-  top: 15%;
+  top: 10%;
   width: 100%; }
 
 .content-page {
