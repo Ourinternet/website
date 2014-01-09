@@ -1,3 +1,4 @@
+@import "variables";
 /*! HTML5 Boilerplate v4.3.0 | MIT License | http://h5bp.com/ */
 
 /*
@@ -15,7 +16,7 @@ button,
 input,
 select,
 textarea {
-    color: #fff;;
+    color: $main_color;
 }
 
 html {

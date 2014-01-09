@@ -1,0 +1,30 @@
+@import "variables";
+@import "mixins";
+
+.footer {
+  width: 90%;
+  margin: 0 auto;
+  border-top: 1px solid $main_color;
+  z-index: 10;
+  font-size: 1em;
+
+  & p {
+    font-size: 0.9em;
+  }
+
+  & p.open-source-message {
+    font-size: 0.75em;
+  }
+
+  .main-page & {
+    font-size: 0.65em;
+  }
+
+  a {
+    color: $main_color;
+    &:visited {
+      color: $main_color;
+    }
+
+  }
+}

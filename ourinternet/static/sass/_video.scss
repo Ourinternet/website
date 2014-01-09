@@ -24,12 +24,13 @@ display:none;
 #pause-video {
   position: absolute;
   bottom: 0;
+  right: 0;
   z-index: 10;
   display: none;
-  width: 100%;
+  width: 5%;
   text-align: right;
   & i {
-    padding: 2%;
+    padding: 35%;
   }
 
   color: $controls_color;

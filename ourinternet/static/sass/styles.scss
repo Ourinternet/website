@@ -5,6 +5,7 @@
 @import "twitter";
 @import "logos";
 @import "video";
+@import "footer";
 
 body{
   background: $background_color;
@@ -17,7 +18,7 @@ body{
 
 .main-page{
     position: absolute;
-    top: 25%;
+    top: 15%;
     width: 100%;
 }
 
