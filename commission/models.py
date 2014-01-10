@@ -7,6 +7,7 @@ class Member(models.Model):
     twitter_handle = models.CharField(max_length=60, blank=True, null=True)
     short_bio = models.TextField(blank=True, null=True)
     partner = models.ForeignKey("Partner", blank=True, null=True)
+    chair = models.BooleanField(default=False)
 
     def __unicode__(self):
         return self.name

@@ -9,7 +9,7 @@
 {#        {% endfor %}#}
 {#    </table>#}
 
-    {% for member_list, length in members|padded_column_split:"2,4,4" %}
+    {% for member_list, length in members|padded_column_split:"2,5,5" %}
         <div class="column">
             {% for member in member_list %}
                 <div class="member-name">{{ member.name }}&nbsp;</div>
