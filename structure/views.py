@@ -35,6 +35,7 @@ def home(request, template="structure/home.html"):
                'press_page': press_page,
                'contact_form': contact_form,
                'GA_SITE_ID': settings.GA_SITE_ID,
+               'GA_SITE_URL': settings.GA_SITE_URL,
                }
 
     return render(request, template, context)
