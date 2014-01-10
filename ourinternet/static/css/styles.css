@@ -424,10 +424,9 @@ body {
 .contact-form table {
   width: 100%; }
   .contact-form table th {
-    width: 10%; }
+    width: 15%; }
   .contact-form table td {
-    padding: 1em;
-    vertical-align: top; }
+    padding: 1em; }
 .contact-form #id_message {
   height: 20em; }
 .contact-form input, .contact-form textarea {
