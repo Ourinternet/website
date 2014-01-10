@@ -387,7 +387,8 @@
       color: white; }
 
 body {
-  background: rgba(29, 65, 95, 0.91); }
+  background: rgba(29, 65, 95, 0.91);
+  font-weight: lighter; }
   .ie body {
     width: 40em;
     margin: 0 auto; }
@@ -466,3 +467,31 @@ body {
     /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: rgba(255, 255, 255, 0.65); }
+
+.member-list {
+  padding-bottom: 1em;
+  overflow: hidden;
+  width: 100%;
+  display: block; }
+  .member-list .title, .member-list .member-name {
+    text-transform: uppercase; }
+  .member-list .column {
+    margin-top: 0.25em;
+    width: 24%;
+    border-top: 2px solid white;
+    float: left; }
+    .member-list .column .member-name {
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid white; }
+
+.member-descriptions {
+  display: block; }
+  .member-descriptions .member-profile {
+    margin-top: 2em; }
+    .member-descriptions .member-profile .member-name,
+    .member-descriptions .member-profile .member-position,
+    .member-descriptions .member-profile .member-partner {
+      font-weight: bold; }
+    .member-descriptions .member-profile .member-bio {
+      font-style: italic; }

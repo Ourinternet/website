@@ -10,6 +10,8 @@
 body{
   background: $background_color;
 
+  font-weight: lighter;
+
   .ie & {
     width: 40em;
     margin: 0 auto;
@@ -126,6 +128,57 @@ body{
       @include stroke-icon($error_color);
     }
   }
+}
+
+.member-list {
+
+  padding-bottom: 1em;
+
+  .title, .member-name {
+    text-transform: uppercase;
+  }
+
+  .column
+  {
+    margin-top: 0.25em;
+
+    width: 24%;
+    border-top: 2px solid $main_color;
+
+
+    float: left;
+
+    .member-name{
+      padding-top: 0.25em;
+      padding-bottom: 0.25em;
+      border-bottom: 1px solid $main_color;
+    }
+
+  }
+
+  overflow: hidden;
+  width: 100%;
+  display: block;
+}
+
+.member-descriptions{
+  display: block;
+  .member-profile{
+    margin-top: 2em;
+
+    .member-name,
+    .member-position,
+    .member-partner
+    {
+      font-weight: bold;
+    }
+
+    .member-bio {
+      font-style: italic;
+    }
+
+  }
+
 }
 
 

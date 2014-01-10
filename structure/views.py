@@ -7,6 +7,8 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 
+from commission.models import Member
+
 
 def home(request, template="structure/home.html"):
 
@@ -29,6 +31,8 @@ def home(request, template="structure/home.html"):
     partner_page = FlatPage.objects.get(url='/partner/')
     contact_form = ContactForm()
 
+    members = Member.objects.all()
+
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
@@ -36,6 +40,7 @@ def home(request, template="structure/home.html"):
                'press_page': press_page,
                'partner_page': partner_page,
                'contact_form': contact_form,
+               'members': members,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
                }
