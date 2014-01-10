@@ -31,7 +31,8 @@ def home(request, template="structure/home.html"):
     partner_page = FlatPage.objects.get(url='/partner/')
     contact_form = ContactForm()
 
-    members = Member.objects.all()
+    chair_members = list(Member.objects.filter(chair=True).order_by("last_name"))
+    other_members = list(Member.objects.filter(chair=False).order_by("last_name"))
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
@@ -40,7 +41,8 @@ def home(request, template="structure/home.html"):
                'press_page': press_page,
                'partner_page': partner_page,
                'contact_form': contact_form,
-               'members': members,
+               'chair_members': chair_members,
+               'other_members': other_members,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
                }
