@@ -29,6 +29,9 @@ def home(request, template="structure/home.html"):
     about_page = FlatPage.objects.get(url='/about/')
     press_page = FlatPage.objects.get(url='/press/')
     partner_page = FlatPage.objects.get(url='/partner/')
+    commission_page = FlatPage.objects.get(url='/commission/')
+    event_page = FlatPage.objects.get(url='/event/')
+    footer_page = FlatPage.objects.get(url='/footer/')
     contact_form = ContactForm()
 
     chair_members = list(Member.objects.filter(chair=True).order_by("last_name"))
@@ -40,6 +43,9 @@ def home(request, template="structure/home.html"):
                'about_page': about_page,
                'press_page': press_page,
                'partner_page': partner_page,
+               'commission_page': commission_page,
+               'event_page': event_page,
+               'footer_page': footer_page,
                'contact_form': contact_form,
                'chair_members': chair_members,
                'other_members': other_members,
