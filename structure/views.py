@@ -26,6 +26,7 @@ def home(request, template="structure/home.html"):
     main_page = FlatPage.objects.get(url='/main/')
     about_page = FlatPage.objects.get(url='/about/')
     press_page = FlatPage.objects.get(url='/press/')
+    partner_page = FlatPage.objects.get(url='/partner/')
     contact_form = ContactForm()
 
     context = {'public_tweets': public_tweets,
@@ -33,6 +34,7 @@ def home(request, template="structure/home.html"):
                'main_page': main_page,
                'about_page': about_page,
                'press_page': press_page,
+               'partner_page': partner_page,
                'contact_form': contact_form,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
