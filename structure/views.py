@@ -79,7 +79,7 @@ def contact_submit(request):
             sender = form.cleaned_data['sender']
             cc_sender = form.cleaned_data['cc_myself']
 
-            recipients = ["csimpson@cigionline.org"]
+            recipients = settings.CONTACT_FORM_RECIPIENT_LIST
 
             cc_list = []
             if cc_sender:

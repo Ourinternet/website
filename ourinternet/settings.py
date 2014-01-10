@@ -91,6 +91,8 @@ TWITTER_USER = ''
 
 GA_SITE_ID = 'UA-XXXXX-X'
 
+CONTACT_FORM_RECIPIENT_LIST = []
+
 try:
     from local_settings import *
 except ImportError:
