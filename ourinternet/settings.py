@@ -38,6 +38,7 @@ INSTALLED_APPS = (
     'django.contrib.flatpages',
     'south',
     'structure',
+    'commission',
 )
 
 MIDDLEWARE_CLASSES = (
