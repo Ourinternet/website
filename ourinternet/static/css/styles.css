@@ -181,6 +181,9 @@
   text-align: left; }
   .content-page .heading {
     font-size: 2em; }
+    @media only screen and (max-width: 30em) {
+      .content-page .heading {
+        font-size: 1.4em; } }
 
 .contact-form input, .contact-form textarea {
   color: black; }
@@ -417,6 +420,9 @@ body {
   left: 0;
   right: 0;
   margin: auto !important; }
+  @media only screen and (max-width: 48em) {
+    .content-page {
+      width: 80%; } }
 
 /* Slide Container */
 .slides-container li {

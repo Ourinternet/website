@@ -19,21 +19,26 @@ body{
 }
 
 .main-page{
-    position: absolute;
-    top: 10%;
-    width: 100%;
+  position: absolute;
+  top: 10%;
+  width: 100%;
 }
 
 .content-page{
-    width: 60%;
-    height: 90%;
-    position: absolute;
-    top:0;
-    bottom: 0;
-    left: 0;
-    right: 0;
 
-    margin: auto !important;
+  @include screen-at-most($medium) {
+    width: 80%;
+  }
+
+  width: 60%;
+  height: 90%;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+
+  margin: auto !important;
 }
 
 /* Slide Container */

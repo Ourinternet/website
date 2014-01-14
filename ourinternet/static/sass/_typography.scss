@@ -89,6 +89,9 @@ body {
 
   .heading {
     font-size: 2em;
+    @include screen-at-most($small) {
+      font-size: 1.4em;
+    }
   }
 
 }
