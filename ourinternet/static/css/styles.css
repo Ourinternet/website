@@ -437,6 +437,11 @@ body {
   text-align: right; }
   .contact-form .submit-row input {
     width: inherit; }
+.contact-form .recaptchatable img {
+  width: auto !important;
+  height: auto !important;
+  position: static !important;
+  z-index: 10 !important; }
 
 .messages {
   font-size: 1.25em; }

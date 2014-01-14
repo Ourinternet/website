@@ -36,6 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'django.contrib.sites',
     'django.contrib.flatpages',
+    'captcha',
     'south',
     'structure',
     'commission',
@@ -95,12 +96,18 @@ GA_SITE_URL = 'yoursite.org'
 
 CONTACT_FORM_RECIPIENT_LIST = []
 
-try:
-    from local_settings import *
-except ImportError:
-    pass
+RECAPTCHA_PUBLIC_KEY = ''
+RECAPTCHA_PRIVATE_KEY = ''
+CAPTCHA_WIDGET_TEMPLATE = 'captcha/widget_ajax.html'
 
 try:
     from secure_settings import *
 except ImportError:
     pass
+
+try:
+    from local_settings import *
+except ImportError:
+    pass
+
+

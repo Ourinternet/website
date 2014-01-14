@@ -1,5 +1,5 @@
 <p class="heading">Contact Us</p>
-
+<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 {% if messages %}
 <div class="messages">
     {% for message in messages %}
@@ -15,6 +15,24 @@
 
         <tr><td></td><td class="submit-row"><input type="submit" value="Submit" /></td></tr>
     </table>
-
-
 </form>
+
+<script type="text/javascript">
+    function localShowCaptcha(element){
+        Recaptcha.create("{{ public_key }}",
+            element,
+            {
+              theme: "white",
+              callback: Recaptcha.focus_response_field
+            }
+          );
+    }
+
+</script>
+
+
+<noscript>
+  <iframe src="{{api_server}}/noscript?k={{public_key}}&hl={{lang}}{{error_param}}" height="300" width="500" frameborder="0"></iframe><br />
+  <textarea name="recaptcha_challenge_field" rows="3" cols="40"></textarea>
+  <input type='hidden' name='recaptcha_response_field' value='manual_challenge' />
+</noscript>

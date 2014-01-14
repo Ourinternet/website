@@ -51,6 +51,7 @@ def home(request, template="structure/home.html"):
                'other_members': other_members,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
+               'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                }
 
     return render(request, template, context)
@@ -111,9 +112,11 @@ def contact_submit(request):
             messages.add_message(request, messages.ERROR,
                                  'There has been an error submitting your form.')
 
-        return render(request, 'structure/_contact.html', {'contact_form': form})
     else:
         form = ContactForm()
 
-    return render(request, 'structure/_contact.html', {'contact_form': form})
+    context = {'contact_form': form,
+               'public_key': settings.RECAPTCHA_PUBLIC_KEY,
+               }
+    return render(request, 'structure/_contact.html', context)
 

@@ -119,6 +119,7 @@ $(function(){
 });
 
 $(function(){
+    localShowCaptcha("recap");
 
     var submit_function = function(e){
         var form_parent = $(this).parent();
@@ -133,6 +134,7 @@ $(function(){
             success:function(data, textStatus, jqXHR)
             {
                 form_parent.html(data);
+
                 $(".contact-form").submit(submit_function);
 
                 $(".messages .success").prepend("<i class='fa fa-check'></i>");
@@ -143,12 +145,18 @@ $(function(){
                     errors.prepend("<i class='fa fa-times-circle'></i>");
                 }
 
-                $(".errorlist").addClass("fa-ul");
-                $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
+                if ($(".errorlist").length > 0) {
+                    $(".errorlist").addClass("fa-ul");
+                    $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
+                }
+
+                localShowCaptcha("recap");
+
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
                 //if fails
+                localShowCaptcha("recap");
             }
         });
         e.preventDefault(); //STOP default action
