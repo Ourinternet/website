@@ -425,11 +425,12 @@ body {
 .contact-form table {
   width: 100%; }
   .contact-form table th {
-    width: 15%; }
+    width: 15%;
+    font-weight: normal; }
   .contact-form table td {
     padding: 1em; }
 .contact-form #id_message {
-  height: 20em; }
+  height: 10em; }
 .contact-form input, .contact-form textarea {
   width: 100%; }
 .contact-form .submit-row {
