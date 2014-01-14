@@ -362,7 +362,8 @@
   display: none;
   width: 5%;
   text-align: right;
-  color: rgba(255, 255, 255, 0.65); }
+  color: rgba(255, 255, 255, 0.65);
+  cursor: pointer; }
   #play-video i,
   #pause-video i {
     padding: 35%; }
