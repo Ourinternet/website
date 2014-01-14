@@ -243,13 +243,13 @@
   #responsive-menu-toggle a {
     padding-right: 0; }
 
-@media only screen and (max-width: 30em) {
+@media only screen and (max-width: 48em) {
   #top-menu {
     display: none; } }
 
 #responsive-menu {
   display: none; }
-  @media only screen and (max-width: 30em) {
+  @media only screen and (max-width: 48em) {
     #responsive-menu {
       display: block; } }
 
@@ -314,7 +314,7 @@
     .logos {
       margin-top: 10%;
       height: 80px; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 67.5em) {
     .logos {
       margin: 10% 5.555555555555555%; } }
   .logos .logo img {
@@ -489,6 +489,12 @@ body {
   overflow: hidden;
   width: 100%;
   display: block; }
+  @media only screen and (max-width: 48em) {
+    .member-list {
+      display: none; } }
+  @media only screen and (max-width: 67.5em) {
+    .member-list .member-name {
+      height: 3em; } }
   .member-list .title, .member-list .member-name {
     text-transform: uppercase;
     font-size: 0.7em; }

@@ -145,6 +145,16 @@ body{
 
 .member-list {
 
+  @include screen-at-most($medium) {
+    display: none;
+  }
+
+  @include screen-at-most($extra-large) {
+    .member-name {
+      height: 3em;
+    }
+  }
+  
   padding-bottom: 1em;
 
   .title, .member-name {
