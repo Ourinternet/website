@@ -1,0 +1,10 @@
+<p class="heading">{{ faq_page.title|safe }}</p>
+
+<ol class="faqs">
+    {% for faq in faq_list %}
+    <li class="faq">
+        <div class="question">{{ faq.question }}</div>
+        <div class="answer">{{ faq.answer|safe }}</div>
+    </li>
+    {% endfor %}
+</ol>

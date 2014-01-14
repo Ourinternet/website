@@ -23,3 +23,13 @@ class Partner(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class FAQ(models.Model):
+    question = models.TextField()
+    answer = models.TextField()
+    weight = models.IntegerField()
+
+    def __unicode__(self):
+        return self.question
+

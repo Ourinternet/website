@@ -45,8 +45,10 @@ body{
 }
 
 .content-page{
+  ul li {
+    list-style: disc;
+  }
   li {
-    list-style: disc ;
     overflow: visible !important;
   }
 
@@ -192,6 +194,13 @@ body{
 
 }
 
+.faq {
+  padding-bottom: 2em;
+
+  .question {
+    font-weight: bold;
+  }
+}
 
 
 

@@ -415,8 +415,9 @@ body {
   height: 90% !important;
   top: 3.25em !important; }
 
+.content-page ul li {
+  list-style: disc; }
 .content-page li {
-  list-style: disc;
   overflow: visible !important; }
 .content-page a {
   color: #5dd7fc;
@@ -501,3 +502,8 @@ body {
       font-weight: bold; }
     .member-descriptions .member-profile .member-bio {
       font-style: italic; }
+
+.faq {
+  padding-bottom: 2em; }
+  .faq .question {
+    font-weight: bold; }

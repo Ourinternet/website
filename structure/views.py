@@ -7,7 +7,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 
-from commission.models import Member
+from commission.models import Member, FAQ
 
 
 def home(request, template="structure/home.html"):
@@ -34,6 +34,9 @@ def home(request, template="structure/home.html"):
     footer_page = FlatPage.objects.get(url='/footer/')
     contact_form = ContactForm()
 
+    faq_page = FlatPage.objects.get(url='/faq/')
+    faq_list = FAQ.objects.all().order_by('weight')
+
     chair_members = list(Member.objects.filter(chair=True).order_by("last_name"))
     other_members = list(Member.objects.filter(chair=False).order_by("last_name"))
 
@@ -49,6 +52,8 @@ def home(request, template="structure/home.html"):
                'contact_form': contact_form,
                'chair_members': chair_members,
                'other_members': other_members,
+               'faq_list': faq_list,
+               'faq_page': faq_page,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
                'public_key': settings.RECAPTCHA_PUBLIC_KEY,
