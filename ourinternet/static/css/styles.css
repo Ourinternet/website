@@ -322,6 +322,9 @@
     height: 58px !important;
     position: static !important;
     z-index: 10 !important; }
+    .logos .logo img.chathamhouse {
+      width: 253px !important;
+      height: 58px !important; }
 
 .heading .logo img {
   width: 556px !important;
