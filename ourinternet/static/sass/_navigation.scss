@@ -90,7 +90,7 @@
 }
 
 #top-menu{
-  @include screen-at-most($small){
+  @include screen-at-most($medium){
     display: none;
   }
 }
@@ -98,7 +98,7 @@
 #responsive-menu {
     display: none;
 
-  @include  screen-at-most($small){
+  @include  screen-at-most($medium){
     display: block;
   }
 }
