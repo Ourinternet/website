@@ -119,7 +119,7 @@ $(function(){
 });
 
 $(function(){
-    localShowCaptcha("recap");
+//    localShowCaptcha("recap");
 
     var submit_function = function(e){
         var form_parent = $(this).parent();
@@ -150,13 +150,13 @@ $(function(){
                     $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
                 }
 
-                localShowCaptcha("recap");
+//                localShowCaptcha("recap");
 
             },
             error: function(jqXHR, textStatus, errorThrown)
             {
                 //if fails
-                localShowCaptcha("recap");
+//                localShowCaptcha("recap");
             }
         });
         e.preventDefault(); //STOP default action

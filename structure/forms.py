@@ -7,4 +7,4 @@ class ContactForm(forms.Form):
     sender = forms.EmailField(label="Your Email")
     cc_myself = forms.BooleanField(required=False, label="CC Your Email")
     message = forms.CharField(widget=forms.Textarea)
-    captcha = ReCaptchaField(attrs={'theme': 'white'})
+    # captcha = ReCaptchaField(attrs={'theme': 'white'})
