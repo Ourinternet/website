@@ -25,17 +25,17 @@ def home(request, template="structure/home.html"):
 
     video_number = randint(1, 3)
 
-    main_page = FlatPage.objects.get_or_create(url='/main/')
-    about_page = FlatPage.objects.get_or_create(url='/about/')
-    press_page = FlatPage.objects.get_or_create(url='/press/')
-    partner_page = FlatPage.objects.get_or_create(url='/partner/')
-    commission_page = FlatPage.objects.get_or_create(url='/commission/')
-    event_page = FlatPage.objects.get_or_create(url='/event/')
-    footer_page = FlatPage.objects.get_or_create(url='/footer/')
-    contact_page = FlatPage.objects.get_or_create(url='/contact/')
+    main_page, created = FlatPage.objects.get_or_create(url='/main/')
+    about_page, created = FlatPage.objects.get_or_create(url='/about/')
+    press_page, created = FlatPage.objects.get_or_create(url='/press/')
+    partner_page, created = FlatPage.objects.get_or_create(url='/partner/')
+    commission_page, created = FlatPage.objects.get_or_create(url='/commission/')
+    event_page, created = FlatPage.objects.get_or_create(url='/event/')
+    footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
+    contact_page, created = FlatPage.objects.get_or_create(url='/contact/')
     contact_form = ContactForm()
 
-    faq_page = FlatPage.objects.get(url='/faq/')
+    faq_page, created = FlatPage.objects.get_or_create(url='/faq/')
     faq_list = FAQ.objects.all().order_by('weight')
 
     chair_members = list(Member.objects.filter(chair=True).order_by("last_name"))
