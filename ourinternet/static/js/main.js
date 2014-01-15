@@ -53,10 +53,9 @@ $(function(){
 
 
     BV.show("/static/video/video_" + videoNumber + ".m4v", {
-        ambient:true,
-        altSource: "/static/video/video_" + videoNumber + ".webm"
+        ambient:true
         });
-
+        // altSource: "/static/video/video_" + videoNumber + ".webm"
       $("#pause-video").bind("click", function(){
         BV.getPlayer().pause();
         $(this).hide();
