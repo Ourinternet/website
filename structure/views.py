@@ -25,13 +25,14 @@ def home(request, template="structure/home.html"):
 
     video_number = randint(1, 3)
 
-    main_page = FlatPage.objects.get(url='/main/')
-    about_page = FlatPage.objects.get(url='/about/')
-    press_page = FlatPage.objects.get(url='/press/')
-    partner_page = FlatPage.objects.get(url='/partner/')
-    commission_page = FlatPage.objects.get(url='/commission/')
-    event_page = FlatPage.objects.get(url='/event/')
-    footer_page = FlatPage.objects.get(url='/footer/')
+    main_page = FlatPage.objects.get_or_create(url='/main/')
+    about_page = FlatPage.objects.get_or_create(url='/about/')
+    press_page = FlatPage.objects.get_or_create(url='/press/')
+    partner_page = FlatPage.objects.get_or_create(url='/partner/')
+    commission_page = FlatPage.objects.get_or_create(url='/commission/')
+    event_page = FlatPage.objects.get_or_create(url='/event/')
+    footer_page = FlatPage.objects.get_or_create(url='/footer/')
+    contact_page = FlatPage.objects.get_or_create(url='/contact/')
     contact_form = ContactForm()
 
     faq_page = FlatPage.objects.get(url='/faq/')
@@ -49,6 +50,7 @@ def home(request, template="structure/home.html"):
                'commission_page': commission_page,
                'event_page': event_page,
                'footer_page': footer_page,
+               'contact_page': contact_page,
                'contact_form': contact_form,
                'chair_members': chair_members,
                'other_members': other_members,

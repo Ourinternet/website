@@ -1,4 +1,6 @@
-<p class="heading">Contact Us</p>
+<p class="heading">{{ contact_page.title|safe }}</p>
+{{ contact_page.content|safe }}
+
 <script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
 {% if messages %}
 <div class="messages">
