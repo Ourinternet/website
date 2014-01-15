@@ -13,28 +13,28 @@ $total_width: $base_column_width * $number_of_columns + $gutter_column_width * (
 	float: left;
 	display: block;
 
-    @include screen-at-most($small) {
-      width: 100%;
-    }
+//    @include screen-at-most($small) {
+//      width: 100%;
+//    }
 
     @if $column_number == $number_of_columns / 2 {
         &:first-child{
-          @include screen-at-least($small) {
+//          @include screen-at-least($small) {
             text-align: right;
             & img {
               padding-right: 5%;
             }
 
-          }
+//          }
         }
 
         &:last-child{
-            @include screen-at-least($small) {
+//            @include screen-at-least($small) {
               text-align: left;
             & img {
               padding-left: 5%;
             }
-            }
+//            }
         }
     }
   }

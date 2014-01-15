@@ -2,107 +2,69 @@
   width: 6.60377%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_1 {
-      width: 100%; } }
 
 .grid_2 {
   width: 15.09434%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_2 {
-      width: 100%; } }
 
 .grid_3 {
   width: 23.58491%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_3 {
-      width: 100%; } }
 
 .grid_4 {
   width: 32.07547%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_4 {
-      width: 100%; } }
 
 .grid_5 {
   width: 40.56604%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_5 {
-      width: 100%; } }
 
 .grid_6 {
   width: 49.0566%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_6 {
-      width: 100%; } }
-  @media only screen and (min-width: 30em) {
-    .grid_6:first-child {
-      text-align: right; }
-      .grid_6:first-child img {
-        padding-right: 5%; } }
-  @media only screen and (min-width: 30em) {
-    .grid_6:last-child {
-      text-align: left; }
-      .grid_6:last-child img {
-        padding-left: 5%; } }
+  .grid_6:first-child {
+    text-align: right; }
+    .grid_6:first-child img {
+      padding-right: 5%; }
+  .grid_6:last-child {
+    text-align: left; }
+    .grid_6:last-child img {
+      padding-left: 5%; }
 
 .grid_7 {
   width: 57.54717%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_7 {
-      width: 100%; } }
 
 .grid_8 {
   width: 66.03774%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_8 {
-      width: 100%; } }
 
 .grid_9 {
   width: 74.5283%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_9 {
-      width: 100%; } }
 
 .grid_10 {
   width: 83.01887%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_10 {
-      width: 100%; } }
 
 .grid_11 {
   width: 91.50943%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_11 {
-      width: 100%; } }
 
 .grid_12 {
   width: 100%;
   float: left;
   display: block; }
-  @media only screen and (max-width: 30em) {
-    .grid_12 {
-      width: 100%; } }
 
 .container {
   width: 90%;
@@ -313,7 +275,7 @@
 .logos {
   margin-top: 10%;
   height: 160px; }
-  @media only screen and (min-width: 30em) {
+  @media only screen and (min-width: 48em) {
     .logos {
       margin-top: 10%;
       height: 80px; } }
@@ -329,12 +291,24 @@
       width: 162px !important;
       height: 37px !important;
       padding-top: 10.5px; }
+      @media only screen and (max-width: 556px) {
+        .logos .logo img.chathamhouse {
+          width: 81px !important;
+          height: 18.5px !important; } }
+    @media only screen and (max-width: 556px) {
+      .logos .logo img {
+        width: 81px !important;
+        height: 29px !important; } }
 
 .heading .logo img {
   width: 556px !important;
   height: 201px !important;
   position: static !important;
   z-index: 10 !important; }
+  @media only screen and (max-width: 556px) {
+    .heading .logo img {
+      width: 278px !important;
+      height: 100.5px !important; } }
 
 #background {
   opacity: 0.1;
