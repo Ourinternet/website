@@ -3,13 +3,17 @@
 $(function() {
       var $slides = $('#slides');
 
-      Hammer($slides[0]).on("swipeleft", function(e) {
-        $slides.data('superslides').animate('next');
-      });
+      var touch_support = $('html').hasClass("touch");
+      if (touch_support){
+          Hammer($slides[0]).on("swipeleft", function(e) {
+            $slides.data('superslides').animate('next');
+          });
 
-      Hammer($slides[0]).on("swiperight", function(e) {
-        $slides.data('superslides').animate('prev');
-      });
+          Hammer($slides[0]).on("swiperight", function(e) {
+            $slides.data('superslides').animate('prev');
+          });
+      }
+
 
       $slides.superslides({
         hashchange: true,
