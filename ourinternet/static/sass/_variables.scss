@@ -10,6 +10,8 @@ $controls_color: rgba(255, 255, 255, 0.65);
 $main_color: white;
 $contrast_color: black;
 
+$ie_main_color: black;
+
 $menu_background_color: rgba(0,0,0,0.4);
 $menu_border_color: #8f8f8f;
 $menu_text_color: #d6ddff;
@@ -28,3 +30,9 @@ $medium: 48em; // 768px;
 $large: 61.25em; //980px;
 $extra-large: 67.5em; //1200px;
 
+html.lt-ie9{
+//      color: $ie_main_color;
+      $background_color: rgb(29, 65, 95);
+    $controls_color: rgb(255, 255, 255);
+      $menu_background_color: rgb(29, 65, 95);
+}

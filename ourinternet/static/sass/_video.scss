@@ -2,6 +2,12 @@
 @import "_mixins.scss";
 
 #background{
+
+  .lt-ie9 & {
+    -ms-filter: "alpha(opacity=10)";
+    zoom: 1;
+  }
+
   opacity: 0.1;
   @include vendor-prefix(background-size, cover);
   overflow:hidden;
@@ -17,6 +23,10 @@ display:none;
 }
 
 .big-video-wrap-faded {
+  .lt-ie9 & {
+    -ms-filter: "alpha(opacity=10)";
+    zoom: 1;
+  }
   opacity: 0.1;
 }
 
