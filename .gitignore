@@ -5,4 +5,5 @@
 *.sqlite3
 local_settings.py
 .idea
+**/.sass-cache/
 **/private/
