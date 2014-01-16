@@ -81,7 +81,7 @@ body{
 
   }
 
-  input, textarea {
+  input[type=email], input[type=text], textarea {
     width: 100%;
   }
 

@@ -429,7 +429,7 @@ body {
     padding: 1em; }
 .contact-form #id_message {
   height: 10em; }
-.contact-form input, .contact-form textarea {
+.contact-form input[type=email], .contact-form input[type=text], .contact-form textarea {
   width: 100%; }
 .contact-form .submit-row {
   text-align: right; }
