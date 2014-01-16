@@ -359,7 +359,7 @@
 .footer {
   width: 90%;
   margin: 4em auto;
-  border-top: 1px solid white;
+  border-top: 1px solid #e2dada;
   z-index: 10;
   font-size: 1em; }
   .content-page .footer {
@@ -369,7 +369,7 @@
     width: 150%; }
     .content-page .footer a {
       text-decoration: underline;
-      color: white; }
+      color: #e2dada; }
   .footer p {
     font-size: 0.9em; }
   .footer p.open-source-message {
@@ -377,9 +377,9 @@
   .main-page .footer {
     font-size: 0.65em; }
   .footer a {
-    color: white; }
+    color: #e2dada; }
     .footer a:visited {
-      color: white; }
+      color: #e2dada; }
 
 body {
   background: #1d415f;
@@ -490,12 +490,12 @@ body {
   .member-list .column {
     margin-top: 0.25em;
     width: 24%;
-    border-top: 2px solid white;
+    border-top: 2px solid #e2dada;
     float: left; }
     .member-list .column .member-name {
       padding-top: 0.25em;
       padding-bottom: 0.25em;
-      border-bottom: 1px solid white; }
+      border-bottom: 1px solid #e2dada; }
 
 .member-descriptions {
   display: block; }
