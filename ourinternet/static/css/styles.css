@@ -353,8 +353,9 @@
     padding: 35%; }
 
 #big-video-vid {
-  display: none;
-  text-indent: -9999px; }
+  display: none; }
+  #big-video-vid div {
+    text-indent: -9999px; }
 
 .footer {
   width: 90%;
