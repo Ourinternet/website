@@ -196,6 +196,14 @@
 			// clear image
 			$(vidEl).css('display','block');
 			currMediaType = 'video';
+
+            var ext = source.substring(source.lastIndexOf('.')+1);
+				if (ext === 'm4v' || ext === 'mp4' ) {
+                    $(player).attr("type", "video/mp4");
+                } else if (ext === 'webm') {
+                    $(player).attr("type", "video/webm");
+                }
+
 			player.src(source);
 			isPlaying = true;
 			if (isAmbient) {
