@@ -368,7 +368,8 @@
     margin: 4em -25%;
     width: 150%; }
     .content-page .footer a {
-      text-decoration: underline; }
+      text-decoration: underline;
+      color: white; }
   .footer p {
     font-size: 0.9em; }
   .footer p.open-source-message {
