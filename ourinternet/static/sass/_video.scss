@@ -50,5 +50,9 @@ display:none;
 
 #big-video-vid {
   display:none;
-  text-indent: -9999px;
+
+  div {
+    text-indent: -9999px;
+  }
+
 }
