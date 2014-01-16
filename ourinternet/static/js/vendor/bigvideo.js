@@ -198,13 +198,14 @@
 			currMediaType = 'video';
 
 			var ext = source.substring(source.lastIndexOf('.')+1);
+            var sourceDict = {src: source}
 			if (ext === 'm4v' || ext === 'mp4' ) {
-			    $(vidEl).attr("type", "video/mp4");
+			    sourceDict = { type: "video/mp4", src: source }
 			} else if (ext === 'webm') {
-			    $(vidEl).attr("type", "video/webm");
+			    sourceDict = { type: "video/webm", src: source }
 			}
 
-			player.src(source);
+			player.src(sourceDict);
 			isPlaying = true;
 			if (isAmbient) {
 				$('#big-video-control-container').css('display','none');
