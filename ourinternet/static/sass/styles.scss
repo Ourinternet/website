@@ -26,6 +26,8 @@ body{
 
 .content-page{
 
+  .logo{text-align:center;}
+
   @include screen-at-most($medium) {
     width: 80%;
   }
