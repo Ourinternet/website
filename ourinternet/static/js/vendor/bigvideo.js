@@ -249,7 +249,7 @@
 				// create player
 				settings.container.prepend(wrap);
 				var autoPlayString = settings.forceAutoplay ? 'autoplay' : '';
-				player = $('<video id="'+vidEl.substr(1)+'" class="video-js vjs-default-skin" preload="auto" data-setup="{}" '+autoPlayString+' webkit-playsinline></video>');
+				player = $('<video id="'+vidEl.substr(1)+'" class="video-js vjs-default-skin" preload="none" data-setup="{}" '+autoPlayString+' webkit-playsinline></video>');
 				player.css('position','absolute');
 				wrap.append(player);
 
