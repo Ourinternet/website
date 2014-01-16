@@ -248,9 +248,9 @@
 				// If only using mp4s and on firefox, use flash fallback
 				var ua = navigator.userAgent.toLowerCase();
 				var isFirefox = ua.indexOf('firefox') != -1;
-				if (settings.useFlashForFirefox && (isFirefox)) {
-					videoTechOrder = ['flash', 'html5'];
-				}
+//				if (settings.useFlashForFirefox && (isFirefox)) {
+//					videoTechOrder = ['flash', 'html5'];
+//				}
 				player = videojs(vidEl.substr(1), {
 					controls:false,
 					autoplay:true,
