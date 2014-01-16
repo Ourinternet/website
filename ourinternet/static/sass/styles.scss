@@ -38,14 +38,19 @@ body{
   right: 0;
 
   margin: auto !important;
+
 }
 
 /* Slide Container */
 .slides-container li{
-    overflow-y: scroll !important;
-    -webkit-overflow-scrolling: touch;
-    height: 90% !important;
-    top: 3.25em !important;
+  overflow-y: scroll !important;
+  -webkit-overflow-scrolling: touch;
+  height: 90% !important;
+  top: 3.25em !important;
+
+  z-index: 1;
+  -webkit-transform-style: preserve-3d;
+  -webkit-transform: translate3d(0,0,0);
 }
 
 .content-page{
