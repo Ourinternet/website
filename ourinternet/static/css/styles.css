@@ -398,11 +398,11 @@ body {
     text-align: center; }
   @media only screen and (max-width: 48em) {
     .content-page {
-      width: 80%; } }
+      width: 100%; } }
 
 /* Slide Container */
 .slides-container li {
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
   height: 90% !important;
   top: 3.25em !important;
