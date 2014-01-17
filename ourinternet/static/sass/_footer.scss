@@ -9,16 +9,17 @@
 
   font-size: 1em;
 
-  .content-page & {
-    width: 120%;
+  .content & {
     text-align: center;
-    margin: 4em -25%;
-    width: 150%;
 
     a {
       text-decoration: underline;
       color: $main_color;
     }
+  }
+
+  .lt-ie8 & p{
+    display: none;
   }
 
   & p {

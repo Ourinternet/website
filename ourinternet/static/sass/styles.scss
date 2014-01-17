@@ -18,10 +18,17 @@ body{
   }
 }
 
+.lt-ie8 #background{display: none;}
+
 .main-page{
   position: absolute;
   top: 10%;
   width: 100%;
+
+  .lt-ie8 &{
+    position: static;
+    margin-top: 10%;
+  }
 }
 
 .content-page{
