@@ -29,7 +29,7 @@ body{
   .logo{text-align:center;}
 
   @include screen-at-most($medium) {
-    width: 80%;
+    width: 100%;
   }
 
   width: 60%;

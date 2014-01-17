@@ -398,7 +398,7 @@ body {
     text-align: center; }
   @media only screen and (max-width: 48em) {
     .content-page {
-      width: 80%; } }
+      width: 100%; } }
 
 /* Slide Container */
 .slides-container li {
