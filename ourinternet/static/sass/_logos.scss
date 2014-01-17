@@ -24,17 +24,6 @@
       position: static !important;
       z-index: 10 !important;
 
-      &.chathamhouse {
-        width: 162px !important;
-        height: 37px !important;
-        padding-top: 10.5px;
-
-        @include screen-at-most(556px) {
-          width: 81px !important;
-          height: 18.5px !important;
-        }
-      }
-
       @include screen-at-most(556px) {
         width: 81px !important;
         height: 29px !important;
