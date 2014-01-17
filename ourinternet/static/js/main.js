@@ -69,6 +69,7 @@ $(function(){
           });
         }
 
+        playPauseVideo(window.location.hash);
         if ("onhashchange" in window) { // event supported?
             window.onhashchange = function () {
                 playPauseVideo(window.location.hash);
