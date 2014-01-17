@@ -60,18 +60,18 @@ $(function(){
             ambient:true,
             useFlashForFirefox:false,
             altSource: "/static/video/video_" + videoNumber + ".webm"
-            });
-          $("#pause-video").bind("click", function(){
-            BV.getPlayer().pause();
-            $(this).hide();
-            $("#play-video").show();
-          });
-          $("#play-video").bind("click", function(){
-            BV.getPlayer().play();
-            $(this).hide();
-            $("#pause-video").show();
-          });
-        }
+        });
+        $("#pause-video").bind("click", function(){
+        BV.getPlayer().pause();
+        $(this).hide();
+        $("#play-video").show();
+        });
+        $("#play-video").bind("click", function(){
+        BV.getPlayer().play();
+        $(this).hide();
+        $("#pause-video").show();
+        });
+
 
         playPauseVideo(window.location.hash);
         if ("onhashchange" in window) { // event supported?
@@ -99,6 +99,9 @@ $(function(){
                 $("#play-video").show();
             }
         }
+    }
+
+
 
 
 });
