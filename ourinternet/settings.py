@@ -40,6 +40,7 @@ INSTALLED_APPS = (
     'south',
     'structure',
     'commission',
+    'tweet_cache',
 )
 
 MIDDLEWARE_CLASSES = (
