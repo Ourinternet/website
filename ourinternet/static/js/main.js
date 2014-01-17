@@ -35,39 +35,65 @@ $(function() {
 
 $(function(){
     if (!Modernizr.touch) {
-    var BV;
-    BV = new $.BigVideo();
-    BV.init();
+        var BV;
+        BV = new $.BigVideo();
+        BV.init();
 
-    BV.getPlayer().on("error", function(){
-            $("#background").show();
-            $("#big-video-wrap").hide();
-    });
-
-    BV.getPlayer().on("playing", function(){
-        $("#background").hide();
-        $("#pause-video").show();
-        $("#big-video-wrap").addClass("big-video-wrap-faded");
-        $("#big-video-wrap").show();
-    });
-
-
-    BV.show("/static/video/video_" + videoNumber + ".m4v", {
-        ambient:true,
-        useFlashForFirefox:false,
-        altSource: "/static/video/video_" + videoNumber + ".webm"
+        BV.getPlayer().on("error", function(){
+                $("#background").show();
+                $("#big-video-wrap").hide();
         });
-      $("#pause-video").bind("click", function(){
-        BV.getPlayer().pause();
-        $(this).hide();
-        $("#play-video").show();
-      });
-      $("#play-video").bind("click", function(){
-        BV.getPlayer().play();
-        $(this).hide();
-        $("#pause-video").show();
-      });
-    }
+
+        BV.getPlayer().on("playing", function(){
+            $("#background").hide();
+            $("#pause-video").show();
+            $("#big-video-wrap").addClass("big-video-wrap-faded");
+            $("#big-video-wrap").show();
+        });
+
+
+        BV.show("/static/video/video_" + videoNumber + ".m4v", {
+            ambient:true,
+            useFlashForFirefox:false,
+            altSource: "/static/video/video_" + videoNumber + ".webm"
+            });
+          $("#pause-video").bind("click", function(){
+            BV.getPlayer().pause();
+            $(this).hide();
+            $("#play-video").show();
+          });
+          $("#play-video").bind("click", function(){
+            BV.getPlayer().play();
+            $(this).hide();
+            $("#pause-video").show();
+          });
+        }
+
+        if ("onhashchange" in window) { // event supported?
+            window.onhashchange = function () {
+                playPauseVideo(window.location.hash);
+            }
+        } else { // event not supported:
+            var storedHash = window.location.hash;
+            window.setInterval(function () {
+                if (window.location.hash != storedHash) {
+                    storedHash = window.location.hash;
+                    playPauseVideo(storedHash);
+                }
+            }, 100);
+        }
+
+        function playPauseVideo(hash){
+            if (hash == "#home"){
+                BV.getPlayer().play();
+                $("#play-video").hide();
+                $("#pause-video").show();
+            } else {
+                BV.getPlayer().pause();
+                $("#pause-video").hide();
+                $("#play-video").show();
+            }
+        }
 
 
 });
