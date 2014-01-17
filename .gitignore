@@ -7,3 +7,6 @@ local_settings.py
 .idea
 **/.sass-cache/
 **/private/
+**/video/
+**/faq.txt
+**/pages.txt
