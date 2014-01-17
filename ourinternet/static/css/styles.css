@@ -279,7 +279,7 @@
     .logos {
       margin-top: 10%;
       height: 80px; } }
-  @media only screen and (min-width: 67.5em) {
+  @media only screen and (min-width: 75em) {
     .logos {
       margin: 10% 5.555555555555555%; } }
   .logos .logo img {
@@ -478,7 +478,7 @@ body {
   @media only screen and (max-width: 48em) {
     .member-list {
       display: none; } }
-  @media only screen and (max-width: 67.5em) {
+  @media only screen and (max-width: 75em) {
     .member-list .member-name {
       height: 3em; } }
   .member-list .title, .member-list .member-name {
