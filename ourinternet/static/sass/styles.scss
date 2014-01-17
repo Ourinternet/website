@@ -18,10 +18,17 @@ body{
   }
 }
 
+.lt-ie8 #background{display: none;}
+
 .main-page{
   position: absolute;
   top: 10%;
   width: 100%;
+
+  .lt-ie8 &{
+    position: static;
+    margin-top: 10%;
+  }
 }
 
 .content-page{
@@ -44,16 +51,23 @@ body{
 }
 
 /* Slide Container */
-.slides-container li{
-  overflow-y: auto !important;
-  -webkit-overflow-scrolling: touch;
-  height: 90% !important;
-  top: 3.25em !important;
+.slides-container{
+    li{
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch;
+      height: 90% !important;
+      top: 3.25em !important;
 
-  z-index: 1;
-  -webkit-transform-style: preserve-3d;
-  -webkit-transform: translate3d(0,0,0);
+      z-index: 1;
+      -webkit-transform-style: preserve-3d;
+      -webkit-transform: translate3d(0,0,0);
+    }
+
+    .lt-ie8 #slides &, .no-js #slides &{
+        display: block;
+    }
 }
+
 
 .content-page{
   ul li {

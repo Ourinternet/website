@@ -1,6 +1,7 @@
 
 
 $(function() {
+
       var $slides = $('#slides');
 
       var touch_support = $('html').hasClass("touch");
@@ -31,10 +32,13 @@ $(function() {
           }
 
         });
+
     });
 
 $(function(){
-    if (!Modernizr.touch) {
+
+    var is_ie7 = $('html').hasClass("lt-ie8");
+    if (!Modernizr.touch & !is_ie7) {
         var BV;
         BV = new $.BigVideo();
         BV.init();

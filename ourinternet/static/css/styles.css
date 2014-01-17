@@ -76,8 +76,7 @@
     letter-spacing: 0.1em; } }
 
 .content {
-  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-  text-align: center; }
+  font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; }
   .content .heading {
     font-family: Georgia, "Times New Roman", Times, serif; }
 
@@ -355,14 +354,13 @@
   border-top: 1px solid #e2dada;
   z-index: 10;
   font-size: 1em; }
-  .content-page .footer {
-    width: 120%;
-    text-align: center;
-    margin: 4em -25%;
-    width: 150%; }
-    .content-page .footer a {
+  .content .footer {
+    text-align: center; }
+    .content .footer a {
       text-decoration: underline;
       color: #e2dada; }
+  .lt-ie8 .footer p {
+    display: none; }
   .footer p {
     font-size: 0.9em; }
   .footer p.open-source-message {
@@ -381,10 +379,16 @@ body {
     width: 40em;
     margin: 0 auto; }
 
+.lt-ie8 #background {
+  display: none; }
+
 .main-page {
   position: absolute;
   top: 10%;
   width: 100%; }
+  .lt-ie8 .main-page {
+    position: static;
+    margin-top: 10%; }
 
 .content-page {
   width: 60%;
@@ -409,6 +413,8 @@ body {
   z-index: 1;
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translate3d(0, 0, 0); }
+.lt-ie8 #slides .slides-container, .no-js #slides .slides-container {
+  display: block; }
 
 .content-page ul li {
   list-style: disc; }

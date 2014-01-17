@@ -90,6 +90,7 @@
 }
 
 #top-menu{
+
   @include screen-at-most($medium){
     display: none;
   }
