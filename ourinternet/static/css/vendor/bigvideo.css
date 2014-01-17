@@ -14,7 +14,7 @@
 #big-video-control-bound-right{right:-1px}
 #big-video-control-track .ui-slider-handle {opacity:0;}
 #big-video-control-playhead{left:30%;}
-#big-video-control-play{position:absolute;top:0;left:0;height:16px;width:16px;background-image:url('bigvideo.png');}
+#big-video-control-play{position:absolute;top:0;left:0;height:16px;width:16px;}
 #big-video-control-timer{position:absolute;top:1px;right:0;color:#fff;font-size:11px;}
 #big-video-control-playhead,#big-video-control-bound-left,#big-video-control-bound-right{position:absolute;top:0;height:16px;width:1px;background:#fff;}
 #big-video-control .ui-slider-handle{border-left:solid 1px #fff; width:16px;height:16px;position:absolute;top:-8px;}
