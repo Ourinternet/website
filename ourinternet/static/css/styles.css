@@ -409,6 +409,8 @@ body {
   z-index: 1;
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translate3d(0, 0, 0); }
+.lt-ie8 #slides .slides-container, .no-js #slides .slides-container {
+  display: block; }
 
 .content-page ul li {
   list-style: disc; }
