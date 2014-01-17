@@ -45,7 +45,7 @@ body{
 
 /* Slide Container */
 .slides-container li{
-  overflow-y: scroll !important;
+  overflow-y: auto !important;
   -webkit-overflow-scrolling: touch;
   height: 90% !important;
   top: 3.25em !important;
