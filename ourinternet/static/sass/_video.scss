@@ -41,6 +41,9 @@ display:none;
   text-align: right;
   & i {
     padding: 35%;
+    @include screen-at-most($small){
+        display: none;
+    }
   }
 
   color: $controls_color;

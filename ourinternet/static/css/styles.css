@@ -195,7 +195,7 @@
 .slides-navigation a {
   color: white;
   margin: 0 25px; }
-@media only screen and (max-width: 43em) {
+@media only screen and (max-width: 48em) {
   .slides-navigation {
     display: none; } }
 
@@ -342,6 +342,10 @@
   #play-video i,
   #pause-video i {
     padding: 35%; }
+    @media only screen and (max-width: 30em) {
+      #play-video i,
+      #pause-video i {
+        display: none; } }
 
 #big-video-vid {
   display: none; }
