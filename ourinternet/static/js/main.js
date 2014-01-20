@@ -56,10 +56,10 @@ $(function(){
         });
 
 
-        BV.show("/static/video/video_" + videoNumber + ".m4v", {
+        BV.show("https://s3.amazonaws.com/ourinternet/video/video_" + videoNumber + ".m4v", {
             ambient:true,
             useFlashForFirefox:false,
-            altSource: "/static/video/video_" + videoNumber + ".webm"
+            altSource: "https://s3.amazonaws.com/ourinternet/video/video_" + videoNumber + ".webm"
         });
         $("#pause-video").bind("click", function(){
         BV.getPlayer().pause();
