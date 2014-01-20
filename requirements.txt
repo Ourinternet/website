@@ -4,3 +4,4 @@ South==0.8.4
 django-recaptcha==0.0.6
 tweepy==2.1
 wsgiref==0.1.2
+django-robots==1.0
