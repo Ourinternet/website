@@ -3,7 +3,7 @@
 
 {% for status in public_tweets %}
     <tr>
-        <td class="user-icon-cell"><img src="{{ status.profile_image_url }}"></td>
+        <td class="user-icon-cell"><img src="{{ status.profile_image_url }}" alt="User Profile Image"></td>
         <td class="tweet-cell">{{ status.processed_text|safe }}</td>
     </tr>
 {% endfor %}
