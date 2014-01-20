@@ -49,6 +49,7 @@ def home(request, template="structure/home.html"):
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
                'public_key': settings.RECAPTCHA_PUBLIC_KEY,
+               'VIDEO_BASE_URL': settings.VIDEO_BASE_URL,
                }
 
     return render(request, template, context)

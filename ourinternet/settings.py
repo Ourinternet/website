@@ -101,6 +101,8 @@ RECAPTCHA_PUBLIC_KEY = ''
 RECAPTCHA_PRIVATE_KEY = ''
 CAPTCHA_WIDGET_TEMPLATE = 'captcha/widget_ajax.html'
 
+VIDEO_BASE_URL = ''
+
 try:
     from secure_settings import *
 except ImportError:
