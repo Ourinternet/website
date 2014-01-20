@@ -73,6 +73,17 @@ $(function(){
         $("#pause-video").show();
         });
 
+        function playPauseVideo(hash){
+            if (hash == "#home"){
+                BV.getPlayer().play();
+                $("#play-video").hide();
+                $("#pause-video").show();
+            } else {
+                BV.getPlayer().pause();
+                $("#pause-video").hide();
+                $("#play-video").show();
+            }
+        }
 
         playPauseVideo(window.location.hash);
         if ("onhashchange" in window) { // event supported?
@@ -89,17 +100,7 @@ $(function(){
             }, 100);
         }
 
-        function playPauseVideo(hash){
-            if (hash == "#home"){
-                BV.getPlayer().play();
-                $("#play-video").hide();
-                $("#pause-video").show();
-            } else {
-                BV.getPlayer().pause();
-                $("#pause-video").hide();
-                $("#play-video").show();
-            }
-        }
+
     }
 
 
