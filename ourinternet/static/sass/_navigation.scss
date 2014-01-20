@@ -72,7 +72,7 @@
     margin: 0 25px;
   }
 
-  @include screen-at-most($medium - 5em){
+  @include screen-at-most($medium){
       display: none;
   }
 }
