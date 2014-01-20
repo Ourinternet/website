@@ -47,9 +47,13 @@ def process_tweets(tweets, account):
         cached_tweet, created = Tweet.objects.get_or_create(tweet_id=tweet.id,
                                                             defaults={
                                                                 'account': account,
-                                                                'profile_image_url':tweet.user.profile_image_url,
-                                                                'text':tweet.text,
-                                                                'processed_text':tweet_text,
+                                                                'profile_image_url': tweet.user.profile_image_url_https,
+                                                                'text': tweet.text,
+                                                                'processed_text': tweet_text,
                                                             })
+        cached_tweet.account = account
+        cached_tweet.profile_image_url = tweet.user.profile_image_url_https
+        cached_tweet.text = tweet.text
+        cached_tweet.processed_text = tweet_text
 
         cached_tweet.save()
