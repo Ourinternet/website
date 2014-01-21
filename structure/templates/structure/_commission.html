@@ -19,7 +19,7 @@
         </div>
         {% for member_list in member_lists_with_size.0 %}
             <div class="column">
-                {% for member in member_list %}
+                {% for member in member_list|padded_column:member_lists_with_size.1 %}
                     <div class="member-name">{{ member.name }}&nbsp;</div>
                 {% endfor %}
             </div>
