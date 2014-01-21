@@ -86,19 +86,7 @@ $(function(){
         }
 
         playPauseVideo(window.location.hash);
-        if ("onhashchange" in window) { // event supported?
-            window.onhashchange = function () {
-                playPauseVideo(window.location.hash);
-            }
-        } else { // event not supported:
-            var storedHash = window.location.hash;
-            window.setInterval(function () {
-                if (window.location.hash != storedHash) {
-                    storedHash = window.location.hash;
-                    playPauseVideo(storedHash);
-                }
-            }, 100);
-        }
+
 
 
     }
@@ -173,6 +161,7 @@ $(function(){
 $(function(){
    if ("onhashchange" in window) { // event supported?
             window.onhashchange = function () {
+                playPauseVideo(window.location.hash);
                 ga('send', 'pageview', window.location.hash);
             }
         } else { // event not supported:
@@ -180,6 +169,7 @@ $(function(){
             window.setInterval(function () {
                 if (window.location.hash != storedHash) {
                     storedHash = window.location.hash;
+                    playPauseVideo(storedHash);
                     ga('send', 'pageview', storedHash);
                 }
             }, 100);
