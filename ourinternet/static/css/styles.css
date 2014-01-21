@@ -488,9 +488,8 @@ body {
   @media only screen and (max-width: 48em) {
     .member-list {
       display: none; } }
-  @media only screen and (max-width: 75em) {
-    .member-list .member-name {
-      height: 3em; } }
+  .member-list .member-name {
+    height: 3em; }
   .member-list .title, .member-list .member-name {
     text-transform: uppercase;
     font-size: 0.7em; }
