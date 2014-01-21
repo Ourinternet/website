@@ -3,7 +3,7 @@
 <p class="heading">{{ commission_page.title|safe }}</p>
 
 <div class="member-list">
-    <div class="title">Commission Members</div>
+    <div class="title">Commissioners</div>
 
 {#    <table>#}
 {#        {% for member_list in members|columns:4 %}#}
@@ -50,6 +50,20 @@
             {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
             {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
         </div>
+    {% endfor %}
+
+    {% for member in supporting_members %}
+        <div class="member-type supporting">
+            <div class="heading">Commission Support</div>
+            <div class="member-profile">
+                <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+                {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
+                {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
+                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
+                {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
+            </div>
+        </div>
+
     {% endfor %}
     {% endspaceless %}
 </div>

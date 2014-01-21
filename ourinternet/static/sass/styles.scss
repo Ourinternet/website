@@ -223,6 +223,14 @@ body{
     }
   }
 
+  .member-type {
+    &.supporting{
+      border-top: 1px solid $main_color;
+      padding-top: 2em;
+      margin-top: 2em;
+    }
+  }
+
 }
 
 .faq {

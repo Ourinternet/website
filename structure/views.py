@@ -28,8 +28,9 @@ def home(request, template="structure/home.html"):
     faq_page, created = FlatPage.objects.get_or_create(url='/faq/')
     faq_list = FAQ.objects.all().order_by('weight')
 
-    chair_members = list(Member.objects.filter(chair=True).order_by("last_name"))
-    other_members = list(Member.objects.filter(chair=False).order_by("last_name"))
+    chair_members = list(Member.objects.filter(member_type="chair").order_by("last_name"))
+    other_members = list(Member.objects.filter(member_type="general").order_by("last_name"))
+    supporting_members = list(Member.objects.filter(member_type="supporting").order_by("last_name"))
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
@@ -44,6 +45,7 @@ def home(request, template="structure/home.html"):
                'contact_form': contact_form,
                'chair_members': chair_members,
                'other_members': other_members,
+               'supporting_members': supporting_members,
                'faq_list': faq_list,
                'faq_page': faq_page,
                'GA_SITE_ID': settings.GA_SITE_ID,

@@ -512,6 +512,10 @@ body {
     .member-descriptions .member-profile .member-position,
     .member-descriptions .member-profile .member-partner {
       font-weight: bold; }
+  .member-descriptions .member-type.supporting {
+    border-top: 1px solid #e2dada;
+    padding-top: 2em;
+    margin-top: 2em; }
 
 .faq {
   padding-bottom: 2em; }
