@@ -159,6 +159,18 @@ $(function(){
 });
 
 $(function(){
+    var agent   = navigator.userAgent;
+
+    if ( agent.match(/(iPhone|iPod|iPad)/) ) {
+        twitter_links = $(".twitter-link a");
+        twitter_links.each(function(){
+            link_value = $(this).data("twitter-href");
+            $(this).attr("href", link_value);
+        });
+    }
+});
+
+$(function(){
 //    localShowCaptcha("recap");
 
     var submit_function = function(e){

@@ -37,7 +37,7 @@
                 <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
                 {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
                 {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
-                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
+                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
                 {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
             {% endif %}
         </div>
@@ -47,7 +47,7 @@
             <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
             {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
             {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
-            {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
+            {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
             {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
         </div>
     {% endfor %}
