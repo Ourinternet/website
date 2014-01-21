@@ -514,6 +514,9 @@ body {
   .member-descriptions .member-type.supporting {
     border-top: 1px solid #e2dada;
     padding-top: 2em;
+    margin-top: 2em;
+    border-bottom: 1px solid #e2dada;
+    padding-bottom: 2em;
     margin-top: 2em; }
 
 .faq {
