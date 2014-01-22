@@ -8,6 +8,8 @@ def get_tweets():
     consumer_key = settings.TWITTER_CONSUMER_KEY
     consumer_secret = settings.TWITTER_CONSUMER_SECRET
     auth = tweepy.OAuthHandler(consumer_key=consumer_key, consumer_secret=consumer_secret)
+    # Uncomment the following if we need more access, for example, mentions_timeline.
+    # auth.set_access_token(settings.TWITTER_OATH_ACCESS_TOKEN, settings.TWITTER_OATH_ACCESS_TOKEN_SECRET)
     api = tweepy.API(auth)
 
     user = api.get_user(settings.TWITTER_USER)
