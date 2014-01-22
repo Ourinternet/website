@@ -1,7 +1,7 @@
 <p class="heading">{{ contact_page.title|safe }}</p>
 {{ contact_page.content|safe }}
 
-<script type="text/javascript" src="http://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>
+{#<script type="text/javascript" src="https://www.google.com/recaptcha/api/js/recaptcha_ajax.js"></script>#}
 {% if messages %}
 <div class="messages">
     {% for message in messages %}
@@ -19,17 +19,17 @@
     </table>
 </form>
 
-<script type="text/javascript">
-    function localShowCaptcha(element){
-        Recaptcha.create("{{ public_key }}",
-            element,
-            {
-              theme: "white",
-              callback: Recaptcha.focus_response_field
-            }
-          );
-    }
-
-</script>
+{#<script type="text/javascript">#}
+{#    function localShowCaptcha(element){#}
+{#        Recaptcha.create("{{ public_key }}",#}
+{#            element,#}
+{#            {#}
+{#              theme: "white",#}
+{#              callback: Recaptcha.focus_response_field#}
+{#            }#}
+{#          );#}
+{#    }#}
+{##}
+{#</script>#}
 
 
