@@ -70,7 +70,7 @@
   width: 90%;
   margin: auto; }
 
-@media only screen and (min-width: 48em) {
+@media only screen and (min-width: 53em) {
   body {
     font-size: 1.0em;
     letter-spacing: 0.1em; } }
@@ -90,10 +90,10 @@
   @media only screen and (max-width: 30em) {
     .medium {
       font-size: 0.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 48em) {
+  @media only screen and (min-width: 30em) and (max-width: 53em) {
     .medium {
       font-size: 0.75em; } }
-  @media only screen and (min-width: 48em) and (max-width: 61.25em) {
+  @media only screen and (min-width: 53em) and (max-width: 61.25em) {
     .medium {
       font-size: 1.05em; } }
   @media only screen and (min-width: 61.25em) {
@@ -102,7 +102,7 @@
 
 .medium.wide {
   letter-spacing: 0.15em; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 53em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
   @media only screen and (min-width: 61.25em) {
@@ -115,10 +115,10 @@
   @media only screen and (max-width: 30em) {
     .massive {
       font-size: 1.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 48em) {
+  @media only screen and (min-width: 30em) and (max-width: 53em) {
     .massive {
       font-size: 2.5em; } }
-  @media only screen and (min-width: 48em) and (max-width: 61.25em) {
+  @media only screen and (min-width: 53em) and (max-width: 61.25em) {
     .massive {
       font-size: 3.25em; } }
   @media only screen and (min-width: 61.25em) {
@@ -127,7 +127,7 @@
 
 .massive.wide {
   letter-spacing: 0.05em; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 53em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
   @media only screen and (min-width: 61.25em) {
@@ -195,7 +195,7 @@
 .slides-navigation a {
   color: white;
   margin: 0 25px; }
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 53em) {
   .slides-navigation {
     display: none; } }
 
@@ -207,13 +207,13 @@
   #responsive-menu-toggle a {
     padding-right: 0; }
 
-@media only screen and (max-width: 48em) {
+@media only screen and (max-width: 53em) {
   #top-menu {
     display: none; } }
 
 #responsive-menu {
   display: none; }
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 53em) {
     #responsive-menu {
       display: block; } }
 
@@ -274,7 +274,7 @@
 .logos {
   margin-top: 10%;
   height: 160px; }
-  @media only screen and (min-width: 48em) {
+  @media only screen and (min-width: 53em) {
     .logos {
       margin-top: 10%;
       height: 80px; } }
@@ -404,7 +404,7 @@ body {
   margin: auto !important; }
   .content-page .logo {
     text-align: center; }
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 53em) {
     .content-page {
       width: 100%; } }
 
@@ -485,7 +485,7 @@ body {
   overflow: hidden;
   width: 100%;
   display: block; }
-  @media only screen and (max-width: 48em) {
+  @media only screen and (max-width: 53em) {
     .member-list {
       display: none; } }
   .member-list .member-name {
