@@ -25,6 +25,7 @@ class Partner(models.Model):
     name = models.CharField(max_length=256)
     short_name = models.CharField(max_length=30, null=True, blank=True)
     website = models.URLField(null=True, blank=True)
+    website_display = models.CharField(max_length=256, null=True, blank=True)
 
     description = models.TextField(null=True, blank=True)
     press_description = models.TextField(null=True, blank=True)
