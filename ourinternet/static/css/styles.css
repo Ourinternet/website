@@ -134,10 +134,6 @@
     .massive.wide {
       letter-spacing: 0.05em; } }
 
-.press-release-notice {
-  text-transform: uppercase;
-  text-align: left; }
-
 .content-page {
   text-align: left; }
   .content-page .heading {
@@ -351,6 +347,22 @@
   display: none; }
   #big-video-vid div {
     text-indent: -9999px; }
+
+.press-release .press-release-notice {
+  text-transform: uppercase;
+  text-align: left; }
+.press-release .info {
+  font-weight: bold; }
+.press-release .media-contacts .title {
+  font-weight: bold;
+  text-transform: uppercase; }
+.press-release .partner {
+  padding-top: 1em; }
+  .press-release .partner .name {
+    font-weight: bold; }
+.press-release .press-release-end {
+  text-align: center;
+  padding-top: 1em; }
 
 .footer {
   width: 90%;

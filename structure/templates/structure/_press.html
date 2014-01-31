@@ -1,7 +1,15 @@
 
+<div class="press-release-listings">
+    <p class="heading">Press Releases</p>
+    {% for release in press_releases %}
+        <div class="press-release-link" data-release-id="{{ release.slug }}">{{ release.release_date|date:"F d, Y" }} - {{ release.title }}</div>
+    {% endfor %}
+</div>
+<div id="press-release-content">
+{#    <p class="press-release-notice">#}
+{#    FOR IMMEDIATE RELEASE#}
+{#    </p>#}
+{#    <p class="heading">{{ press_page.title|safe }}</p>#}
+{#    {{ press_page.content|safe }}#}
+</div>
 
-<p class="press-release-notice">
-    FOR IMMEDIATE RELEASE
-</p>
-<p class="heading">{{ press_page.title|safe }}</p>
-{{ press_page.content|safe }}

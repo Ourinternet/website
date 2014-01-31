@@ -23,6 +23,13 @@ class Member(models.Model):
 
 class Partner(models.Model):
     name = models.CharField(max_length=256)
+    short_name = models.CharField(max_length=30, null=True, blank=True)
+    website = models.URLField(null=True, blank=True)
+
+    description = models.TextField(null=True, blank=True)
+    press_description = models.TextField(null=True, blank=True)
+
+    # logo = models.ImageField()
 
     def __unicode__(self):
         return self.name
@@ -35,4 +42,43 @@ class FAQ(models.Model):
 
     def __unicode__(self):
         return self.question
+
+
+class MediaContact(models.Model):
+    name = models.CharField(max_length=256)
+    position = models.CharField(max_length=256)
+    company = models.CharField(max_length=256)
+    telephone = models.CharField(max_length=40)
+    email = models.CharField(max_length=256)
+
+    def __unicode__(self):
+        return self.name
+
+
+class PressReleaseFooter(models.Model):
+    name = models.CharField(max_length=256)
+    media_contacts = models.ManyToManyField('MediaContact', null=True, blank=True)
+    partners = models.ManyToManyField('Partner', null=True, blank=True)
+
+    def __unicode__(self):
+        return self.name
+
+
+class PressRelease(models.Model):
+    release_date = models.DateTimeField()
+    location = models.TextField()
+    title = models.TextField()
+    content = models.TextField()
+    footer = models.ForeignKey('PressReleaseFooter', null=True, blank=True)
+    release_tag = models.TextField(default="For immediate release")
+    end_tag = models.CharField(max_length=20, default="-30-")
+    slug = models.SlugField(max_length=1024, unique=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)
+        super(PressRelease, self).save(*args, **kwargs)
 

@@ -5,6 +5,7 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     url(r'', include('structure.urls')),
+    url(r'', include('commission.urls')),
 
     (r'^robots\.txt$', include('robots.urls')),
 

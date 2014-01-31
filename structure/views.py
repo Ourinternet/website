@@ -6,7 +6,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
-from commission.models import Member, FAQ
+from commission.models import Member, FAQ, PressRelease
 
 
 def home(request, template="structure/home.html"):
@@ -17,7 +17,7 @@ def home(request, template="structure/home.html"):
 
     main_page, created = FlatPage.objects.get_or_create(url='/main/')
     about_page, created = FlatPage.objects.get_or_create(url='/about/')
-    press_page, created = FlatPage.objects.get_or_create(url='/press/')
+    # press_page, created = FlatPage.objects.get_or_create(url='/press/')
     partner_page, created = FlatPage.objects.get_or_create(url='/partner/')
     commission_page, created = FlatPage.objects.get_or_create(url='/commission/')
     event_page, created = FlatPage.objects.get_or_create(url='/event/')
@@ -32,11 +32,13 @@ def home(request, template="structure/home.html"):
     other_members = list(Member.objects.filter(member_type="general").order_by("last_name"))
     supporting_members = list(Member.objects.filter(member_type="supporting").order_by("last_name"))
 
+    press_releases = PressRelease.objects.all().order_by("-release_date")[:3]
+
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
                'about_page': about_page,
-               'press_page': press_page,
+               # 'press_page': press_page,
                'partner_page': partner_page,
                'commission_page': commission_page,
                'event_page': event_page,
@@ -52,6 +54,7 @@ def home(request, template="structure/home.html"):
                'GA_SITE_URL': settings.GA_SITE_URL,
                'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                'VIDEO_BASE_URL': settings.VIDEO_BASE_URL,
+               'press_releases': press_releases,
                }
 
     return render(request, template, context)
