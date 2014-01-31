@@ -34,3 +34,8 @@ def padded_column(the_list, size):
     the_list.extend([None] * (size-list_len))
 
     return the_list
+
+@register.filter
+def display_url(url):
+    updated_url = url
+    return updated_url

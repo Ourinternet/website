@@ -35,6 +35,7 @@ $(function() {
 
     });
 
+
 $(function(){
 
     var is_ie7 = $('html').hasClass("lt-ie8");
@@ -87,10 +88,23 @@ $(function(){
 
         playPauseVideo(window.location.hash);
 
+
+
+        var previousMainHash = "";
+        var previousSubHash = "";
         if ("onhashchange" in window) { // event supported?
             window.onhashchange = function () {
-                playPauseVideo(window.location.hash);
-                ga('send', 'pageview', window.location.hash);
+                hashParts = splitHash(window.location.hash);
+                if (previousMainHash != hashParts[0]){
+                    previousMainHash = hashParts[0];
+                    playPauseVideo(window.location.hash);
+                    ga('send', 'pageview', window.location.hash);
+                    load_subpage(window.location.hash);
+                } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
+                    previousSubHash = hashParts[1];
+                    load_subpage(window.location.hash);
+                }
+
             }
         } else { // event not supported:
             var storedHash = window.location.hash;
@@ -106,10 +120,50 @@ $(function(){
 
     }
 
-
-
-
 });
+
+function splitHash(hash){
+    var slash_position = hash.indexOf("/")
+    if (slash_position != -1){
+        var subpage = hash.substr(slash_position + 1);
+        var mainpage = hash.substr(0, slash_position);
+
+        return [mainpage, subpage]
+    } else {
+        return [hash, ""]
+    }
+
+}
+var lastLoadedSubPages = {};
+function load_subpage(storedHash){
+    hashParts = splitHash(storedHash);
+
+    if (hashParts[1] != ""){
+        var subpage = hashParts[1];
+        var mainpage = hashParts[0];
+        window.location = mainpage
+
+        if (mainpage == "#press"){
+            load_press_release(subpage);
+        }
+    } else {
+        if (lastLoadedSubPages[hashParts[0]] != "" && lastLoadedSubPages[hashParts[0]] != undefined){
+            window.location = hashParts[0] + "/" + lastLoadedSubPages[hashParts[0]]
+        } else {
+            if (hashParts[0] == "#press"){
+                $("#press-release-content").html("");
+            }
+
+        }
+    }
+    lastLoadedSubPages[hashParts[0]] = hashParts[1];
+}
+
+window.onload=function(){
+    var storedHash = window.location.hash;
+    load_subpage(storedHash);
+
+};
 
 
 $(function(){
@@ -173,6 +227,32 @@ $(function(){
     }
 });
 
+$(function(){
+    $(".press-release-link").click( function(){
+
+        releaseURL = "release/" + $(this).data("release-id") + "/";
+       load_press_release(releaseURL)
+    });
+});
+
+function load_press_release(releaseURL){
+    $.ajax(
+        {
+            url : releaseURL,
+            type: "GET",
+            success:function(data, textStatus, jqXHR)
+            {
+                $("#press-release-content").html(data);
+                window.location = "#press/" + releaseURL;
+            },
+            error: function(jqXHR, textStatus, errorThrown)
+            {
+                $("#press-release-content").html("");
+                lastLoadedSubPages["#press"] = "";
+            }
+        });
+}
+
 
 
 $(function(){
@@ -221,3 +301,4 @@ $(function(){
 
     $(".contact-form").submit(submit_function);
 });
+
