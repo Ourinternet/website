@@ -1,0 +1,34 @@
+@import "variables";
+@import "mixins";
+
+.press-release{
+  .press-release-notice{
+    text-transform: uppercase;
+    text-align: left;
+  }
+
+  .info {
+    font-weight: bold;
+  }
+
+  .media-contacts{
+    .title{
+      font-weight: bold;
+      text-transform: uppercase;
+    }
+  }
+  .partner {
+    .name {
+      font-weight: bold;
+    }
+
+    padding-top: 1em;
+  }
+
+  .press-release-end {
+    text-align: center;
+    padding-top: 1em;
+  }
+
+
+}
