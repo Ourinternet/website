@@ -1,6 +1,26 @@
-
+//
+//
+//(function($) {
+////    $.fn.superslides._parseHashOrig = $.fn["superslides"]._parseHash;
+//    $.extend($.fn.superslides.prototype, {
+//        _parseHash: function(hash){
+//        hash = hash || window.location.hash;
+//        hashParts = splitHash(hash);
+//        hash = hashParts[0];
+//        hash = hash.replace(/^#/, '');
+//
+//        if (hash && !isNaN(+hash)) {
+//          hash = +hash;
+//        }
+//
+//        return hash;
+//        }
+//    });
+////    $slides._parseHash =
+//})(jQuery);
 
 $(function() {
+//    $.fn["superslides"].prototype
 
       var $slides = $('#slides');
 
@@ -19,7 +39,8 @@ $(function() {
       $slides.superslides({
         hashchange: true,
         pagination: false
-      });
+      })
+
 
       $('#slides').on('animated.slides', function() {
           var current_index = $(this).superslides('current');
@@ -88,39 +109,33 @@ $(function(){
 
         playPauseVideo(window.location.hash);
 
-
-
-        var previousMainHash = "";
-        var previousSubHash = "";
-        if ("onhashchange" in window) { // event supported?
-            window.onhashchange = function () {
-                hashParts = splitHash(window.location.hash);
-                if (previousMainHash != hashParts[0]){
-                    previousMainHash = hashParts[0];
-                    playPauseVideo(window.location.hash);
-                    ga('send', 'pageview', window.location.hash);
-                    load_subpage(window.location.hash);
-                } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
-                    previousSubHash = hashParts[1];
-                    load_subpage(window.location.hash);
-                }
-
-            }
-        } else { // event not supported:
-            var storedHash = window.location.hash;
-            window.setInterval(function () {
-                if (window.location.hash != storedHash) {
-                    storedHash = window.location.hash;
-                    playPauseVideo(storedHash);
-                    ga('send', 'pageview', storedHash);
-                }
-            }, 100);
-        }
-
+        $(window).on('hashchange', function() {
+            playPauseVideo(window.location.hash);
+            ga('send', 'pageview', window.location.hash);
+        });
 
     }
 
 });
+
+
+
+
+$(function(){
+    var previousMainHash = "";
+    var previousSubHash = "";
+    $(window).on('hashchange', function() {
+        hashParts = splitHash(window.location.hash);
+        if (previousMainHash != hashParts[0]){
+            previousMainHash = hashParts[0];
+            load_subpage(window.location.hash);
+        } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
+            previousSubHash = hashParts[1];
+            load_subpage(window.location.hash);
+        }
+    });
+});
+
 
 function splitHash(hash){
     var slash_position = hash.indexOf("/")
@@ -141,7 +156,6 @@ function load_subpage(storedHash){
     if (hashParts[1] != ""){
         var subpage = hashParts[1];
         var mainpage = hashParts[0];
-        window.location = mainpage
 
         if (mainpage == "#press"){
             load_press_release(subpage);
@@ -156,6 +170,7 @@ function load_subpage(storedHash){
 
         }
     }
+    hashParts = splitHash(window.location.hash)
     lastLoadedSubPages[hashParts[0]] = hashParts[1];
 }
 
