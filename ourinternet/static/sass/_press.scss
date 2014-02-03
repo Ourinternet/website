@@ -32,3 +32,18 @@
 
 
 }
+
+.press-release-link {
+  cursor: pointer;
+
+  color: $twitter_color;
+  text-decoration: none;
+
+  .column {
+    display: inline-block;
+    max-width: 78%;
+    vertical-align: top;
+    padding-right: 0.5em;
+  }
+
+}

@@ -364,6 +364,16 @@
   text-align: center;
   padding-top: 1em; }
 
+.press-release-link {
+  cursor: pointer;
+  color: #5dd7fc;
+  text-decoration: none; }
+  .press-release-link .column {
+    display: inline-block;
+    max-width: 78%;
+    vertical-align: top;
+    padding-right: 0.5em; }
+
 .footer {
   width: 90%;
   margin: 4em auto;
@@ -429,6 +439,8 @@ body {
   z-index: 1;
   -webkit-transform-style: preserve-3d;
   -webkit-transform: translate3d(0, 0, 0); }
+  .slides-container li.no-scroll {
+    overflow-y: hidden !important; }
 .lt-ie8 #slides .slides-container, .no-js #slides .slides-container {
   display: block; }
 

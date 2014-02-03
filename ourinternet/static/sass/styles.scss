@@ -62,6 +62,10 @@ body{
       z-index: 1;
       -webkit-transform-style: preserve-3d;
       -webkit-transform: translate3d(0,0,0);
+
+      &.no-scroll{
+        overflow-y: hidden !important;
+      }
     }
 
     .lt-ie8 #slides &, .no-js #slides &{
@@ -247,6 +251,7 @@ body{
 .center {
   text-align: center;
 }
+
 
 
 
