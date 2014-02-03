@@ -611,11 +611,11 @@ Superslides.prototype = {
       var hash = orientation.upcoming_slide + 1,
           id = that.$container.children(':eq(' + orientation.upcoming_slide + ')').attr('id');
 
-      if (id) {
-        window.location.hash = id;
-      } else {
-        window.location.hash = hash;
-      }
+//      if (id) {
+//        window.location.hash = id;
+//      } else {
+//        window.location.hash = hash;
+//      }
     }
 
     that.$el.trigger('animating.slides', [orientation]);
