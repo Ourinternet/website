@@ -5,11 +5,15 @@
         <div class="press-release-link" data-release-id="{{ release.slug }}">{{ release.release_date|date:"F d, Y" }} - {{ release.title }}</div>
     {% endfor %}
 </div>
-<div id="press-release-content">
+<div id="press-releases-content">
+    {% for release in press_releases %}
+       {% include 'commission/press_release.html' %}
+    {% endfor %}
+</div>
 {#    <p class="press-release-notice">#}
 {#    FOR IMMEDIATE RELEASE#}
 {#    </p>#}
 {#    <p class="heading">{{ press_page.title|safe }}</p>#}
 {#    {{ press_page.content|safe }}#}
-</div>
+
 
