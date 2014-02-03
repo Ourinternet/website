@@ -2,7 +2,7 @@
 <div class="press-release-listings">
     <p class="heading">Press Releases</p>
     {% for release in press_releases %}
-        <div class="press-release-link" data-release-id="{{ release.slug }}">{{ release.release_date|date:"F d, Y" }} - {{ release.title }}</div>
+        <div class="press-release-link" data-release-id="{{ release.slug }}"><div class="column">{{ release.release_date|date:"F d, Y" }}</div><div class="column"> - </div><div class="column">{{ release.title }}</div></div>
     {% endfor %}
 </div>
 <div id="press-releases-content">
