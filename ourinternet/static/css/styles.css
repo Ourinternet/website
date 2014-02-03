@@ -373,6 +373,18 @@
     max-width: 78%;
     vertical-align: top;
     padding-right: 0.5em; }
+    @media only screen and (max-width: 93.5em) {
+      .press-release-link .column {
+        max-width: 70%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 75em) {
+      .press-release-link .column {
+        max-width: 60%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 20em) {
+      .press-release-link .column {
+        max-width: 50%;
+        padding-right: 0.25em; } }
 
 .footer {
   width: 90%;
