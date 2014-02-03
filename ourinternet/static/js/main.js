@@ -26,11 +26,23 @@ Slider = {};
     });
   };
 
+  var hideScrollBarsWhileSliding = function(){
+    $('#slides').on('animating.slides', function(){
+      $('.slides-container li').addClass('no-scroll');
+    });
+    $('#slides').on('animated.slides', function(){
+      $('.slides-container li').removeClass('no-scroll');
+    });
+  };
+
   Slider.initialize = function(){
     $slides.superslides({
-        hashchange: true,
-        pagination: false
+      hashchange: true,
+      pagination: false
     });
+
+    hideScrollBarsWhileSliding();
+
   };
 
   var highligtMenuHandler = function(){
