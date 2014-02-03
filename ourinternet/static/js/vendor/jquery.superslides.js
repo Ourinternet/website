@@ -1,6 +1,6 @@
-/*! Superslides - v0.6.2 - 2013-07-10
+/*! Superslides - v0.6.3-wip - 2014-02-03
 * https://github.com/nicinabox/superslides
-* Copyright (c) 2013 Nic Aitch; Licensed MIT */
+* Copyright (c) 2014 Nic Aitch; Licensed MIT */
 (function(window, $) {
 
 var Superslides, plugin = 'superslides';
@@ -76,22 +76,17 @@ Superslides = function(el, options) {
       }, 10);
     });
 
-    $(window).on('hashchange', function() {
-      var hash = that._parseHash(), index;
+    if (that.options.hashchange) {
+      $(window).on('hashchange', function() {
+        var hash = that._parseHash(), index;
 
-      if (hash && !isNaN(hash)) {
-        // Minus 1 here because we don't want the url
-        // to be zero-indexed
-        index = that._upcomingSlide(hash - 1);
-
-      } else {
         index = that._upcomingSlide(hash);
-      }
 
-      if (index >= 0 && index !== that.current) {
-        that.animate(index);
-      }
-    });
+        if (index >= 0 && index !== that.current) {
+          that.animate(index);
+        }
+      });
+    }
 
     that.pagination._events();
 
@@ -265,9 +260,14 @@ var fx = {
 
     $target.css({
       left: this.width,
-      opacity: 1,
+      opacity: 0,
       display: 'block'
-    });
+    }).animate({
+          opacity: 1
+        },
+        that.options.animation_speed,
+        that.options.animation_easing
+    );
 
     if (orientation.outgoing_slide >= 0) {
       $outgoing.animate({
@@ -397,8 +397,8 @@ var pagination = {
     that.$el.on('click', that.options.elements.pagination + ' a', function(e) {
       e.preventDefault();
 
-      var hash  = that._parseHash(this.hash),
-          index = that._upcomingSlide(hash - 1);
+      var hash  = that._parseHash(this.hash), index;
+      index = that._upcomingSlide(hash, true);
 
       if (index !== that.current) {
         that.animate(index, function() {
@@ -441,7 +441,11 @@ Superslides.prototype = {
     return this.size() === 1 ? 1 : 3;
   },
 
-  _upcomingSlide: function(direction) {
+  _upcomingSlide: function(direction, from_hash_change) {
+    if (from_hash_change && !isNaN(direction)) {
+      direction = direction - 1;
+    }
+
     if ((/next/).test(direction)) {
       return this._nextInDom();
 
@@ -513,15 +517,15 @@ Superslides.prototype = {
     return hash;
   },
 
-  _splitHash: function splitHash(hash){
-    var slash_position = hash.indexOf("/")
+  _splitHash: function(hash){
+    var slash_position = hash.indexOf("/");
     if (slash_position != -1){
         var subpage = hash.substr(slash_position + 1);
         var mainpage = hash.substr(0, slash_position);
 
-        return [mainpage, subpage]
+        return [mainpage, subpage];
     } else {
-        return [hash, ""]
+        return [hash, ""];
     }
 
   },
@@ -605,17 +609,6 @@ Superslides.prototype = {
 
     if (that.size() > 1) {
       that.pagination._setCurrent(orientation.upcoming_slide);
-    }
-
-    if (that.options.hashchange) {
-      var hash = orientation.upcoming_slide + 1,
-          id = that.$container.children(':eq(' + orientation.upcoming_slide + ')').attr('id');
-
-//      if (id) {
-//        window.location.hash = id;
-//      } else {
-//        window.location.hash = hash;
-//      }
     }
 
     that.$el.trigger('animating.slides', [orientation]);
