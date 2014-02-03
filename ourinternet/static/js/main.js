@@ -198,6 +198,23 @@ ResponsiveMenu = {};
   var responsiveMenuToggle = $("#responsive-menu-toggle");
   var responsiveMenuList = $("#responsive-menu ul");
 
+  var onToggle = function(){
+      toggleMenu(responsiveMenuList);
+  };
+
+  var toggleMenu = function (responsiveMenuList){
+    if (responsiveMenuList.is(":hidden")){
+      $("ul.slides-container").fadeOut(200);
+      $("#slides").bind("click", onToggle)
+    } else{
+      $("ul.slides-container").fadeIn(200);
+      $("#slides").unbind("click", onToggle);
+    }
+    responsiveMenuList.slideToggle(200, function(){
+
+    });
+  }
+
   var copyCollapsedLinks = function(){
     menu.children("a:not(.home)").each(function(){
         var li = $('<li/>')
@@ -224,26 +241,7 @@ ResponsiveMenu = {};
     responsiveMenuToggle.on('click', function(e){
         e.preventDefault();
         toggleMenu(responsiveMenuList);
-
     });
-
-    var onToggle = function(){
-        toggleMenu(responsiveMenuList);
-    };
-
-    function toggleMenu(responsiveMenuList){
-
-        if (responsiveMenuList.is(":hidden")){
-                $("ul.slides-container").fadeOut(200);
-                $("#slides").bind("click", onToggle)
-            } else{
-                $("ul.slides-container").fadeIn(200);
-                $("#slides").unbind("click", onToggle);
-            }
-        responsiveMenuList.slideToggle(200, function(){
-
-        });
-    }
   }
 
   ResponsiveMenu.initialize = function(){
