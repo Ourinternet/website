@@ -1,191 +1,192 @@
-//
-//
-//(function($) {
-////    $.fn.superslides._parseHashOrig = $.fn["superslides"]._parseHash;
-//    $.extend($.fn.superslides.prototype, {
-//        _parseHash: function(hash){
-//        hash = hash || window.location.hash;
-//        hashParts = splitHash(hash);
-//        hash = hashParts[0];
-//        hash = hash.replace(/^#/, '');
-//
-//        if (hash && !isNaN(+hash)) {
-//          hash = +hash;
-//        }
-//
-//        return hash;
-//        }
-//    });
-////    $slides._parseHash =
-//})(jQuery);
+GoogleAnalyticsExtension = {};
 
-$(function() {
-//    $.fn["superslides"].prototype
+(function(){
+  var customPageViewHandler = function(){
+      ga('send', 'pageview', window.location.hash);
+  };
 
-      var $slides = $('#slides');
+  GoogleAnalyticsExtension.hookupSubmit = function(){
+    $(window).on('hashchange', customPageViewHandler);
+  };
 
-      var touch_support = $('html').hasClass("touch");
-      if (touch_support){
-          Hammer($slides[0]).on("swipeleft", function(e) {
-            $slides.data('superslides').animate('next');
-          });
+})();
 
-          Hammer($slides[0]).on("swiperight", function(e) {
-            $slides.data('superslides').animate('prev');
-          });
-      }
+Slider = {};
 
+(function(){
+  var $slides = $('#slides');
 
-      $slides.superslides({
+  Slider.setupTouch = function(){
+    Hammer($slides[0]).on("swipeleft", function(e) {
+      $slides.data('superslides').animate('next');
+    });
+
+    Hammer($slides[0]).on("swiperight", function(e) {
+      $slides.data('superslides').animate('prev');
+    });
+  };
+
+  Slider.initialize = function(){
+    $slides.superslides({
         hashchange: true,
         pagination: false
-      })
+    });
+  };
+
+  var highligtMenuHandler = function(){
+        var current_index = $(this).superslides('current');
+        $('.custom-slides-pagination a').removeClass('current');
+        $('.custom-slides-pagination a').eq(current_index).addClass('current');
+        if (current_index == 0){
+          $('.compressed.custom-slides-pagination a').eq(current_index).addClass('current');
+        }else {
+          $('.compressed.custom-slides-pagination a').eq(current_index + 1).addClass('current');
+        }
+
+  };
+
+  Slider.hookupMenu = function(){
+    $('#slides').on('animated.slides', highligtMenuHandler);
+  };
 
 
-      $('#slides').on('animated.slides', function() {
-          var current_index = $(this).superslides('current');
-          $('.custom-slides-pagination a').removeClass('current');
-          $('.custom-slides-pagination a').eq(current_index).addClass('current');
-          if (current_index == 0){
-            $('.compressed.custom-slides-pagination a').eq(current_index).addClass('current');
-          }else {
-            $('.compressed.custom-slides-pagination a').eq(current_index + 1).addClass('current');
+})();
+
+Video = {};
+(function(){
+
+  Video.initialize = function(){
+    var BV;
+    BV = new $.BigVideo();
+    BV.init();
+
+    BV.getPlayer().on("error", function(){
+      $("#background").show();
+      $("#big-video-wrap").hide();
+    });
+
+    BV.getPlayer().on("playing", function(){
+      $("#background").hide();
+      $("#pause-video").show();
+      $("#big-video-wrap").addClass("big-video-wrap-faded");
+      $("#big-video-wrap").show();
+    });
+
+    BV.show(videoBaseUrl + "/video_" + videoNumber + ".m4v", {
+      ambient:true,
+      useFlashForFirefox:false,
+      altSource: videoBaseUrl + "/video_" + videoNumber + ".webm"
+    });
+
+    $("#pause-video").bind("click", function(){
+    BV.getPlayer().pause();
+    $(this).hide();
+    $("#play-video").show();
+    });
+    $("#play-video").bind("click", function(){
+    BV.getPlayer().play();
+    $(this).hide();
+    $("#pause-video").show();
+    });
+
+    function playPauseVideo(hash){
+      if (hash == "#home"){
+        BV.getPlayer().play();
+        $("#play-video").hide();
+        $("#pause-video").show();
+      } else {
+        BV.getPlayer().pause();
+        $("#pause-video").hide();
+        $("#play-video").show();
+      }
+    }
+
+    playPauseVideo(window.location.hash);
+
+    $(window).on('hashchange', function() {
+      playPauseVideo(window.location.hash);
+    });
+  };
+})();
+
+TwitterLinkHandler = {};
+
+(function(){
+
+  TwitterLinkHandler.updateiTwitterLinks = function(){
+    var agent   = navigator.userAgent;
+
+    if ( agent.match(/(iPhone|iPod|iPad)/) ) {
+        twitter_links = $(".twitter-link a");
+        twitter_links.each(function(){
+            link_value = $(this).data("twitter-href");
+            $(this).attr("href", link_value);
+        });
+    }
+  }
+
+})();
+
+
+ContactFormHandler = {};
+
+(function(){
+  //    localShowCaptcha("recap");
+  var submit_function = function(e){
+    var form_parent = $(this).parent();
+    var postData = $(this).serializeArray();
+    var formURL = $(this).attr("action");
+
+    $.ajax(
+    {
+      url : formURL,
+      type: "POST",
+      data : postData,
+      success:function(data, textStatus, jqXHR)
+      {
+          form_parent.html(data);
+
+          $(".contact-form").submit(submit_function);
+
+          $(".messages .success").prepend("<i class='fa fa-check'></i>");
+
+          errors = $(".messages .error");
+
+          if (errors.length > 0){
+              errors.prepend("<i class='fa fa-times-circle'></i>");
           }
 
-        });
+          if ($(".errorlist").length > 0) {
+              $(".errorlist").addClass("fa-ul");
+              $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
+          }
 
+//                localShowCaptcha("recap");
+
+      },
+      error: function(jqXHR, textStatus, errorThrown)
+      {
+          //if fails
+//                localShowCaptcha("recap");
+      }
     });
+    e.preventDefault(); //STOP default action
+  }
 
+  ContactFormHandler.hookupSubmit = function (){
+    $(".contact-form").submit(submit_function);
+  };
 
-$(function(){
+})();
 
-    var is_ie7 = $('html').hasClass("lt-ie8");
-    if (!Modernizr.touch & !is_ie7) {
-        var BV;
-        BV = new $.BigVideo();
-        BV.init();
+ResponsiveMenu = {};
 
-        BV.getPlayer().on("error", function(){
-                $("#background").show();
-                $("#big-video-wrap").hide();
-        });
+(function(){
+  var menu = $("#top-menu");
+  var responsiveMenuToggle = $("#responsive-menu-toggle");
+  var responsiveMenuList = $("#responsive-menu ul");
 
-        BV.getPlayer().on("playing", function(){
-            $("#background").hide();
-            $("#pause-video").show();
-            $("#big-video-wrap").addClass("big-video-wrap-faded");
-            $("#big-video-wrap").show();
-        });
-
-
-        BV.show(videoBaseUrl + "/video_" + videoNumber + ".m4v", {
-
-            ambient:true,
-            useFlashForFirefox:false,
-            altSource: videoBaseUrl + "/video_" + videoNumber + ".webm"
-        });
-        $("#pause-video").bind("click", function(){
-        BV.getPlayer().pause();
-        $(this).hide();
-        $("#play-video").show();
-        });
-        $("#play-video").bind("click", function(){
-        BV.getPlayer().play();
-        $(this).hide();
-        $("#pause-video").show();
-        });
-
-        function playPauseVideo(hash){
-            if (hash == "#home"){
-                BV.getPlayer().play();
-                $("#play-video").hide();
-                $("#pause-video").show();
-            } else {
-                BV.getPlayer().pause();
-                $("#pause-video").hide();
-                $("#play-video").show();
-            }
-        }
-
-        playPauseVideo(window.location.hash);
-
-        $(window).on('hashchange', function() {
-            playPauseVideo(window.location.hash);
-            ga('send', 'pageview', window.location.hash);
-        });
-
-    }
-
-});
-
-
-
-
-$(function(){
-    var previousMainHash = "";
-    var previousSubHash = "";
-    $(window).on('hashchange', function() {
-        hashParts = splitHash(window.location.hash);
-        if (previousMainHash != hashParts[0]){
-            previousMainHash = hashParts[0];
-            load_subpage(window.location.hash);
-        } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
-            previousSubHash = hashParts[1];
-            load_subpage(window.location.hash);
-        }
-    });
-});
-
-
-function splitHash(hash){
-    var slash_position = hash.indexOf("/")
-    if (slash_position != -1){
-        var subpage = hash.substr(slash_position + 1);
-        var mainpage = hash.substr(0, slash_position);
-
-        return [mainpage, subpage]
-    } else {
-        return [hash, ""]
-    }
-
-}
-var lastLoadedSubPages = {};
-function load_subpage(storedHash){
-    hashParts = splitHash(storedHash);
-
-    if (hashParts[1] != ""){
-        var subpage = hashParts[1];
-        var mainpage = hashParts[0];
-
-        if (mainpage == "#press"){
-            load_press_release(subpage);
-        }
-    } else {
-        if (lastLoadedSubPages[hashParts[0]] != "" && lastLoadedSubPages[hashParts[0]] != undefined){
-            window.location = hashParts[0] + "/" + lastLoadedSubPages[hashParts[0]]
-        } else {
-            if (hashParts[0] == "#press"){
-                $("#press-release-content").html("");
-            }
-
-        }
-    }
-    hashParts = splitHash(window.location.hash)
-    lastLoadedSubPages[hashParts[0]] = hashParts[1];
-}
-
-window.onload=function(){
-    var storedHash = window.location.hash;
-    load_subpage(storedHash);
-
-};
-
-
-$(function(){
-    var menu = $("#top-menu");
-    var responsiveMenuToggle = $("#responsive-menu-toggle");
-    var responsiveMenuList = $("#responsive-menu ul");
-
+  var copyCollapsedLinks = function(){
     menu.children("a:not(.home)").each(function(){
         var li = $('<li/>')
             .appendTo(responsiveMenuList);
@@ -195,6 +196,9 @@ $(function(){
             toggleMenu(responsiveMenuList);
         });
     });
+  };
+
+  var enableHomeLink = function(){
     $("#responsive-menu a.home").each(function(){
         $(this).on('click', function(e){
             if (!responsiveMenuList.is(":hidden")){
@@ -202,8 +206,9 @@ $(function(){
             }
         });
     });
+  };
 
-
+  var hookupToggle = function(){
     responsiveMenuToggle.on('click', function(e){
         e.preventDefault();
         toggleMenu(responsiveMenuList);
@@ -227,93 +232,130 @@ $(function(){
 
         });
     }
+  }
 
-});
+  ResponsiveMenu.initialize = function(){
+    copyCollapsedLinks();
+    enableHomeLink();
+    hookupToggle();
+  };
 
-$(function(){
-    var agent   = navigator.userAgent;
+})();
 
-    if ( agent.match(/(iPhone|iPod|iPad)/) ) {
-        twitter_links = $(".twitter-link a");
-        twitter_links.each(function(){
-            link_value = $(this).data("twitter-href");
-            $(this).attr("href", link_value);
-        });
+SubPageHandler = {};
+
+(function(){
+  var previousMainHash = "";
+  var previousSubHash = "";
+  var lastLoadedSubPages = {};
+
+  var splitHash = function(hash){
+    var slash_position = hash.indexOf("/")
+    if (slash_position != -1){
+      var subpage = hash.substr(slash_position + 1);
+      var mainpage = hash.substr(0, slash_position);
+
+      return [mainpage, subpage]
+    } else {
+      return [hash, ""]
     }
-});
+  }
 
-$(function(){
-    $(".press-release-link").click( function(){
+  var showPressRelease = function(slug){
+    $("#" + slug).show();
+  }
 
-        releaseURL = "release/" + $(this).data("release-id") + "/";
-       load_press_release(releaseURL)
-    });
-});
+  var resetAddressBar = function(baseHash, subHash){
+    window.location = baseHash + "/" + subHash;
+  };
 
-function load_press_release(releaseURL){
-    $.ajax(
-        {
-            url : releaseURL,
-            type: "GET",
-            success:function(data, textStatus, jqXHR)
-            {
-                $("#press-release-content").html(data);
-                window.location = "#press/" + releaseURL;
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
+  var load_press_release = function(release){
+    SubPageHandler.hideAllPressReleases();
+    showPressRelease(release);
+    resetAddressBar("#press", release)
+  };
+
+  var load_subpage = function(storedHash){
+    hashParts = splitHash(storedHash);
+
+    if (hashParts[1] != ""){
+        var subpage = hashParts[1];
+        var mainpage = hashParts[0];
+
+        if (mainpage == "#press"){
+            load_press_release(subpage);
+        }
+    } else {
+        if (lastLoadedSubPages[hashParts[0]] != "" && lastLoadedSubPages[hashParts[0]] != undefined){
+            window.location = hashParts[0] + "/" + lastLoadedSubPages[hashParts[0]]
+        } else {
+            if (hashParts[0] == "#press"){
                 $("#press-release-content").html("");
-                lastLoadedSubPages["#press"] = "";
             }
-        });
-}
+
+        }
+    }
+    hashParts = splitHash(window.location.hash)
+    lastLoadedSubPages[hashParts[0]] = hashParts[1];
+  }
+
+  SubPageHandler.hookupBasics = function(){
+    $(window).on('hashchange', function() {
+      hashParts = splitHash(window.location.hash);
+      if (previousMainHash != hashParts[0]){
+        previousMainHash = hashParts[0];
+        load_subpage(window.location.hash);
+      } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
+        previousSubHash = hashParts[1];
+        load_subpage(window.location.hash);
+      }
+    });
+
+    $(window).on('load' , function(){
+        var storedHash = window.location.hash;
+        load_subpage(storedHash);
+    });
+  };
+
+
+
+  SubPageHandler.hookupReleaseListItems = function(){
+    $(".press-release-link").click( function(){
+       var release = $(this).data("release-id");
+       load_press_release(release)
+    });
+  };
+
+  SubPageHandler.hideAllPressReleases = function(){
+    $(".press-release").hide();
+  };
+})();
 
 
 
 $(function(){
-//    localShowCaptcha("recap");
+  GoogleAnalyticsExtension.hookupSubmit();
 
-    var submit_function = function(e){
-        var form_parent = $(this).parent();
-        var postData = $(this).serializeArray();
-        var formURL = $(this).attr("action");
+  var touch_support = $('html').hasClass("touch");
+  if (touch_support){
+    Slider.setupTouch();
+  }
 
-        $.ajax(
-        {
-            url : formURL,
-            type: "POST",
-            data : postData,
-            success:function(data, textStatus, jqXHR)
-            {
-                form_parent.html(data);
+  Slider.initialize();
+  Slider.hookupMenu()
 
-                $(".contact-form").submit(submit_function);
+  var is_ie7 = $('html').hasClass("lt-ie8");
+  if (!Modernizr.touch & !is_ie7) {
+    Video.initialize();
+  }
 
-                $(".messages .success").prepend("<i class='fa fa-check'></i>");
+  ResponsiveMenu.initialize();
 
-                errors = $(".messages .error");
+  TwitterLinkHandler.updateiTwitterLinks();
 
-                if (errors.length > 0){
-                    errors.prepend("<i class='fa fa-times-circle'></i>");
-                }
+  ContactFormHandler.hookupSubmit();
 
-                if ($(".errorlist").length > 0) {
-                    $(".errorlist").addClass("fa-ul");
-                    $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
-                }
-
-//                localShowCaptcha("recap");
-
-            },
-            error: function(jqXHR, textStatus, errorThrown)
-            {
-                //if fails
-//                localShowCaptcha("recap");
-            }
-        });
-        e.preventDefault(); //STOP default action
-    }
-
-    $(".contact-form").submit(submit_function);
+  SubPageHandler.hookupBasics();
+  SubPageHandler.hookupReleaseListItems();
+  SubPageHandler.hideAllPressReleases();
 });
-
