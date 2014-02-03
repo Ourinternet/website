@@ -245,9 +245,6 @@ ResponsiveMenu = {};
 SubPageHandler = {};
 
 (function(){
-  var previousMainHash = "";
-  var previousSubHash = "";
-  var lastLoadedSubPages = {};
 
   var splitHash = function(hash){
     var slash_position = hash.indexOf("/")
@@ -261,6 +258,14 @@ SubPageHandler = {};
     }
   }
 
+  var hideAllPressReleases = function(){
+    $(".press-release").hide();
+  };
+
+   var showAllPressReleases = function(){
+    $(".press-release").show();
+  };
+
   var showPressRelease = function(slug){
     $("#" + slug).show();
   }
@@ -270,54 +275,35 @@ SubPageHandler = {};
   };
 
   var load_press_release = function(release){
-    SubPageHandler.hideAllPressReleases();
+    hideAllPressReleases();
     showPressRelease(release);
     resetAddressBar("#press", release)
   };
 
-  var load_subpage = function(storedHash){
-    hashParts = splitHash(storedHash);
-
-    if (hashParts[1] != ""){
-        var subpage = hashParts[1];
-        var mainpage = hashParts[0];
-
-        if (mainpage == "#press"){
-            load_press_release(subpage);
-        }
+  var load_subpage = function(mainPage, subPage){
+    if (subPage != ""){
+      if (mainPage == "#press"){
+          load_press_release(subPage);
+      }
     } else {
-        if (lastLoadedSubPages[hashParts[0]] != "" && lastLoadedSubPages[hashParts[0]] != undefined){
-            window.location = hashParts[0] + "/" + lastLoadedSubPages[hashParts[0]]
-        } else {
-            if (hashParts[0] == "#press"){
-                $("#press-release-content").html("");
-            }
-
-        }
+      if (mainPage == "#press"){
+        showAllPressReleases();
+      }
     }
-    hashParts = splitHash(window.location.hash)
-    lastLoadedSubPages[hashParts[0]] = hashParts[1];
   }
 
-  SubPageHandler.hookupBasics = function(){
-    $(window).on('hashchange', function() {
+  var pageLoadHandler = function() {
       hashParts = splitHash(window.location.hash);
-      if (previousMainHash != hashParts[0]){
-        previousMainHash = hashParts[0];
-        load_subpage(window.location.hash);
-      } else  if (previousSubHash != hashParts[1] && hashParts[1] != ""){
-        previousSubHash = hashParts[1];
-        load_subpage(window.location.hash);
-      }
-    });
 
-    $(window).on('load' , function(){
-        var storedHash = window.location.hash;
-        load_subpage(storedHash);
-    });
+      var mainPage = hashParts[0];
+      var subPage = hashParts[1];
+      load_subpage(mainPage, subPage);
   };
 
-
+  SubPageHandler.hookupBasics = function(){
+    $(window).on('hashchange', pageLoadHandler);
+    $(window).on('load' , pageLoadHandler);
+  };
 
   SubPageHandler.hookupReleaseListItems = function(){
     $(".press-release-link").click( function(){
@@ -326,9 +312,6 @@ SubPageHandler = {};
     });
   };
 
-  SubPageHandler.hideAllPressReleases = function(){
-    $(".press-release").hide();
-  };
 })();
 
 
@@ -357,5 +340,4 @@ $(function(){
 
   SubPageHandler.hookupBasics();
   SubPageHandler.hookupReleaseListItems();
-  SubPageHandler.hideAllPressReleases();
 });
