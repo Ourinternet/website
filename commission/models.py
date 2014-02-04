@@ -73,7 +73,7 @@ class PressRelease(models.Model):
     footer = models.ForeignKey('PressReleaseFooter', null=True, blank=True)
     release_tag = models.TextField(default="For immediate release")
     end_tag = models.CharField(max_length=20, default="-30-")
-    slug = models.SlugField(max_length=1024, unique=True)
+    slug = models.SlugField(max_length=255, unique=True)
 
     def __unicode__(self):
         return self.title
