@@ -41,22 +41,22 @@
 
   .column {
     display: inline-block;
-    max-width: 78%;
+    max-width: 76%;
     vertical-align: top;
     padding-right: 0.5em;
 
     @include screen-at-most($extra-extra-large) {
-      max-width: 70%;
+      max-width: 66%;
       padding-right: 0.25em;
     }
 
     @include screen-at-most($extra-large) {
-      max-width: 60%;
+      max-width: 50%;
       padding-right: 0.25em;
     }
 
     @include screen-at-most($extra-small){
-      max-width: 50%;
+      max-width: 46%;
       padding-right: 0.25em;
     }
   }

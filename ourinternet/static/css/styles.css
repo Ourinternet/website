@@ -370,20 +370,20 @@
   text-decoration: none; }
   .press-release-link .column {
     display: inline-block;
-    max-width: 78%;
+    max-width: 76%;
     vertical-align: top;
     padding-right: 0.5em; }
     @media only screen and (max-width: 93.5em) {
       .press-release-link .column {
-        max-width: 70%;
+        max-width: 66%;
         padding-right: 0.25em; } }
     @media only screen and (max-width: 75em) {
       .press-release-link .column {
-        max-width: 60%;
+        max-width: 50%;
         padding-right: 0.25em; } }
     @media only screen and (max-width: 20em) {
       .press-release-link .column {
-        max-width: 50%;
+        max-width: 46%;
         padding-right: 0.25em; } }
 
 .footer {
