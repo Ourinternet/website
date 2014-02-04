@@ -15,7 +15,7 @@ class Migration(SchemaMigration):
     def backwards(self, orm):
 
         # Changing field 'PressRelease.slug'
-        db.alter_column(u'commission_pressrelease', 'slug', self.gf('django.db.models.fields.SlugField')(max_length=1024, unique=True))
+        db.alter_column(u'commission_pressrelease', 'slug', self.gf('django.db.models.fields.SlugField')(max_length=255, unique=True))
 
     models = {
         u'commission.faq': {

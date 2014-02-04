@@ -66,7 +66,7 @@ class Migration(SchemaMigration):
             'location': ('django.db.models.fields.TextField', [], {}),
             'release_date': ('django.db.models.fields.DateTimeField', [], {}),
             'release_tag': ('django.db.models.fields.TextField', [], {'default': "'For immediate release'"}),
-            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '1024'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'unique': 'True', 'max_length': '255'}),
             'title': ('django.db.models.fields.TextField', [], {})
         },
         u'commission.pressreleasefooter': {
