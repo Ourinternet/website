@@ -94,5 +94,8 @@ def contact_submit(request):
     context = {'contact_form': form,
                'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                }
-    return render(request, 'structure/_contact.html', context)
+    if request.is_ajax():
+        return render(request, 'structure/_contact.html', context)
+    else:
+        return redirect('contact_redirect_no_ajax')
 
