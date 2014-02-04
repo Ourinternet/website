@@ -14,7 +14,7 @@ class Migration(DataMigration):
         # and orm['appname.ModelName'] for models in other applications.
         press_releases = orm.PressRelease.objects.all()
         for release in press_releases:
-            release.slug = slugify(release.title)
+            release.slug = slugify(release.title)[:255]
             release.save()
 
 
