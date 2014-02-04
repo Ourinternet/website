@@ -10,7 +10,7 @@ class Migration(SchemaMigration):
     def forwards(self, orm):
         # Adding field 'PressRelease.slug'
         db.add_column(u'commission_pressrelease', 'slug',
-                      self.gf('django.db.models.fields.SlugField')(default='', max_length=1024),
+                      self.gf('django.db.models.fields.SlugField')(default='', max_length=255),
                       keep_default=False)
 
 
@@ -65,7 +65,7 @@ class Migration(SchemaMigration):
             'location': ('django.db.models.fields.TextField', [], {}),
             'release_date': ('django.db.models.fields.DateTimeField', [], {}),
             'release_tag': ('django.db.models.fields.TextField', [], {'default': "'For immediate release'"}),
-            'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '1024'}),
+            'slug': ('django.db.models.fields.SlugField', [], {'default': "''", 'max_length': '255'}),
             'title': ('django.db.models.fields.TextField', [], {})
         },
         u'commission.pressreleasefooter': {
