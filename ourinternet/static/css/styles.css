@@ -562,3 +562,9 @@ body {
 
 .center {
   text-align: center; }
+
+.partner-description {
+  padding-bottom: 2em; }
+
+#partner-descriptions {
+  border-bottom: 1px solid #e2dada; }

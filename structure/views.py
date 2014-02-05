@@ -6,7 +6,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
-from commission.models import Member, FAQ, PressRelease, Partner
+from commission.models import Member, FAQ, PressRelease, Partner, Supporter
 
 
 def home(request, template="structure/home.html"):
@@ -18,7 +18,7 @@ def home(request, template="structure/home.html"):
     main_page, created = FlatPage.objects.get_or_create(url='/main/')
     about_page, created = FlatPage.objects.get_or_create(url='/about/')
     # press_page, created = FlatPage.objects.get_or_create(url='/press/')
-    partner_page, created = FlatPage.objects.get_or_create(url='/partner/')
+    # partner_page, created = FlatPage.objects.get_or_create(url='/partner/')
     commission_page, created = FlatPage.objects.get_or_create(url='/commission/')
     event_page, created = FlatPage.objects.get_or_create(url='/event/')
     footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
@@ -34,13 +34,14 @@ def home(request, template="structure/home.html"):
 
     press_releases = PressRelease.objects.all().order_by("-release_date")[:3]
     partners = Partner.objects.all().order_by("weight")
+    supporters = Supporter.objects.all().order_by("weight")
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
                'about_page': about_page,
                # 'press_page': press_page,
-               'partner_page': partner_page,
+               # 'partner_page': partner_page,
                'commission_page': commission_page,
                'event_page': event_page,
                'footer_page': footer_page,
@@ -57,6 +58,7 @@ def home(request, template="structure/home.html"):
                'VIDEO_BASE_URL': settings.VIDEO_BASE_URL,
                'press_releases': press_releases,
                'partners': partners,
+               'supporters': supporters,
                }
 
     return render(request, template, context)
