@@ -422,6 +422,9 @@ body {
     width: 40em;
     margin: 0 auto; }
 
+.lt-ie8 li {
+  list-style: none; }
+
 .lt-ie8 #background {
   display: none; }
 
