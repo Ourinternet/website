@@ -162,12 +162,20 @@ body{
       font-size: 2em;
 
     }
+
+    .lt-ie8 & {
+      color: lighten($error_color, 50%);
+    }
   }
   .success {
     i {
 //      color: green;
       font-size: 2em;
-      @include stroke-icon(green);
+      @include stroke-icon($success_color);
+    }
+
+    .lt-ie8 & {
+      color: lighten($success_color, 50%);
     }
   }
 
@@ -175,6 +183,7 @@ body{
 }
 
 .errorlist {
+
   li {
     height: 100% !important;
     top: 0 !important;

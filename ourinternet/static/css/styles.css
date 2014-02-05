@@ -510,6 +510,8 @@ body {
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white;
     font-size: 2em; }
+  .lt-ie8 .messages .error {
+    color: #ffa5a5; }
   .messages .success i {
     font-size: 2em;
     color: green;
@@ -518,6 +520,8 @@ body {
     /* Will override color (regardless of order) */
     -webkit-text-stroke-width: 1px;
     -webkit-text-stroke-color: white; }
+  .lt-ie8 .messages .success {
+    color: #80ff80; }
 
 .errorlist li {
   height: 100% !important;

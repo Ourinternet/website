@@ -145,7 +145,7 @@ ContactFormHandler = {};
 (function(){
   //    localShowCaptcha("recap");
   var submit_function = function(e){
-    var form_parent = $(this).parent();
+//    var form_parent = $(this).parent();
     var postData = $(this).serializeArray();
     var formURL = $(this).attr("action");
 
@@ -156,17 +156,9 @@ ContactFormHandler = {};
       data : postData,
       success:function(data, textStatus, jqXHR)
       {
-          form_parent.html(data);
+          $(".contact-page-contents").html(data);
 
           $(".contact-form").submit(submit_function);
-
-          $(".messages .success").prepend("<i class='fa fa-check'></i>");
-
-          errors = $(".messages .error");
-
-          if (errors.length > 0){
-              errors.prepend("<i class='fa fa-times-circle'></i>");
-          }
 
           if ($(".errorlist").length > 0) {
               $(".errorlist").addClass("fa-ul");

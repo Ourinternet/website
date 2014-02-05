@@ -97,9 +97,13 @@ def contact_submit(request):
     else:
         form = ContactForm()
 
+
+
     context = {'contact_form': form,
                'public_key': settings.RECAPTCHA_PUBLIC_KEY,
+               'media_contacts': MediaContact.objects.filter(display_on_contact=True).order_by("weight"),
                }
+
     if request.is_ajax():
         return render(request, 'structure/_contact.html', context)
     else:
