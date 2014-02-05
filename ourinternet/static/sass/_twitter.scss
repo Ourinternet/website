@@ -9,6 +9,17 @@
   margin: 0 5% 0 6%;
   font-size: 3.25em;
   color: $twitter_color;
+
+  .lt-ie8 &{
+    zoom:1;
+    display: inline;
+
+    height: 38px;
+    width: 46px;
+    background: $twitter_bird_url 0 0 no-repeat transparent;
+    margin: 0 5% 0 6%;
+
+  }
 }
 
 .line {
@@ -18,6 +29,10 @@
     display: inline-block;
     margin-bottom: 18px;
 
+    .lt-ie8 &{
+      zoom:1;
+      display: inline;
+    }
 }
 
 .user-icon-cell img {

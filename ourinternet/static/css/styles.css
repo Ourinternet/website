@@ -224,6 +224,13 @@
   margin: 0 5% 0 6%;
   font-size: 3.25em;
   color: #5dd7fc; }
+  .lt-ie8 .fa-twitter {
+    zoom: 1;
+    display: inline;
+    height: 38px;
+    width: 46px;
+    background: url(/static/img/twitter.png) 0 0 no-repeat transparent;
+    margin: 0 5% 0 6%; }
 
 .line {
   width: 33%;
@@ -231,6 +238,9 @@
   background-color: #5dd7fc;
   display: inline-block;
   margin-bottom: 18px; }
+  .lt-ie8 .line {
+    zoom: 1;
+    display: inline; }
 
 .user-icon-cell img {
   width: 20px !important;
