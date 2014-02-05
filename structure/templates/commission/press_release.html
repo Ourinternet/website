@@ -19,7 +19,7 @@
     <div class="partners">
         {% for partner in release.footer.partners.all %}
             <div class="partner">
-            <span class="name">{{ partner.name }} {% if partner.short_name %}({{ partner.short_name }}){% endif %}</span> {{ partner.press_description }} For more information, please visit <a href="{{ partner.website }}">{{ partner.website_display }}</a>.
+            <span class="name">{{ partner.name }}{% if partner.short_name %} ({{ partner.short_name }}) {% endif %}</span>{{ partner.press_description }} For more information, please visit <a href="{{ partner.website }}">{{ partner.website_display }}</a>.
             </div>
 
         {% endfor %}

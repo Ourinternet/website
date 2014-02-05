@@ -1,3 +1,22 @@
 
-<p class="heading">{{ partner_page.title|safe }}</p>
-{{ partner_page.content|safe }}
+<p class="heading">Partners</p>
+
+<div id="partner-descriptions">
+    {% for partner in partners %}
+    <div class="partner-description">
+        <span class="partner-name">{{ partner.name }}</span>{% if partner.short_name %} ({{ partner.short_name }}) {% endif %}{{ partner.description|safe }}
+    </div>
+{% endfor %}
+</div>
+
+
+<p class="heading">Sponsors</p>
+
+<p>The commission gratefully acknowledges the support of:</p>
+
+<div id="supporter-list">
+    {% for supporter in supporters %}
+        <div class=""supporter">{% if supporter.website %}<a href="{{ supporter.website.url }}>{{ supporter.name }}</a>{% else %}{{ supporter.name }}{% endif %}</div>
+    {% endfor %}
+</div>
+<p>International Development Research Centre</p>
