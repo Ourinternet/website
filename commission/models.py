@@ -30,7 +30,8 @@ class Partner(models.Model):
     description = models.TextField(null=True, blank=True)
     press_description = models.TextField(null=True, blank=True)
 
-    # logo = models.ImageField()
+    logo = models.ImageField(upload_to='partner_logos', null=True, blank=True)
+    weight = models.IntegerField()
 
     def __unicode__(self):
         return self.name
