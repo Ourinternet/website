@@ -220,12 +220,10 @@
   margin: 3em auto 0 auto;
   text-align: left; }
 
-.twitter-bird {
-  height: 38px;
-  width: 46px;
-  background: url(/static/img/twitter.png) 0 0 no-repeat transparent;
-  display: inline-block;
-  margin: 0 5% 0 6%; }
+.fa-twitter {
+  margin: 0 5% 0 6%;
+  font-size: 3.25em;
+  color: #5dd7fc; }
 
 .line {
   width: 33%;
@@ -256,10 +254,6 @@
     margin: 2em auto 0 auto;
     width: 580px;
     text-align: left; }
-
-  .twitter-bird {
-    display: inline-block;
-    margin: 0 22px 0 27px; }
 
   .line {
     width: 180px;

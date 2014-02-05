@@ -5,13 +5,12 @@
     text-align: left;
 }
 
-.twitter-bird {
-    height: 38px;
-    width: 46px;
-    background: $twitter_bird_url 0 0 no-repeat transparent;
-    display: inline-block;
-    margin: 0 5% 0 6%;
+.fa-twitter{
+  margin: 0 5% 0 6%;
+  font-size: 3.25em;
+  color: $twitter_color;
 }
+
 .line {
     width: 33%;
     height: 1px;
@@ -53,10 +52,6 @@
         text-align: left;
     }
 
-    .twitter-bird {
-        display: inline-block;
-        margin: 0 22px 0 27px;
-    }
     .line {
         width: 180px;
         height: 1px;
