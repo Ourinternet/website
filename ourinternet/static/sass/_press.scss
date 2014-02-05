@@ -1,6 +1,13 @@
 @import "variables";
 @import "mixins";
 
+.media-contacts{
+  .title{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+}
+
 .press-release{
   .press-release-notice{
     text-transform: uppercase;
@@ -11,12 +18,7 @@
     font-weight: bold;
   }
 
-  .media-contacts{
-    .title{
-      font-weight: bold;
-      text-transform: uppercase;
-    }
-  }
+
   .partner {
     .name {
       font-weight: bold;

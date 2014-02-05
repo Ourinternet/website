@@ -31,7 +31,7 @@ class Partner(models.Model):
     press_description = models.TextField(null=True, blank=True)
 
     logo = models.ImageField(upload_to='partner_logos', null=True, blank=True)
-    weight = models.IntegerField()
+    weight = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.name
@@ -40,7 +40,7 @@ class Partner(models.Model):
 class Supporter(models.Model):
     name = models.CharField(max_length=255)
     website = models.URLField(null=True, blank=True)
-    weight = models.IntegerField()
+    weight = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.name
@@ -49,7 +49,7 @@ class Supporter(models.Model):
 class FAQ(models.Model):
     question = models.TextField()
     answer = models.TextField()
-    weight = models.IntegerField()
+    weight = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.question
@@ -61,6 +61,9 @@ class MediaContact(models.Model):
     company = models.CharField(max_length=256)
     telephone = models.CharField(max_length=40)
     email = models.CharField(max_length=256)
+
+    display_on_contact = models.BooleanField(default=True)
+    weight = models.IntegerField(default=0)
 
     def __unicode__(self):
         return self.name

@@ -88,6 +88,15 @@ body{
   }
 }
 
+.contact-form-container{
+  .title{
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+
+  padding-top: 1em;
+  border-top: 1px solid $main_color;
+}
 .contact-form {
   & table {
     width: 100%;
@@ -260,3 +269,6 @@ body{
   border-bottom: 1px solid $main_color;
 }
 
+.media-contact{
+  padding-bottom: 1em;
+}

@@ -6,7 +6,7 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
-from commission.models import Member, FAQ, PressRelease, Partner, Supporter
+from commission.models import Member, FAQ, PressRelease, Partner, Supporter, MediaContact
 
 
 def home(request, template="structure/home.html"):
@@ -35,6 +35,7 @@ def home(request, template="structure/home.html"):
     press_releases = PressRelease.objects.all().order_by("-release_date")[:3]
     partners = Partner.objects.all().order_by("weight")
     supporters = Supporter.objects.all().order_by("weight")
+    media_contacts = MediaContact.objects.filter(display_on_contact=True).order_by("weight")
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
@@ -59,6 +60,7 @@ def home(request, template="structure/home.html"):
                'press_releases': press_releases,
                'partners': partners,
                'supporters': supporters,
+               'media_contacts': media_contacts,
                }
 
     return render(request, template, context)
