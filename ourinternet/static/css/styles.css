@@ -356,18 +356,24 @@
   font-weight: bold;
   text-transform: uppercase; }
 
-.press-release .press-release-notice {
-  text-transform: uppercase;
-  text-align: left; }
-.press-release .info {
-  font-weight: bold; }
-.press-release .partner {
+.press-release {
   padding-top: 1em; }
-  .press-release .partner .name {
+  .press-release .press-release-notice {
+    text-transform: uppercase;
+    text-align: left; }
+  .press-release .info {
     font-weight: bold; }
-.press-release .press-release-end {
-  text-align: center;
-  padding-top: 1em; }
+  .press-release .partner {
+    padding-top: 1em; }
+    .press-release .partner .name {
+      font-weight: bold; }
+  .press-release .press-release-end {
+    text-align: center;
+    padding-top: 1em; }
+
+.press-release-listings {
+  border-bottom: 1px solid #e2dada;
+  padding-bottom: 2em; }
 
 .press-release-link {
   cursor: pointer;

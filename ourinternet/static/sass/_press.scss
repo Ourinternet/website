@@ -9,6 +9,7 @@
 }
 
 .press-release{
+  padding-top: 1em;
   .press-release-notice{
     text-transform: uppercase;
     text-align: left;
@@ -33,6 +34,11 @@
   }
 
 
+}
+
+.press-release-listings {
+  border-bottom: 1px solid $main_color;
+  padding-bottom: 2em;
 }
 
 .press-release-link {
