@@ -8,6 +8,8 @@
 
 <div class="logos">
   {% for partner in partners %}
+      {% if partner.logo %}
       <div class="grid_6 logo"><a href="#partners"><img src="{% static partner.logo.url %}" alt="{{ partner.name }} Logo"></a></div>
+      {% endif %}
   {% endfor %}
 </div>
