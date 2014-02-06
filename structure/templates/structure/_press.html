@@ -1,9 +1,16 @@
 
 <div class="press-release-listings">
     <p class="heading">Press Releases</p>
-    {% for release in press_releases %}
-        <div class="press-release-link" data-release-id="{{ release.slug }}"><i class="fa fa-arrow-right indicator"></i><div class="column"> {{ release.release_date|date:"F d, Y" }}</div><div class="column"> - </div><div class="column">{{ release.title }}</div></div>
-    {% endfor %}
+    <table>
+        {% for release in press_releases %}
+            <tr class="press-release-link" data-release-id="{{ release.slug }}">
+                <td class="indicator"><i class="fa fa-circle dot"></i></td>
+                <td class="date">{{ release.release_date|date:"F d, Y" }}</td>
+                <td class="title">{{ release.title }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
 </div>
 <div id="press-releases-content">
     {% for release in press_releases %}

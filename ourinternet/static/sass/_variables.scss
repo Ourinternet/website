@@ -20,7 +20,7 @@ $error_color: #a50000;
 $success_color: green;
 
 $link_color: #5dd7fc;
-$disabled_link_color: lighten(desaturate($link_color, 75%), 10%);
+$disabled_link_color: rgba(lighten(desaturate($link_color, 75%), 10%), 0.25);
 
 $twitter_color: #5dd7fc;
 

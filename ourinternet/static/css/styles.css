@@ -375,16 +375,21 @@
   border-bottom: 1px solid #e2dada;
   padding-bottom: 2em; }
   .press-release-listings .active {
-    color: #bacdd2;
+    color: rgba(186, 205, 210, 0.25);
     cursor: default; }
     .press-release-listings .active .indicator {
       visibility: visible; }
   .press-release-listings .indicator {
-    font-size: 0.5em;
-    line-height: 1em;
-    margin-bottom: 0.5em;
-    vertical-align: middle;
+    vertical-align: top;
     visibility: hidden; }
+    .press-release-listings .indicator .dot {
+      vertical-align: middle;
+      font-size: 0.5em;
+      line-height: 1em;
+      margin-bottom: 0.5em; }
+  .press-release-listings .date {
+    vertical-align: top;
+    width: 11em; }
 
 .press-release-link {
   cursor: pointer;

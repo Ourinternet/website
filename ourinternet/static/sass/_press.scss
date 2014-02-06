@@ -40,6 +40,7 @@
   border-bottom: 1px solid $main_color;
   padding-bottom: 2em;
 
+
   .active{
     color: $disabled_link_color;
     cursor: default;
@@ -51,12 +52,21 @@
 
   .indicator{
 
-    font-size: 0.5em;
-    line-height: 1em;
-    margin-bottom: 0.5em;
-    vertical-align: middle;
+    vertical-align: top;
 
     visibility: hidden;
+
+    .dot{
+      vertical-align: middle;
+      font-size: 0.5em;
+      line-height: 1em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .date {
+    vertical-align: top;
+    width: 11em;
   }
 }
 
