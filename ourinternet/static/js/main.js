@@ -276,8 +276,12 @@ SubPageHandler = {};
     window.location = baseHash + "/" + subHash;
   };
 
+  var clearActiveLinks = function(){
+     $(".press-release-listings .active").removeClass("active");
+  };
+
   var markLinkActive = function(release){
-    $(".press-release-listings .active").removeClass("active");
+    clearActiveLinks();
     var currentLink = $(".press-release-listings").find("[data-release-id='" + release + "']");
     currentLink.addClass("active");
   };
@@ -297,6 +301,7 @@ SubPageHandler = {};
     } else {
       if (mainPage == "#press"){
         showAllPressReleases();
+        clearActiveLinks();
       }
     }
   }
