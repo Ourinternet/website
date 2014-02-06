@@ -270,16 +270,23 @@ SubPageHandler = {};
 
   var showPressRelease = function(slug){
     $("#" + slug).show();
-  }
+  };
 
   var resetAddressBar = function(baseHash, subHash){
     window.location = baseHash + "/" + subHash;
   };
 
+  var markLinkActive = function(release){
+    $(".press-release-listings .active").removeClass("active");
+    var currentLink = $(".press-release-listings").find("[data-release-id='" + release + "']");
+    currentLink.addClass("active");
+  };
+
   var load_press_release = function(release){
     hideAllPressReleases();
     showPressRelease(release);
-    resetAddressBar("#press", release)
+    resetAddressBar("#press", release);
+    markLinkActive(release);
   };
 
   var load_subpage = function(mainPage, subPage){

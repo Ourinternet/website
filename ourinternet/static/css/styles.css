@@ -374,6 +374,9 @@
 .press-release-listings {
   border-bottom: 1px solid #e2dada;
   padding-bottom: 2em; }
+  .press-release-listings .active {
+    color: #bacdd2;
+    cursor: default; }
 
 .press-release-link {
   cursor: pointer;

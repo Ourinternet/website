@@ -39,12 +39,17 @@
 .press-release-listings {
   border-bottom: 1px solid $main_color;
   padding-bottom: 2em;
+
+  .active{
+    color: $disabled_link_color;
+    cursor: default;
+  }
 }
 
 .press-release-link {
   cursor: pointer;
 
-  color: $twitter_color;
+  color: $link_color;
   text-decoration: none;
 
   .column {

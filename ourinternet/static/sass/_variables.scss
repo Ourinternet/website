@@ -19,6 +19,8 @@ $menu_text_color: #d6ddff;
 $error_color: #a50000;
 $success_color: green;
 
+$link_color: #5dd7fc;
+$disabled_link_color: lighten(desaturate($link_color, 75%), 10%);
 
 $twitter_color: #5dd7fc;
 
