@@ -102,7 +102,7 @@ Video = {};
     });
 
     function playPauseVideo(hash){
-      if (hash == "#home"){
+      if (hash == "#home" || hash == ""){
         BV.getPlayer().play();
         $("#play-video").hide();
         $("#pause-video").show();
