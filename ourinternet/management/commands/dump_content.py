@@ -8,8 +8,20 @@ class Command(BaseCommand):
         with open('commission/fixtures/partners.json', 'w') as f:
             call_command('dumpdata', 'commission.Partner', indent=2, stdout=f)
 
+        with open('commission/fixtures/supporters.json', 'w') as f:
+            call_command('dumpdata', 'commission.Supporter', indent=2, stdout=f)
+
         with open('commission/fixtures/members.json', 'w') as f:
             call_command('dumpdata', 'commission.Member', stdout=f)
+
+        with open('commission/fixtures/media_contacts.json', 'w') as f:
+            call_command('dumpdata', 'commission.MediaContact', indent=2, stdout=f)
+
+        with open('commission/fixtures/press_release_footers.json', 'w') as f:
+            call_command('dumpdata', 'commission.PressReleaseFooter', indent=2, stdout=f)
+
+        with open('commission/fixtures/press_releases.json', 'w') as f:
+            call_command('dumpdata', 'commission.PressRelease', indent=2, stdout=f)
 
         with open('commission/fixtures/faqs.json', 'w') as f:
             call_command('dumpdata', 'commission.FAQ', stdout=f)
