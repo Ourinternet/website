@@ -377,6 +377,14 @@
   .press-release-listings .active {
     color: #bacdd2;
     cursor: default; }
+    .press-release-listings .active .indicator {
+      visibility: visible; }
+  .press-release-listings .indicator {
+    font-size: 0.5em;
+    line-height: 1em;
+    margin-bottom: 0.5em;
+    vertical-align: middle;
+    visibility: hidden; }
 
 .press-release-link {
   cursor: pointer;

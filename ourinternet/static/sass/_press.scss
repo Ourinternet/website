@@ -43,6 +43,20 @@
   .active{
     color: $disabled_link_color;
     cursor: default;
+
+    .indicator{
+      visibility: visible;
+    }
+  }
+
+  .indicator{
+
+    font-size: 0.5em;
+    line-height: 1em;
+    margin-bottom: 0.5em;
+    vertical-align: middle;
+
+    visibility: hidden;
   }
 }
 
