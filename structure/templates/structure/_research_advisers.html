@@ -1,0 +1,37 @@
+{% load structure_extras %}
+
+<p class="heading">{{ research_advisers_page.title|safe }}</p>
+
+<div class="member-list">
+    <div class="title">Research Advisers</div>
+
+    {% with member_lists_with_size=research_advisers|columns:4 %}
+        {% for member_list in member_lists_with_size.0 %}
+            <div class="column">
+                {% for member in member_list|padded_column:member_lists_with_size.1 %}
+                    <div class="member-name">{% if member %}{{ member.name }}{% endif %}&nbsp;</div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+    {% endwith %}
+
+
+</div>
+
+<div class="member-descriptions">
+    {% spaceless %}
+    {% for member in research_advisers %}
+        <div class="member-profile">
+            {% if member %}
+                <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+                {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
+                {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
+                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
+                {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+
+     <p>{{ research_advisers_page.content|safe }}</p>
+    {% endspaceless %}
+</div>

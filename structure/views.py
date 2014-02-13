@@ -23,6 +23,7 @@ def home(request, template="structure/home.html"):
     event_page, created = FlatPage.objects.get_or_create(url='/event/')
     footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
     contact_page, created = FlatPage.objects.get_or_create(url='/contact/')
+    research_advisers_page, created = FlatPage.objects.get_or_create(url='/research_advisers/')
     contact_form = ContactForm()
 
     faq_page, created = FlatPage.objects.get_or_create(url='/faq/')
@@ -31,6 +32,8 @@ def home(request, template="structure/home.html"):
     chair_members = list(Member.objects.filter(member_type="chair").order_by("last_name"))
     other_members = list(Member.objects.filter(member_type="general").order_by("last_name"))
     supporting_members = list(Member.objects.filter(member_type="supporting").order_by("last_name"))
+
+    research_advisers = list(Member.objects.filter(member_type="research_adviser").order_by("last_name"))
 
     press_releases = PressRelease.objects.all().order_by("-release_date")[:3]
     partners = Partner.objects.all().order_by("weight")
@@ -47,10 +50,12 @@ def home(request, template="structure/home.html"):
                'event_page': event_page,
                'footer_page': footer_page,
                'contact_page': contact_page,
+               'research_advisers_page': research_advisers_page,
                'contact_form': contact_form,
                'chair_members': chair_members,
                'other_members': other_members,
                'supporting_members': supporting_members,
+               'research_advisers': research_advisers,
                'faq_list': faq_list,
                'faq_page': faq_page,
                'GA_SITE_ID': settings.GA_SITE_ID,

@@ -2,7 +2,7 @@ from django.db import models
 from django.utils.text import slugify
 
 
-MEMBER_TYPES = (('chair', 'chair'), ('general', 'general'), ('supporting', 'supporting'))
+MEMBER_TYPES = (('chair', 'chair'), ('general', 'general'), ('supporting', 'supporting'), ('research_adviser', 'research adviser'))
 
 
 class Member(models.Model):
