@@ -111,6 +111,7 @@
               </div>
             </li>
 
+            {% if research_advisers|length > 0 %}
             <li id="research_advisers">
               <div class="container">
                   <div class="content-page">
@@ -120,6 +121,7 @@
 
               </div>
             </li>
+            {% endif %}
           </ul>
 
         <nav class="slides-navigation">
@@ -163,10 +165,11 @@
                 <span>FAQ</span>
               </a>
 
+              {% if research_advisers|length > 0 %}
               <a href="#research_advisers" class="nav-link">
                   <span>Research Advisers</span>
               </a>
-
+              {% endif %}
             </nav>
 
             <nav id="responsive-menu" class="compressed custom-slides-pagination clearfix">
