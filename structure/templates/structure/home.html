@@ -65,6 +65,17 @@
 
               </div>
             </li>
+            {% if research_advisers|length > 0 %}
+            <li id="research_advisers">
+              <div class="container">
+                  <div class="content-page">
+                    {%  include "structure/_research_advisers.html" %}
+                  </div>
+                    {%  include "structure/_footer.html" %}
+
+              </div>
+            </li>
+            {% endif %}
             <li id="press">
               <div class="container">
                   <div class="content-page">
@@ -111,17 +122,7 @@
               </div>
             </li>
 
-            {% if research_advisers|length > 0 %}
-            <li id="research_advisers">
-              <div class="container">
-                  <div class="content-page">
-                    {%  include "structure/_research_advisers.html" %}
-                  </div>
-                    {%  include "structure/_footer.html" %}
 
-              </div>
-            </li>
-            {% endif %}
           </ul>
 
         <nav class="slides-navigation">
@@ -149,6 +150,11 @@
               <a href="#commission" class="nav-link">
                 <span>Commission</span>
               </a>
+              {% if research_advisers|length > 0 %}
+              <a href="#research_advisers" class="nav-link">
+                  <span>Research Advisers</span>
+              </a>
+              {% endif %}
               <a href="#press" class="nav-link">
                 <span>Press</span>
               </a>
@@ -165,11 +171,7 @@
                 <span>FAQ</span>
               </a>
 
-              {% if research_advisers|length > 0 %}
-              <a href="#research_advisers" class="nav-link">
-                  <span>Research Advisers</span>
-              </a>
-              {% endif %}
+
             </nav>
 
             <nav id="responsive-menu" class="compressed custom-slides-pagination clearfix">
