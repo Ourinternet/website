@@ -13,6 +13,7 @@ class Member(models.Model):
     short_bio = models.TextField(blank=True, null=True)
     partner = models.ForeignKey("Partner", blank=True, null=True)
     member_type = models.CharField(max_length=20, choices=MEMBER_TYPES, default='general')
+    website = models.CharField(max_length=256, blank=True, null=True)
 
     def slug(self):
         return slugify(self.name)
