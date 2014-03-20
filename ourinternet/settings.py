@@ -51,6 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'ourinternet.middleware.XUACompatibleMiddleWare',
 )
 
 ROOT_URLCONF = 'ourinternet.urls'
@@ -104,6 +105,11 @@ RECAPTCHA_PRIVATE_KEY = ''
 CAPTCHA_WIDGET_TEMPLATE = 'captcha/widget_ajax.html'
 
 VIDEO_BASE_URL = ''
+
+X_UA_COMPATIBLE = {
+    'IE': 'edge',
+    'chrome': '1',
+}
 
 try:
     from secure_settings import *
