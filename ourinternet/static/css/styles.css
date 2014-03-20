@@ -70,7 +70,7 @@
   width: 90%;
   margin: auto; }
 
-@media only screen and (min-width: 53em) {
+@media only screen and (min-width: 64em) {
   body {
     font-size: 1.0em;
     letter-spacing: 0.1em; } }
@@ -90,22 +90,22 @@
   @media only screen and (max-width: 30em) {
     .medium {
       font-size: 0.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 53em) {
+  @media only screen and (min-width: 30em) and (max-width: 64em) {
     .medium {
       font-size: 0.75em; } }
-  @media only screen and (min-width: 53em) and (max-width: 61.25em) {
+  @media only screen and (min-width: 64em) and (max-width: 64em) {
     .medium {
       font-size: 1.05em; } }
-  @media only screen and (min-width: 61.25em) {
+  @media only screen and (min-width: 64em) {
     .medium {
       font-size: 1.25em; } }
 
 .medium.wide {
   letter-spacing: 0.15em; }
-  @media only screen and (min-width: 53em) {
+  @media only screen and (min-width: 64em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
-  @media only screen and (min-width: 61.25em) {
+  @media only screen and (min-width: 64em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
 
@@ -115,22 +115,22 @@
   @media only screen and (max-width: 30em) {
     .massive {
       font-size: 1.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 53em) {
+  @media only screen and (min-width: 30em) and (max-width: 64em) {
     .massive {
       font-size: 2.5em; } }
-  @media only screen and (min-width: 53em) and (max-width: 61.25em) {
+  @media only screen and (min-width: 64em) and (max-width: 64em) {
     .massive {
       font-size: 3.25em; } }
-  @media only screen and (min-width: 61.25em) {
+  @media only screen and (min-width: 64em) {
     .massive {
       font-size: 4.25em; } }
 
 .massive.wide {
   letter-spacing: 0.05em; }
-  @media only screen and (min-width: 53em) {
+  @media only screen and (min-width: 64em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
-  @media only screen and (min-width: 61.25em) {
+  @media only screen and (min-width: 64em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
 
@@ -191,7 +191,7 @@
 .slides-navigation a {
   color: white;
   margin: 0 25px; }
-@media only screen and (max-width: 53em) {
+@media only screen and (max-width: 64em) {
   .slides-navigation {
     display: none; } }
 
@@ -203,13 +203,13 @@
   #responsive-menu-toggle a {
     padding-right: 0; }
 
-@media only screen and (max-width: 53em) {
+@media only screen and (max-width: 64em) {
   #top-menu {
     display: none; } }
 
 #responsive-menu {
   display: none; }
-  @media only screen and (max-width: 53em) {
+  @media only screen and (max-width: 64em) {
     #responsive-menu {
       display: block; } }
 
@@ -274,7 +274,7 @@
 .logos {
   margin-top: 10%;
   height: 160px; }
-  @media only screen and (min-width: 53em) {
+  @media only screen and (min-width: 64em) {
     .logos {
       margin-top: 10%;
       height: 80px; } }
@@ -468,7 +468,7 @@ body {
   margin: auto !important; }
   .content-page .logo {
     text-align: center; }
-  @media only screen and (max-width: 53em) {
+  @media only screen and (max-width: 64em) {
     .content-page {
       width: 100%; } }
 
@@ -562,7 +562,7 @@ body {
   overflow: hidden;
   width: 100%;
   display: block; }
-  @media only screen and (max-width: 53em) {
+  @media only screen and (max-width: 64em) {
     .member-list {
       display: none; } }
   .member-list .member-name {
