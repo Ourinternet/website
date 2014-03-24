@@ -148,6 +148,7 @@ ContactFormHandler = {};
 //    var form_parent = $(this).parent();
     var postData = $(this).serializeArray();
     var formURL = $(this).attr("action");
+    $(this).find("input[type=submit]").attr('disabled', true);
 
     $.ajax(
     {
@@ -165,11 +166,13 @@ ContactFormHandler = {};
               $(".errorlist li").prepend("<i class='fa-li fa fa-times-circle'></i>");
           }
 
+          $(this).find("input[type=submit]").removeAttr('disabled');
 //                localShowCaptcha("recap");
 
       },
       error: function(jqXHR, textStatus, errorThrown)
       {
+        $(this).find("input[type=submit]").removeAttr('disabled');
           //if fails
 //                localShowCaptcha("recap");
       }
