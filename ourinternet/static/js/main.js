@@ -143,9 +143,7 @@ TwitterLinkHandler = {};
 ContactFormHandler = {};
 
 (function(){
-  //    localShowCaptcha("recap");
   var submit_function = function(e){
-//    var form_parent = $(this).parent();
     var postData = $(this).serializeArray();
     var formURL = $(this).attr("action");
     $(this).find("input[type=submit]").attr('disabled', true);
@@ -167,14 +165,11 @@ ContactFormHandler = {};
           }
 
           $(this).find("input[type=submit]").removeAttr('disabled');
-//                localShowCaptcha("recap");
 
       },
       error: function(jqXHR, textStatus, errorThrown)
       {
         $(this).find("input[type=submit]").removeAttr('disabled');
-          //if fails
-//                localShowCaptcha("recap");
       }
     });
     e.preventDefault(); //STOP default action

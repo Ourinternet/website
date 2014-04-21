@@ -37,7 +37,6 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.flatpages',
     'robots',
-    'captcha',
     'south',
     'structure',
     'commission',
@@ -99,10 +98,6 @@ GA_SITE_ID = 'UA-XXXXX-X'
 GA_SITE_URL = 'yoursite.org'
 
 CONTACT_FORM_RECIPIENT_LIST = []
-
-RECAPTCHA_PUBLIC_KEY = ''
-RECAPTCHA_PRIVATE_KEY = ''
-CAPTCHA_WIDGET_TEMPLATE = 'captcha/widget_ajax.html'
 
 VIDEO_BASE_URL = ''
 

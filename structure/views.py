@@ -60,7 +60,6 @@ def home(request, template="structure/home.html"):
                'faq_page': faq_page,
                'GA_SITE_ID': settings.GA_SITE_ID,
                'GA_SITE_URL': settings.GA_SITE_URL,
-               'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                'VIDEO_BASE_URL': settings.VIDEO_BASE_URL,
                'press_releases': press_releases,
                'partners': partners,
@@ -105,7 +104,6 @@ def contact_submit(request):
 
 
     context = {'contact_form': form,
-               'public_key': settings.RECAPTCHA_PUBLIC_KEY,
                'media_contacts': MediaContact.objects.filter(display_on_contact=True).order_by("weight"),
                }
 
