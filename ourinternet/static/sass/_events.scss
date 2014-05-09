@@ -19,12 +19,13 @@
       width: 5%;
 //      height: 1em;
       vertical-align: middle;
+      font-size: 1.5em;
     }
     .data{
       display: table-cell;
       width: 90%;
       vertical-align: middle;
-
+      font-size: 1em;
       .start-date, .end-date {
         white-space: nowrap;
       }

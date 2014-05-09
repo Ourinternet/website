@@ -171,10 +171,12 @@
     .custom-slides-pagination a.current span {
       border-bottom: 1px solid #d6ddff; }
     .custom-slides-pagination a.icon {
-      font-size: 0.75em;
+      font-size: 0.65em;
       border-right: none;
       float: right;
       padding-right: 2em; }
+    .custom-slides-pagination a .fa-twitter {
+      color: #d6ddff; }
   .custom-slides-pagination.compressed a {
     border-right: none; }
   .custom-slides-pagination.compressed .icon {
@@ -435,11 +437,13 @@
     .event .info .icon {
       display: table-cell;
       width: 5%;
-      vertical-align: middle; }
+      vertical-align: middle;
+      font-size: 1.5em; }
     .event .info .data {
       display: table-cell;
       width: 90%;
-      vertical-align: middle; }
+      vertical-align: middle;
+      font-size: 1em; }
       .event .info .data .start-date, .event .info .data .end-date {
         white-space: nowrap; }
 

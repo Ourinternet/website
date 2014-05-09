@@ -31,10 +31,15 @@
     }
 
     &.icon{
-      font-size: 0.75em;
+      font-size: 0.65em;
       border-right: none;
       float: right;
       padding-right: 2em;
+
+    }
+
+    .fa-twitter{
+      color: $menu_text_color;
     }
   }
 
