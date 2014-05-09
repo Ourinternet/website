@@ -440,6 +440,8 @@
       display: table-cell;
       width: 90%;
       vertical-align: middle; }
+      .event .info .data .start-date, .event .info .data .end-date {
+        white-space: nowrap; }
 
 .event-listings {
   border-bottom: 1px solid #e2dada;

@@ -24,7 +24,10 @@
       display: table-cell;
       width: 90%;
       vertical-align: middle;
-//      height: 4em;
+
+      .start-date, .end-date {
+        white-space: nowrap; 
+      }
     }
   }
 }
