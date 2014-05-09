@@ -10,7 +10,7 @@ body {
 .content{
     font-family: $main_font;
 
-  .heading {
+  .heading, .sub-heading {
     font-family: $heading_font;
   }
 }
@@ -85,6 +85,13 @@ body {
     font-size: 2em;
     @include screen-at-most($small) {
       font-size: 1.4em;
+    }
+  }
+
+  .sub-heading{
+    font-size: 1.1em;
+    @include screen-at-most($small) {
+      font-size: 1em;
     }
   }
 

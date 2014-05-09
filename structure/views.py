@@ -44,7 +44,8 @@ def home(request, template="structure/home.html"):
     media_contacts = MediaContact.objects.filter(display_on_contact=True).order_by("weight")
 
     today = datetime.now(tz=pytz.timezone(settings.SERVER_TIMEZONE)).replace(tzinfo=pytz.timezone("UTC"))
-    events = Event.objects.filter(end_date__gte=today).order_by("start_date")
+    current_events = Event.objects.filter(end_date__gte=today).order_by("start_date")
+    past_events = Event.objects.filter(end_date__lt=today).order_by("start_date")
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
@@ -71,7 +72,8 @@ def home(request, template="structure/home.html"):
                'partners': partners,
                'supporters': supporters,
                'media_contacts': media_contacts,
-               'events': events,
+               'current_events': current_events,
+               'past_events': past_events,
                }
 
     return render(request, template, context)

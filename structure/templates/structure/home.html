@@ -86,7 +86,7 @@
               </div>
             </li>
 
-            {% if events|length > 0 %}
+            {% if events|length > 0 or past_events|length > 0 %}
             <li id="event">
               <div class="container">
                 <div class="content-page">
@@ -161,7 +161,7 @@
               <a href="#press" class="nav-link">
                 <span>Press</span>
               </a>
-              {% if events|length > 0 %}
+              {% if current_events|length > 0 or past_events|length > 0 %}
               <a href="#event" class="nav-link">
                 <span>Events</span>
               </a>
