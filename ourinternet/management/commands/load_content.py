@@ -12,6 +12,7 @@ class Command(BaseCommand):
         call_command('loaddata', 'commission/fixtures/media_contacts.json')
         call_command('loaddata', 'commission/fixtures/press_release_footers.json')
         call_command('loaddata', 'commission/fixtures/press_releases.json')
+        call_command('loaddata', 'commission/fixtures/events.json')
         call_command('loaddata', 'commission/fixtures/faqs.json')
         call_command('loaddata', 'structure/fixtures/sites.json')
         call_command('loaddata', 'structure/fixtures/pages.json')

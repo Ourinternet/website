@@ -23,6 +23,9 @@ class Command(BaseCommand):
         with open('commission/fixtures/press_releases.json', 'w') as f:
             call_command('dumpdata', 'commission.PressRelease', indent=2, stdout=f)
 
+        with open('commission/fixtures/events.json', 'w') as f:
+            call_command('dumpdata', 'commission.Event', indent=2, stdout=f)
+
         with open('commission/fixtures/faqs.json', 'w') as f:
             call_command('dumpdata', 'commission.FAQ', stdout=f)
 
