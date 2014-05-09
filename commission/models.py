@@ -1,6 +1,6 @@
-from django.db import models
+from django.db import models, IntegrityError
 from django.utils.text import slugify
-
+import re
 
 MEMBER_TYPES = (('chair', 'chair'), ('general', 'general'), ('supporting', 'supporting'), ('research_adviser', 'research adviser'))
 
@@ -95,6 +95,15 @@ class PressRelease(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)[:255]
+
+            while type(self).objects.filter(slug=self.slug).exists():
+                match_obj = re.match(r'^(.*)-(\d+)$', self.slug)
+                if match_obj:
+                    next_int = int(match_obj.group(2)) + 1
+                    self.slug = match_obj.group(1) + "-" + str(next_int)
+                else:
+                    self.slug += '-2'
+
         super(PressRelease, self).save(*args, **kwargs)
 
 
@@ -112,4 +121,13 @@ class Event(models.Model):
     def save(self, *args, **kwargs):
         if not self.slug:
             self.slug = slugify(self.title)[:255]
+
+            while type(self).objects.filter(slug=self.slug).exists():
+                match_obj = re.match(r'^(.*)-(\d+)$', self.slug)
+                if match_obj:
+                    next_int = int(match_obj.group(2)) + 1
+                    self.slug = match_obj.group(1) + "-" + str(next_int)
+                else:
+                    self.slug += '-2'
+
         super(Event, self).save(*args, **kwargs)
