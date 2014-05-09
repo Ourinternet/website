@@ -1,0 +1,25 @@
+<div class="event" id="{{ event.slug }}">
+    <p class="heading">{{ event.title|safe }}</p>
+    <div class="event-body">
+
+        <div class="info">
+            <div class="icon fa fa-map-marker"></div>
+            <div class="data">
+                <div class="location">{{ event.location }} </div>
+                <div class="date">
+                    <span class="start-date">{{ event.start_date|date:"F d, Y - P" }} - </span>
+                    <span class="end-date">{{ event.end_date|date:"F d, Y - P" }}</span>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            {{ event.content|safe }}
+        </div>
+
+    </div>
+</div>
+
+

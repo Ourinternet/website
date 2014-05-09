@@ -173,7 +173,7 @@ ContactFormHandler = {};
       }
     });
     e.preventDefault(); //STOP default action
-  }
+  };
 
   ContactFormHandler.hookupSubmit = function (){
     $(".contact-form").submit(submit_function);
@@ -203,10 +203,10 @@ ResponsiveMenu = {};
     responsiveMenuList.slideToggle(200, function(){
 
     });
-  }
+  };
 
   var copyCollapsedLinks = function(){
-    menu.children("a:not(.home)").each(function(){
+    menu.children("a:not(.home):not(.icon)").each(function(){
         var li = $('<li/>')
             .appendTo(responsiveMenuList);
         var link = $(this).clone();
@@ -225,6 +225,14 @@ ResponsiveMenu = {};
             }
         });
     });
+
+    $("#responsive-menu a.icon").each(function(){
+        $(this).on('click', function(e){
+            if (!responsiveMenuList.is(":hidden")){
+                toggleMenu(responsiveMenuList);
+            }
+        });
+    });
   };
 
   var hookupToggle = function(){
@@ -232,7 +240,7 @@ ResponsiveMenu = {};
         e.preventDefault();
         toggleMenu(responsiveMenuList);
     });
-  }
+  };
 
   ResponsiveMenu.initialize = function(){
     copyCollapsedLinks();
@@ -256,17 +264,37 @@ SubPageHandler = {};
     } else {
       return [hash, ""]
     }
-  }
-
-  var hideAllPressReleases = function(){
-    $(".press-release").hide();
   };
 
-   var showAllPressReleases = function(){
-    $(".press-release").show();
+  var hashes = {
+      "release": "#press",
+      "event": "#event"
   };
 
-  var showPressRelease = function(slug){
+  var sections = {
+      "release": ".press-release",
+      "event": ".event"
+  };
+
+  var listings = {
+      "release": ".press-release-listings",
+      "event": ".event-listings"
+  };
+
+  var linkIDs = {
+      "release": "data-release-id",
+      "event": "data-event-id"
+  };
+
+  var hideAllItems = function(type){
+    $(sections[type]).hide();
+  };
+
+   var showAllItems = function(type){
+    $(sections[type]).show();
+  };
+
+  var showItem = function(slug){
     $("#" + slug).show();
   };
 
@@ -274,38 +302,51 @@ SubPageHandler = {};
     window.location = baseHash + "/" + subHash;
   };
 
-  var clearActiveLinks = function(){
-     $(".press-release-listings .active").removeClass("active");
+  var clearActiveLinks = function(type){
+     $(listings[type] + " .active").removeClass("active");
   };
 
-  var markLinkActive = function(release){
-    clearActiveLinks();
-    var currentLink = $(".press-release-listings").find("[data-release-id='" + release + "']");
+  var markLinkActive = function(type, item){
+    clearActiveLinks(type);
+    var currentLink = $(listings[type]).find("[" + linkIDs[type] + "='" + item + "']");
     currentLink.addClass("active");
   };
 
+  var _load_item = function(type, item){
+    hideAllItems(type);
+    showItem(item);
+    resetAddressBar(hashes[type], item);
+    markLinkActive(type, item);
+  };
+
   var load_press_release = function(release){
-    hideAllPressReleases();
-    showPressRelease(release);
-    resetAddressBar("#press", release);
-    markLinkActive(release);
+     _load_item("release", release);
+  };
+
+  var load_event = function(event){
+    _load_item("event", event);
   };
 
   var load_subpage = function(mainPage, subPage){
     if (subPage != ""){
       if (mainPage == "#press"){
           load_press_release(subPage);
+      } else if (mainPage == "#event"){
+        load_event(subPage);
       }
     } else {
       if (mainPage == "#press"){
-        showAllPressReleases();
-        clearActiveLinks();
+        showAllItems("press");
+        clearActiveLinks("press");
+      } else if (mainPage == "#event"){
+        showAllItems("event");
+        clearActiveLinks("event");
       }
     }
-  }
+  };
 
   var pageLoadHandler = function() {
-      hashParts = splitHash(window.location.hash);
+      var hashParts = splitHash(window.location.hash);
 
       var mainPage = hashParts[0];
       var subPage = hashParts[1];
@@ -317,12 +358,18 @@ SubPageHandler = {};
     $(window).on('load' , pageLoadHandler);
   };
 
-  SubPageHandler.hookupReleaseListItems = function(){
+  SubPageHandler.hookupListItemLinks = function(){
     $(".press-release-link").click( function(){
        var release = $(this).data("release-id");
        load_press_release(release)
     });
+
+    $(".event-link").click( function(){
+       var event = $(this).data("event-id");
+       load_event(event)
+    });
   };
+
 
 })();
 
@@ -337,10 +384,10 @@ $(function(){
   }
 
   Slider.initialize();
-  Slider.hookupMenu()
+  Slider.hookupMenu();
 
   var is_ie7 = $('html').hasClass("lt-ie8");
-  if (!Modernizr.touch & !is_ie7) {
+  if (!Modernizr.touch && !is_ie7) {
     Video.initialize();
   }
 
@@ -351,5 +398,5 @@ $(function(){
   ContactFormHandler.hookupSubmit();
 
   SubPageHandler.hookupBasics();
-  SubPageHandler.hookupReleaseListItems();
+  SubPageHandler.hookupListItemLinks();
 });

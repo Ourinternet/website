@@ -97,3 +97,19 @@ class PressRelease(models.Model):
             self.slug = slugify(self.title)[:255]
         super(PressRelease, self).save(*args, **kwargs)
 
+
+class Event(models.Model):
+    start_date = models.DateTimeField()
+    end_date = models.DateTimeField()
+    location = models.TextField()
+    title = models.TextField()
+    content = models.TextField()
+    slug = models.SlugField(max_length=255, unique=True, blank=True)
+
+    def __unicode__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title)[:255]
+        super(Event, self).save(*args, **kwargs)

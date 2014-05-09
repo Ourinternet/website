@@ -70,7 +70,7 @@
   width: 90%;
   margin: auto; }
 
-@media only screen and (min-width: 64em) {
+@media only screen and (min-width: 66em) {
   body {
     font-size: 1.0em;
     letter-spacing: 0.1em; } }
@@ -90,22 +90,22 @@
   @media only screen and (max-width: 30em) {
     .medium {
       font-size: 0.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 64em) {
+  @media only screen and (min-width: 30em) and (max-width: 66em) {
     .medium {
       font-size: 0.75em; } }
-  @media only screen and (min-width: 64em) and (max-width: 64em) {
+  @media only screen and (min-width: 66em) and (max-width: 66em) {
     .medium {
       font-size: 1.05em; } }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .medium {
       font-size: 1.25em; } }
 
 .medium.wide {
   letter-spacing: 0.15em; }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
 
@@ -115,22 +115,22 @@
   @media only screen and (max-width: 30em) {
     .massive {
       font-size: 1.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 64em) {
+  @media only screen and (min-width: 30em) and (max-width: 66em) {
     .massive {
       font-size: 2.5em; } }
-  @media only screen and (min-width: 64em) and (max-width: 64em) {
+  @media only screen and (min-width: 66em) and (max-width: 66em) {
     .massive {
       font-size: 3.25em; } }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .massive {
       font-size: 4.25em; } }
 
 .massive.wide {
   letter-spacing: 0.05em; }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
 
@@ -170,8 +170,19 @@
     border-right: 1px solid #8f8f8f; }
     .custom-slides-pagination a.current span {
       border-bottom: 1px solid #d6ddff; }
+    .custom-slides-pagination a.icon {
+      font-size: 0.75em;
+      border-right: none;
+      float: right;
+      padding-right: 2em; }
   .custom-slides-pagination.compressed a {
     border-right: none; }
+  .custom-slides-pagination.compressed .icon {
+    position: absolute;
+    margin-right: 4em;
+    right: 0;
+    top: 0;
+    float: none; }
   .custom-slides-pagination.compressed ul {
     padding: 0;
     margin: 0; }
@@ -191,7 +202,7 @@
 .slides-navigation a {
   color: white;
   margin: 0 25px; }
-@media only screen and (max-width: 64em) {
+@media only screen and (max-width: 66em) {
   .slides-navigation {
     display: none; } }
 
@@ -203,13 +214,13 @@
   #responsive-menu-toggle a {
     padding-right: 0; }
 
-@media only screen and (max-width: 64em) {
+@media only screen and (max-width: 66em) {
   #top-menu {
     display: none; } }
 
 #responsive-menu {
   display: none; }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (max-width: 66em) {
     #responsive-menu {
       display: block; } }
 
@@ -274,7 +285,7 @@
 .logos {
   margin-top: 10%;
   height: 160px; }
-  @media only screen and (min-width: 64em) {
+  @media only screen and (min-width: 66em) {
     .logos {
       margin-top: 10%;
       height: 80px; } }
@@ -413,6 +424,68 @@
         max-width: 46%;
         padding-right: 0.25em; } }
 
+.event {
+  padding-top: 1em; }
+  .event .info {
+    font-style: italic;
+    text-transform: uppercase;
+    margin-top: -1em;
+    padding-bottom: 1em;
+    display: table; }
+    .event .info .icon {
+      display: table-cell;
+      width: 5%;
+      vertical-align: middle; }
+    .event .info .data {
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle; }
+
+.event-listings {
+  border-bottom: 1px solid #e2dada;
+  padding-bottom: 2em; }
+  .event-listings .active {
+    color: rgba(186, 205, 210, 0.25);
+    cursor: default; }
+    .event-listings .active .indicator {
+      visibility: visible; }
+  .event-listings .indicator {
+    vertical-align: top;
+    visibility: hidden; }
+    .event-listings .indicator .dot {
+      vertical-align: middle;
+      font-size: 0.5em;
+      line-height: 1em;
+      margin-bottom: 0.5em; }
+  .event-listings .date {
+    vertical-align: top;
+    width: 11em; }
+  .event-listings .location {
+    font-style: italic;
+    margin-bottom: 1em; }
+
+.event-link {
+  cursor: pointer;
+  color: #5dd7fc;
+  text-decoration: none; }
+  .event-link .column {
+    display: inline-block;
+    max-width: 76%;
+    vertical-align: top;
+    padding-right: 0.5em; }
+    @media only screen and (max-width: 93.5em) {
+      .event-link .column {
+        max-width: 66%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 75em) {
+      .event-link .column {
+        max-width: 50%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 20em) {
+      .event-link .column {
+        max-width: 46%;
+        padding-right: 0.25em; } }
+
 .footer {
   width: 90%;
   margin: 4em auto;
@@ -468,7 +541,7 @@ body {
   margin: auto !important; }
   .content-page .logo {
     text-align: center; }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (max-width: 66em) {
     .content-page {
       width: 100%; } }
 
@@ -557,7 +630,7 @@ body {
   overflow: hidden;
   width: 100%;
   display: block; }
-  @media only screen and (max-width: 64em) {
+  @media only screen and (max-width: 66em) {
     .member-list {
       display: none; } }
   .member-list .member-name {

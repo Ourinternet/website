@@ -29,12 +29,27 @@
     &.current span{
        border-bottom: 1px solid $menu_text_color;
     }
+
+    &.icon{
+      font-size: 0.75em;
+      border-right: none;
+      float: right;
+      padding-right: 2em;
+    }
   }
 
   &.compressed {
     a
     {
       border-right: none;
+    }
+
+    .icon {
+      position: absolute;
+      margin-right: 4em;
+      right: 0;
+      top: 0;
+      float: none;
     }
 
   }

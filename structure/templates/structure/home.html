@@ -85,23 +85,17 @@
 
               </div>
             </li>
-            <li id="activities">
+
+            {% if events|length > 0 %}
+            <li id="event">
               <div class="container">
                 <div class="content-page">
-                {% include "structure/_activities.html" %}
+                  {% include "structure/_events.html" %}
+                  {%  include "structure/_footer.html" %}
                 </div>
-                {%  include "structure/_footer.html" %}
               </div>
             </li>
-{#            <li id="event">#}
-{#              <div class="container">#}
-{#                <div class="content-page">#}
-{#                  {% include "structure/_event.html" %}#}
-{#                  {%  include "structure/_footer.html" %}#}
-{#                </div>#}
-{#              </div>#}
-{#            </li>#}
-
+            {% endif %}
             <!--sse-->
             <li id="contact">
               <div class="container">
@@ -124,7 +118,14 @@
               </div>
             </li>
 
-
+             <li id="activities">
+              <div class="container">
+                <div class="content-page">
+                {% include "structure/_activities.html" %}
+                </div>
+                {%  include "structure/_footer.html" %}
+              </div>
+            </li>
           </ul>
 
         <nav class="slides-navigation">
@@ -160,12 +161,11 @@
               <a href="#press" class="nav-link">
                 <span>Press</span>
               </a>
-              <a href="#activities" class="nav-link">
-                <span>Activities</span>
+              {% if events|length > 0 %}
+              <a href="#event" class="nav-link">
+                <span>Events</span>
               </a>
-{#              <a href="#event" class="nav-link">#}
-{#                <span>Event</span>#}
-{#              </a>#}
+              {% endif %}
               <!--sse-->
               <a href="#contact" class="nav-link">
                 <span>Contact</span>
@@ -175,6 +175,9 @@
                 <span>FAQ</span>
               </a>
 
+              <a href="#activities" class="nav-link icon">
+                <span class="fa fa-twitter"></span>
+              </a>
 
             </nav>
 
@@ -182,9 +185,13 @@
                 <a href="#home" class="home">
                     <span>home</span>
               </a>
+
                 <a href="#" id="responsive-menu-toggle"><i class="fa fa-bars"></i></a>
                 <ul id="responsive-menu-list" class="clearfix">
                 </ul>
+              <a href="#activities" class="nav-link icon">
+                <span class="fa fa-twitter"></span>
+              </a>
             </nav>
 
 
