@@ -13,6 +13,7 @@
         {% endfor %}
     </table>
 
+    {% if past_events|length > 0 %}
     <p class="sub-heading">Past Events</p>
     <table>
         {% for event in past_events %}
@@ -25,6 +26,7 @@
             </tr>
         {% endfor %}
     </table>
+    {% endif %}
 
 </div>
 <div id="event-content">
