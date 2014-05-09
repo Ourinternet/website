@@ -8,6 +8,9 @@ from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
 from commission.models import Member, FAQ, PressRelease, Partner, Supporter, MediaContact, Event
 
+from datetime import datetime
+import pytz
+
 
 def home(request, template="structure/home.html"):
 
@@ -40,7 +43,8 @@ def home(request, template="structure/home.html"):
     supporters = Supporter.objects.all().order_by("weight")
     media_contacts = MediaContact.objects.filter(display_on_contact=True).order_by("weight")
 
-    events = Event.objects.all().order_by("-start_date")[:3]
+    today = datetime.now(tz=pytz.timezone(settings.SERVER_TIMEZONE)).replace(tzinfo=pytz.timezone("UTC"))
+    events = Event.objects.filter(end_date__gte=today).order_by("start_date")
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,

@@ -80,6 +80,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+SERVER_TIMEZONE = 'US/Central'
 
 SITE_ID = 1
 

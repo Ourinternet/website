@@ -1,3 +1,4 @@
+{% load tz %}
 <div class="event" id="{{ event.slug }}">
     <p class="heading">{{ event.title|safe }}</p>
     <div class="event-body">
@@ -7,8 +8,10 @@
             <div class="data">
                 <div class="location">{{ event.location }} </div>
                 <div class="date">
+                    {% timezone "UTC" %}
                     <span class="start-date">{{ event.start_date|date:"l, F j, Y - g:i A" }} - </span>
                     <span class="end-date">{{ event.end_date|date:"l, F j, Y - g:i A" }}</span>
+                    {% endtimezone %}
                 </div>
             </div>
         </div>
