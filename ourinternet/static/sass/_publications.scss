@@ -28,12 +28,19 @@
     margin-top: 2em;
     text-align: center;
     a{
-
-      padding: 1em;
+      font-size: 0.91em;
+      padding: 0.4em 1em;
+      width: 11em;
       text-transform: uppercase;
       border: 1px solid $link_color;
-//    display: inline-block;
+      -webkit-border-radius: 0.273em;
+      -moz-border-radius: 0.273em;
+      border-radius: 0.273em;
+      background-color: $button_background_color;
 
+      &:hover{
+        background-color: $button_hover_background_color;
+      }
     }
 
   }

@@ -21,6 +21,8 @@ $success_color: green;
 
 $link_color: #5dd7fc;
 $disabled_link_color: rgba(lighten(desaturate($link_color, 75%), 10%), 0.25);
+$button_hover_background_color: rgba($link_color, 0.125);
+$button_background_color: rgba($background_color, 0.5);
 
 $twitter_color: #5dd7fc;
 

@@ -24,7 +24,11 @@
         </div>
 
         <div class="download">
-             <a href="{% if publication.document_link %}{{ publication.document_link }}{% elif publication.document %}{{ publication.document.url }}{% endif %}">Download</a>
+             <a href="{% if publication.document_link %}
+             {{ publication.document_link }}
+             {% elif publication.document %}
+             {{ publication.document.url }}
+             {% endif %}">Download PDF <i class="fa fa-download"></i></a>
         </div>
 
     </div>
