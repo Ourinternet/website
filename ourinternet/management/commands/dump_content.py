@@ -26,6 +26,18 @@ class Command(BaseCommand):
         with open('commission/fixtures/events.json', 'w') as f:
             call_command('dumpdata', 'commission.Event', indent=2, stdout=f)
 
+        with open('commission/fixtures/authors.json', 'w') as f:
+            call_command('dumpdata', 'commission.Author', indent=2, stdout=f)
+
+        with open('commission/fixtures/publication_types.json', 'w') as f:
+            call_command('dumpdata', 'commission.PublicationType', indent=2, stdout=f)
+
+        with open('commission/fixtures/publications.json', 'w') as f:
+            call_command('dumpdata', 'commission.Publication', indent=2, stdout=f)
+
+        with open('commission/fixtures/publication_authors.json', 'w') as f:
+            call_command('dumpdata', 'commission.PublicationAuthor', indent=2, stdout=f)
+
         with open('commission/fixtures/faqs.json', 'w') as f:
             call_command('dumpdata', 'commission.FAQ', stdout=f)
 
