@@ -408,6 +408,8 @@
   .press-release-listings .date {
     vertical-align: top;
     width: 11em; }
+  .press-release-listings .title {
+    padding-bottom: 0.5em; }
 
 .press-release-link {
   cursor: pointer;
@@ -473,7 +475,7 @@
     width: 11em; }
   .event-listings .location {
     font-style: italic;
-    margin-bottom: 1em; }
+    margin-bottom: 0.5em; }
 
 .event-link {
   cursor: pointer;
@@ -540,9 +542,8 @@
   .publication-listings .date {
     vertical-align: top;
     width: 11em; }
-  .publication-listings .location {
-    font-style: italic;
-    margin-bottom: 1em; }
+  .publication-listings .title {
+    padding-bottom: 0.5em; }
 
 .publication-link {
   cursor: pointer;
