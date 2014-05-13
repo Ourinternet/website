@@ -2,7 +2,11 @@ from django.db import models, IntegrityError
 from django.utils.text import slugify
 import re
 
-MEMBER_TYPES = (('chair', 'chair'), ('general', 'general'), ('supporting', 'supporting'), ('research_adviser', 'research adviser'))
+MEMBER_TYPES = (('chair', 'chair'),
+                ('general', 'general'),
+                ('supporting', 'supporting'),
+                ('research_adviser', 'research adviser')
+                )
 
 
 class Person(models.Model):
@@ -114,24 +118,9 @@ class PressRelease(UniquelySlugable):
     footer = models.ForeignKey('PressReleaseFooter', null=True, blank=True)
     release_tag = models.TextField(default="For immediate release")
     end_tag = models.CharField(max_length=20, default="-30-")
-    # slug = models.SlugField(max_length=255, unique=True, blank=True)
 
     def __unicode__(self):
         return self.title
-
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = slugify(self.title)[:255]
-    #
-    #         while type(self).objects.filter(slug=self.slug).exists():
-    #             match_obj = re.match(r'^(.*)-(\d+)$', self.slug)
-    #             if match_obj:
-    #                 next_int = int(match_obj.group(2)) + 1
-    #                 self.slug = match_obj.group(1) + "-" + str(next_int)
-    #             else:
-    #                 self.slug += '-2'
-    #
-    #     super(PressRelease, self).save(*args, **kwargs)
 
 
 class Event(UniquelySlugable):
@@ -140,37 +129,10 @@ class Event(UniquelySlugable):
     location = models.TextField()
     title = models.TextField()
     content = models.TextField()
-    # slug = models.SlugField(max_length=255, unique=True, blank=True)
 
     def __unicode__(self):
         return self.title
 
-    # def save(self, *args, **kwargs):
-    #     if not self.slug:
-    #         self.slug = slugify(self.title)[:255]
-    #
-    #         while type(self).objects.filter(slug=self.slug).exists():
-    #             match_obj = re.match(r'^(.*)-(\d+)$', self.slug)
-    #             if match_obj:
-    #                 next_int = int(match_obj.group(2)) + 1
-    #                 self.slug = match_obj.group(1) + "-" + str(next_int)
-    #             else:
-    #                 self.slug += '-2'
-    #
-    #     super(Event, self).save(*args, **kwargs)
-
-
-# PUBLICATION_TYPES = (
-#     ("book", "Book"),
-#     ("essay", "Essay"),
-#     ("commentary", "Commentary"),
-#     ("paper", "Paper"),
-#     ("conference_report", "Conference Report"),
-#     ("policy_brief", "Policy Brief"),
-#     ("policy_memo", "Policy Memo"),
-#     ("special_report", "Special Report"),
-#     ("speech", "Speech")
-# )
 class PublicationType(models.Model):
     name = models.CharField(max_length=40)
 
@@ -194,6 +156,7 @@ class Publication(UniquelySlugable):
 
     def get_authors(self):
         return self.authors.order_by('ordered_authors')
+
 
 class Author(Person):
     pass
