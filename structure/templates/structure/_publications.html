@@ -1,0 +1,26 @@
+
+<div class="publication-listings">
+    <p class="heading">Publications</p>
+    <table>
+        {% for publication in publications %}
+            <tr class="publication-link" data-publication-id="{{ publication.slug }}">
+                <td class="indicator"><i class="fa fa-circle dot"></i></td>
+                <td class="date">{{ publication.publish_date|date:"F d, Y" }}</td>
+                <td class="title">{{ publication.title }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+
+</div>
+<div id="publication-content">
+    {% for publication in publications %}
+       {% include 'commission/publication.html' %}
+    {% endfor %}
+</div>
+{#    <p class="press-release-notice">#}
+{#    FOR IMMEDIATE RELEASE#}
+{#    </p>#}
+{#    <p class="heading">{{ press_page.title|safe }}</p>#}
+{#    {{ press_page.content|safe }}#}
+
+

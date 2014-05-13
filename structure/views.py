@@ -6,7 +6,8 @@ from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
-from commission.models import Member, FAQ, PressRelease, Partner, Supporter, MediaContact, Event
+from commission.models import Member, FAQ, PressRelease, Partner, Supporter, \
+    MediaContact, Event, Publication
 
 from datetime import datetime
 import pytz
@@ -47,6 +48,8 @@ def home(request, template="structure/home.html"):
     current_events = Event.objects.filter(end_date__gte=today).order_by("start_date")
     past_events = Event.objects.filter(end_date__lt=today).order_by("start_date")
 
+    publications = Publication.objects.all().order_by("publish_date")
+
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
@@ -74,6 +77,7 @@ def home(request, template="structure/home.html"):
                'media_contacts': media_contacts,
                'current_events': current_events,
                'past_events': past_events,
+               'publications': publications,
                }
 
     return render(request, template, context)

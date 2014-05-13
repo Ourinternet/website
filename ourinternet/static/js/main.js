@@ -268,22 +268,26 @@ SubPageHandler = {};
 
   var hashes = {
       "release": "#press",
-      "event": "#event"
+      "event": "#event",
+      "publication": "#publications"
   };
 
   var sections = {
       "release": ".press-release",
-      "event": ".event"
+      "event": ".event",
+      "publication": ".publication"
   };
 
   var listings = {
       "release": ".press-release-listings",
-      "event": ".event-listings"
+      "event": ".event-listings",
+      "publication": ".publication-listings"
   };
 
   var linkIDs = {
       "release": "data-release-id",
-      "event": "data-event-id"
+      "event": "data-event-id",
+      "publication": "data-publication-id"
   };
 
   var hideAllItems = function(type){
@@ -327,12 +331,18 @@ SubPageHandler = {};
     _load_item("event", event);
   };
 
+  var load_publication = function(event){
+    _load_item("publication", event);
+  };
+
   var load_subpage = function(mainPage, subPage){
     if (subPage != ""){
       if (mainPage == "#press"){
           load_press_release(subPage);
       } else if (mainPage == "#event"){
         load_event(subPage);
+      } else if (mainPage == "#publications"){
+        load_publication(subPage);
       }
     } else {
       if (mainPage == "#press"){
@@ -341,6 +351,9 @@ SubPageHandler = {};
       } else if (mainPage == "#event"){
         showAllItems("event");
         clearActiveLinks("event");
+      } else if (mainPage == "#publications"){
+        showAllItems("publication");
+        clearActiveLinks("publication");
       }
     }
   };
@@ -367,6 +380,11 @@ SubPageHandler = {};
     $(".event-link").click( function(){
        var event = $(this).data("event-id");
        load_event(event)
+    });
+
+    $(".publication-link").click( function(){
+       var publication = $(this).data("publication-id");
+       load_publication(publication)
     });
   };
 

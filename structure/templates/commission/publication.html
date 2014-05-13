@@ -1,0 +1,33 @@
+{% load tz %}
+<div class="publication" id="{{ publication.slug }}">
+    <p class="heading">{{ publication.title|safe }}</p>
+    <div class="publication-body">
+
+        <div class="info">
+            <div class="data">
+            {% spaceless %}
+                <div class="authors">{% for author in publication.get_authors %}
+                    {{ author.name }}{% if not forloop.last %}, {% endif %}
+                {% endfor %}
+                </div>
+            {% endspaceless %}
+                <div class="date">
+                    {% timezone "UTC" %}
+                    <span class="publish-date">Published: {{ publication.publish_date|date:"l, F j, Y" }} </span>
+                    {% endtimezone %}
+                </div>
+            </div>
+        </div>
+
+        <div>
+            {{ publication.description|safe }}
+        </div>
+
+        <div class="download">
+             <a href="{% if publication.document_link %}{{ publication.document_link }}{% elif publication.document %}{{ publication.document.url }}{% endif %}">Download</a>
+        </div>
+
+    </div>
+</div>
+
+

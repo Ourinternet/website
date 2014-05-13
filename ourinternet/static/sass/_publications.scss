@@ -1,0 +1,107 @@
+@import "variables";
+@import "mixins";
+
+.publication{
+  padding-top: 1em;
+
+  .info{
+    font-style: italic;
+    text-transform: uppercase;
+    margin-top: -1em;
+    padding-bottom: 1em;
+    display: table;
+
+    .data{
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em;
+      .publish-date {
+        white-space: nowrap;
+        font-size: 0.75em;
+      }
+    }
+  }
+
+  .download{
+
+    margin-top: 2em;
+    text-align: center;
+    a{
+
+      padding: 1em;
+      text-transform: uppercase;
+      border: 1px solid $link_color;
+//    display: inline-block;
+
+    }
+
+  }
+}
+
+.publication-listings {
+  border-bottom: 1px solid $main_color;
+  padding-bottom: 2em;
+
+  .active{
+    color: $disabled_link_color;
+    cursor: default;
+
+    .indicator{
+      visibility: visible;
+    }
+  }
+
+  .indicator{
+
+    vertical-align: top;
+    visibility: hidden;
+
+    .dot{
+      vertical-align: middle;
+      font-size: 0.5em;
+      line-height: 1em;
+      margin-bottom: 0.5em;
+    }
+  }
+
+  .date {
+    vertical-align: top;
+    width: 11em;
+  }
+
+  .location {
+    font-style: italic;
+    margin-bottom: 1em;
+
+  }
+}
+
+.publication-link {
+  cursor: pointer;
+
+  color: $link_color;
+  text-decoration: none;
+
+  .column {
+    display: inline-block;
+    max-width: 76%;
+    vertical-align: top;
+    padding-right: 0.5em;
+
+    @include screen-at-most($extra-extra-large) {
+      max-width: 66%;
+      padding-right: 0.25em;
+    }
+
+    @include screen-at-most($extra-large) {
+      max-width: 50%;
+      padding-right: 0.25em;
+    }
+
+    @include screen-at-most($extra-small){
+      max-width: 46%;
+      padding-right: 0.25em;
+    }
+  }
+}

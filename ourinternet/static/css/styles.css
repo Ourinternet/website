@@ -497,6 +497,75 @@
         max-width: 46%;
         padding-right: 0.25em; } }
 
+.publication {
+  padding-top: 1em; }
+  .publication .info {
+    font-style: italic;
+    text-transform: uppercase;
+    margin-top: -1em;
+    padding-bottom: 1em;
+    display: table; }
+    .publication .info .data {
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em; }
+      .publication .info .data .publish-date {
+        white-space: nowrap;
+        font-size: 0.75em; }
+  .publication .download {
+    margin-top: 2em;
+    text-align: center; }
+    .publication .download a {
+      padding: 1em;
+      text-transform: uppercase;
+      border: 1px solid #5dd7fc; }
+
+.publication-listings {
+  border-bottom: 1px solid #e2dada;
+  padding-bottom: 2em; }
+  .publication-listings .active {
+    color: rgba(186, 205, 210, 0.25);
+    cursor: default; }
+    .publication-listings .active .indicator {
+      visibility: visible; }
+  .publication-listings .indicator {
+    vertical-align: top;
+    visibility: hidden; }
+    .publication-listings .indicator .dot {
+      vertical-align: middle;
+      font-size: 0.5em;
+      line-height: 1em;
+      margin-bottom: 0.5em; }
+  .publication-listings .date {
+    vertical-align: top;
+    width: 11em; }
+  .publication-listings .location {
+    font-style: italic;
+    margin-bottom: 1em; }
+
+.publication-link {
+  cursor: pointer;
+  color: #5dd7fc;
+  text-decoration: none; }
+  .publication-link .column {
+    display: inline-block;
+    max-width: 76%;
+    vertical-align: top;
+    padding-right: 0.5em; }
+    @media only screen and (max-width: 93.5em) {
+      .publication-link .column {
+        max-width: 66%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 75em) {
+      .publication-link .column {
+        max-width: 50%;
+        padding-right: 0.25em; } }
+    @media only screen and (max-width: 20em) {
+      .publication-link .column {
+        max-width: 46%;
+        padding-right: 0.25em; } }
+
 .footer {
   width: 90%;
   margin: 4em auto;
