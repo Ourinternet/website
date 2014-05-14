@@ -137,7 +137,8 @@
 .content-page {
   text-align: left; }
   .content-page .heading {
-    font-size: 2em; }
+    font-size: 1.8em;
+    line-height: 1.2em; }
     @media only screen and (max-width: 30em) {
       .content-page .heading {
         font-size: 1.4em; } }

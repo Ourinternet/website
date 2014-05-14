@@ -82,7 +82,8 @@ body {
   text-align: left;
 
   .heading {
-    font-size: 2em;
+    font-size: 1.8em;
+    line-height: 1.2em;
     @include screen-at-most($small) {
       font-size: 1.4em;
     }
