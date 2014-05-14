@@ -61,6 +61,10 @@
         @include screen-at-most($medium) {
           left: 25% !important;
         }
+
+        @include screen-at-most($small) {
+          left: 10% !important;
+        }
       }
     }
   }

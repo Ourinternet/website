@@ -546,6 +546,9 @@
         @media only screen and (max-width: 40em) {
           .publication .publication-content .cover-image img {
             left: 25% !important; } }
+        @media only screen and (max-width: 30em) {
+          .publication .publication-content .cover-image img {
+            left: 10% !important; } }
   .publication .download {
     margin-top: 2em;
     text-align: center; }
