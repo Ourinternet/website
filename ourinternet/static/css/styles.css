@@ -90,10 +90,10 @@
   @media only screen and (max-width: 30em) {
     .medium {
       font-size: 0.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 75em) {
+  @media only screen and (min-width: 30em) and (max-width: 40em) {
     .medium {
       font-size: 0.75em; } }
-  @media only screen and (min-width: 75em) and (max-width: 75em) {
+  @media only screen and (min-width: 40em) and (max-width: 75em) {
     .medium {
       font-size: 1.05em; } }
   @media only screen and (min-width: 75em) {
@@ -102,7 +102,7 @@
 
 .medium.wide {
   letter-spacing: 0.15em; }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 40em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
   @media only screen and (min-width: 75em) {
@@ -115,10 +115,10 @@
   @media only screen and (max-width: 30em) {
     .massive {
       font-size: 1.5em; } }
-  @media only screen and (min-width: 30em) and (max-width: 75em) {
+  @media only screen and (min-width: 30em) and (max-width: 40em) {
     .massive {
       font-size: 2.5em; } }
-  @media only screen and (min-width: 75em) and (max-width: 75em) {
+  @media only screen and (min-width: 40em) and (max-width: 75em) {
     .massive {
       font-size: 3.25em; } }
   @media only screen and (min-width: 75em) {
@@ -127,7 +127,7 @@
 
 .massive.wide {
   letter-spacing: 0.05em; }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 40em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
   @media only screen and (min-width: 75em) {
@@ -516,6 +516,36 @@
       .publication .info .data .publish-date {
         white-space: nowrap;
         font-size: 0.75em; }
+  .publication .publication-content {
+    display: table; }
+    @media only screen and (max-width: 40em) {
+      .publication .publication-content {
+        display: block; } }
+    .publication .publication-content .description {
+      display: table-cell; }
+      @media only screen and (max-width: 40em) {
+        .publication .publication-content .description {
+          display: block; } }
+    .publication .publication-content .cover-image {
+      display: table-cell;
+      width: 255px;
+      height: 330px;
+      padding-right: 1em; }
+      @media only screen and (max-width: 40em) {
+        .publication .publication-content .cover-image {
+          display: block;
+          text-align: center;
+          width: 100%;
+          padding-right: 0; } }
+      .publication .publication-content .cover-image img {
+        top: initial !important;
+        left: initial !important;
+        z-index: 10 !important;
+        width: 255px !important;
+        height: 330px !important; }
+        @media only screen and (max-width: 40em) {
+          .publication .publication-content .cover-image img {
+            left: 25% !important; } }
   .publication .download {
     margin-top: 2em;
     text-align: center; }

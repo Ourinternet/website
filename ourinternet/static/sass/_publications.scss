@@ -23,6 +23,50 @@
     }
   }
 
+  .publication-content{
+    display: table;
+
+    @include screen-at-most($medium) {
+      display: block;
+    }
+
+    .description {
+      display: table-cell;
+
+      @include screen-at-most($medium) {
+        display: block;
+      }
+    }
+    .cover-image {
+      display: table-cell;
+      width: 8.5 * 30px;
+      height:11 * 30px;
+      padding-right: 1em;
+
+      @include screen-at-most($medium) {
+        display: block;
+        text-align: center;
+        width: 100%;
+        padding-right: 0;
+      }
+
+      img{
+//        position: static !important;
+        top: initial !important;
+        left: initial !important;
+        z-index: 10 !important;
+        width: 8.5 * 30px !important;
+        height:11 * 30px !important;
+
+        @include screen-at-most($medium) {
+          left: 25% !important;
+        }
+      }
+    }
+  }
+
+
+
   .download{
 
     margin-top: 2em;

@@ -19,8 +19,11 @@
             </div>
         </div>
 
-        <div>
-            {{ publication.description|safe }}
+        <div class="publication-content">
+            {% if publication.image %}
+            <div class="cover-image"><img src="{{ publication.image.url }}"></div>
+            {% endif %}
+            <div class="description">{{ publication.description|safe }}</div>
         </div>
 
         <div class="download">

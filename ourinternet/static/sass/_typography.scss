@@ -2,7 +2,7 @@
 @import "mixins";
 
 body {
-  @include screen-at-least($medium){
+  @include screen-at-least($large){
     font-size: 1.0em;
     letter-spacing: 0.1em;
   }

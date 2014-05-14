@@ -42,7 +42,7 @@ body{
 
   .logo{text-align:center;}
 
-  @include screen-at-most($medium) {
+  @include screen-at-most($large) {
     width: 100%;
   }
 
@@ -188,7 +188,7 @@ body{
 
 .member-list {
 
-  @include screen-at-most($medium) {
+  @include screen-at-most($large) {
     display: none;
   }
 

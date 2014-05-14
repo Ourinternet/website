@@ -6,7 +6,7 @@
   margin-top: 10%;
   height: 160px;
 
-  @include screen-at-least($medium) {
+  @include screen-at-least($large) {
     margin-top: 10%;
     height: 80px;
   }

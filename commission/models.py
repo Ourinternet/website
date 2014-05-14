@@ -150,6 +150,8 @@ class Publication(UniquelySlugable):
     document = models.FileField(upload_to="publications",
                                 blank=True, null=True)
     document_link = models.URLField(null=True, blank=True)
+    image = models.ImageField(upload_to="publications/images",
+                              blank=True, null=True)
 
     def __unicode__(self):
         return self.title
