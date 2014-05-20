@@ -447,6 +447,9 @@
       width: 5%;
       vertical-align: middle;
       font-size: 1.5em; }
+      @media only screen and (max-width: 20em) {
+        .event .info .icon {
+          width: 10%; } }
     .event .info .data {
       display: table-cell;
       width: 90%;

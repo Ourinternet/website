@@ -13,13 +13,13 @@
     
     .icon {
       display: table-cell;
-//      height: 4em;
-//      text-align: center;
-//      visibility: middle;
       width: 5%;
-//      height: 1em;
       vertical-align: middle;
       font-size: 1.5em;
+
+      @include screen-at-most($extra-small){
+      width: 10%
+    }
     }
     .data{
       display: table-cell;
