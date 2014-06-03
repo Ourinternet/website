@@ -194,6 +194,7 @@ body{
 
     .member-name {
       height: 3em;
+      max-width: 80%;
     }
   
   padding-bottom: 1em;
@@ -213,7 +214,7 @@ body{
 
     float: left;
 
-    .member-name{
+    .member-name-cell{
       padding-top: 0.25em;
       padding-bottom: 0.25em;
       border-bottom: 1px solid $main_color;

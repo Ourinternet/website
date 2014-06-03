@@ -14,13 +14,13 @@
     {% with member_lists_with_size=other_members|columns:3 %}
         <div class="column">
         {% for member in chair_members|padded_column:member_lists_with_size.1 %}
-             <div class="member-name">{% if member %}{{ member.name }}{% endif %}&nbsp;</div>
+             <div class="member-name-cell"><div class="member-name">{% if member %}{{ member.name }}{% endif %}&nbsp;</div></div>
         {% endfor %}
         </div>
         {% for member_list in member_lists_with_size.0 %}
             <div class="column">
                 {% for member in member_list|padded_column:member_lists_with_size.1 %}
-                    <div class="member-name">{% if member %}{{ member.name }}{% endif %}&nbsp;</div>
+                    <div class="member-name-cell">{% if member %}<div class="member-name">{{ member.name }}</div>{% endif %}&nbsp;</div>
                 {% endfor %}
             </div>
         {% endfor %}
