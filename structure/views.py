@@ -39,7 +39,7 @@ def home(request, template="structure/home.html"):
 
     research_advisers = list(Member.objects.filter(member_type="research_adviser").order_by("last_name"))
 
-    press_releases = PressRelease.objects.all().order_by("-release_date")[:3]
+    press_releases = PressRelease.objects.all().order_by("-release_date")
     partners = Partner.objects.all().order_by("weight")
     supporters = Supporter.objects.all().order_by("weight")
     media_contacts = MediaContact.objects.filter(display_on_contact=True).order_by("weight")
