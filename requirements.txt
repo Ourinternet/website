@@ -6,3 +6,4 @@ wsgiref==0.1.2
 django-robots==1.0
 pillow==2.3.0
 pytz==2014.2
+django-simple-math-captcha==1.0.3

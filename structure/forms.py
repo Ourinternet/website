@@ -1,4 +1,5 @@
 from django import forms
+from simplemathcaptcha.fields import MathCaptchaField
 
 
 class ContactForm(forms.Form):
@@ -6,7 +7,9 @@ class ContactForm(forms.Form):
     sender = forms.EmailField(label="Your Email")
     cc_myself = forms.BooleanField(required=False, label="CC Your Email")
     message = forms.CharField(widget=forms.Textarea)
-    name = forms.CharField(max_length=100, widget=forms.HiddenInput, required=False)
+    name = forms.CharField(max_length=100, widget=forms.HiddenInput,
+                           required=False)
+    captcha = MathCaptchaField()
 
     def clean(self):
         cleaned_data = super(ContactForm, self).clean()
