@@ -65,6 +65,11 @@
         @include screen-at-most($small) {
           left: 10% !important;
         }
+
+        .lt-ie11 &{
+          left: auto !important;
+          top: auto !important;
+        }
       }
     }
   }
