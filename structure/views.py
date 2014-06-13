@@ -46,7 +46,7 @@ def home(request, template="structure/home.html"):
 
     today = datetime.now(tz=pytz.timezone(settings.SERVER_TIMEZONE)).replace(tzinfo=pytz.timezone("UTC"))
     current_events = Event.objects.filter(end_date__gte=today).order_by("start_date")
-    past_events = Event.objects.filter(end_date__lt=today).order_by("start_date")
+    past_events = Event.objects.filter(end_date__lt=today).order_by("-start_date")
 
     publications = Publication.objects.all().order_by("publish_date")
 
