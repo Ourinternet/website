@@ -51,7 +51,11 @@
       }
 
       img{
-//        position: static !important;
+
+        //required for IE < 11
+        left: auto !important;
+        top: auto !important;
+        //required for non-IE
         top: initial !important;
         left: initial !important;
         z-index: 10 !important;
@@ -66,10 +70,6 @@
           left: 10% !important;
         }
 
-        .lt-ie11 &{
-          left: auto !important;
-          top: auto !important;
-        }
       }
     }
   }
