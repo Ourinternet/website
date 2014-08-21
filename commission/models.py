@@ -150,6 +150,7 @@ class Publication(UniquelySlugable):
     document = models.FileField(upload_to="publications",
                                 blank=True, null=True)
     document_link = models.URLField(null=True, blank=True)
+    document_link_title = models.CharField(max_length=128, default="Download PDF")
     image = models.ImageField(upload_to="publications/images",
                               blank=True, null=True)
 
