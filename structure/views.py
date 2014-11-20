@@ -50,7 +50,7 @@ def home(request, template="structure/home.html"):
 
     publications = Publication.objects.all().order_by("-publish_date")
 
-    videos = Video.objects.all()
+    videos = Video.objects.all().order_by("weight")
 
     context = {'public_tweets': public_tweets,
                'video_number': video_number,

@@ -181,3 +181,4 @@ class Video(UniquelySlugable):
     video_id = models.CharField(max_length=1024)
     title = models.CharField(max_length=1024)
     description = models.TextField()
+    weight = models.PositiveIntegerField(default=0)
