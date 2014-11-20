@@ -618,7 +618,8 @@
   text-align: center;
   width: 640px;
   height: 390px;
-  background-color: #000000;
+  background-color: #1d415f;
+  border: 1px solid #e2dada;
   margin: 40px auto; }
 
 .video-listings {

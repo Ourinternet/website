@@ -2,7 +2,8 @@
     text-align: center;
     width: 640px;
     height: 390px;
-    background-color: #000000;
+    background-color: $background_color;
+    border: 1px solid $main_color;
     margin: 40px auto ;
 }
 
@@ -29,7 +30,7 @@
     }
 
     &.active{
-      color: $twitter_color;
+      color: $link_color;
     }
   }
 
