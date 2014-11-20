@@ -1,0 +1,36 @@
+.video-embed{
+    text-align: center;
+    width: 640px;
+    height: 390px;
+    background-color: #000000;
+    margin: 40px auto ;
+}
+
+
+.video-listings{
+
+  display: table;
+
+  border-top: 1px solid $main_color;
+
+  padding-top: 40px;
+  .video-link{
+    .title{
+
+    }
+
+    .description{
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em;
+      padding-top: 1em;
+      padding-bottom: 2em;
+    }
+
+    &.active{
+      color: $twitter_color;
+    }
+  }
+
+}

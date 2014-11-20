@@ -1,0 +1,18 @@
+<p class="heading">Videos</p>
+
+<div class="video-embed">
+
+</div>
+
+<div class="video-listings">
+
+    <table>
+        {% for video in videos %}
+            <tr class="video-link" data-video-id="{{ video.slug }}" data-youtube-id="{{ video.video_id }}">
+                <td><div class="heading">{{ video.title }}</div>
+                    <div class="description">{{ video.description }}</div>
+                </td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>

@@ -269,25 +269,29 @@ SubPageHandler = {};
   var hashes = {
       "release": "#press",
       "event": "#event",
-      "publication": "#publications"
+      "publication": "#publications",
+      "video": "#videos"
   };
 
   var sections = {
       "release": ".press-release",
       "event": ".event",
-      "publication": ".publication"
+      "publication": ".publication",
+      "video": ".video"
   };
 
   var listings = {
       "release": ".press-release-listings",
       "event": ".event-listings",
-      "publication": ".publication-listings"
+      "publication": ".publication-listings",
+      "video": ".video-listings"
   };
 
   var linkIDs = {
       "release": "data-release-id",
       "event": "data-event-id",
-      "publication": "data-publication-id"
+      "publication": "data-publication-id",
+      "video": "data-video-id"
   };
 
   var hideAllItems = function(type){
@@ -331,9 +335,30 @@ SubPageHandler = {};
     _load_item("event", event);
   };
 
-  var load_publication = function(event){
-    _load_item("publication", event);
+  var load_publication = function(publication){
+    _load_item("publication", publication);
   };
+
+
+  var load_video = function(video){
+    markLinkActive("video", video);
+    resetAddressBar(hashes["video"], video);
+    load_video_player();
+  };
+
+  var load_video_player = function(){
+     var video_id = $(".video-listings .active").data("youtube-id");
+     $(".video-embed").html("<object width='640' height='390'>" +
+         "<param name='movie'" +
+         "value='https://www.youtube.com/v/" + video_id + "?version=3'></param>" +
+         "<param name='allowScriptAccess' value='always'></param>" +
+         "<embed src='https://www.youtube.com/v/" + video_id + "?version=3'" +
+         "type='application/x-shockwave-flash'" +
+         "allowscriptaccess='always'" +
+         "width='640' height='390'></embed>" +
+         "</object>");
+
+  }
 
   var load_subpage = function(mainPage, subPage){
     if (subPage != ""){
@@ -343,7 +368,10 @@ SubPageHandler = {};
         load_event(subPage);
       } else if (mainPage == "#publications"){
         load_publication(subPage);
+      } else if (mainPage == "#videos"){
+        load_video(subPage);
       }
+
     } else {
       if (mainPage == "#press"){
         showAllItems("press");
@@ -354,6 +382,8 @@ SubPageHandler = {};
       } else if (mainPage == "#publications"){
         showAllItems("publication");
         clearActiveLinks("publication");
+      } else if (mainPage == "#videos"){
+        clearActiveLinks("video");
       }
     }
   };
@@ -385,6 +415,11 @@ SubPageHandler = {};
     $(".publication-link").click( function(){
        var publication = $(this).data("publication-id");
        load_publication(publication)
+    });
+
+    $(".video-link").click( function(){
+       var video = $(this).data("video-id");
+       load_video(video);
     });
   };
 

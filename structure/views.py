@@ -7,7 +7,7 @@ from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
 from tweet_cache.models import Tweet
 from commission.models import Member, FAQ, PressRelease, Partner, Supporter, \
-    MediaContact, Event, Publication
+    MediaContact, Event, Publication, Video
 
 from datetime import datetime
 import pytz
@@ -50,6 +50,8 @@ def home(request, template="structure/home.html"):
 
     publications = Publication.objects.all().order_by("-publish_date")
 
+    videos = Video.objects.all()
+
     context = {'public_tweets': public_tweets,
                'video_number': video_number,
                'main_page': main_page,
@@ -78,6 +80,7 @@ def home(request, template="structure/home.html"):
                'current_events': current_events,
                'past_events': past_events,
                'publications': publications,
+               'videos': videos,
                }
 
     return render(request, template, context)

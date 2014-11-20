@@ -175,3 +175,9 @@ class PublicationAuthor(models.Model):
 
     class Meta:
         ordering = ('weight', )
+
+
+class Video(UniquelySlugable):
+    video_id = models.CharField(max_length=1024)
+    title = models.CharField(max_length=1024)
+    description = models.TextField()

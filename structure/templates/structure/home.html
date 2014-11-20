@@ -109,6 +109,19 @@
               </div>
             </li>
             {% endif %}
+
+          {% if videos|length > 0 %}
+            <li id="videos">
+              <div class="container">
+                <div class="content-page">
+                  {% include "structure/_videos.html" %}
+                </div>
+                  {%  include "structure/_footer.html" %}
+
+              </div>
+            </li>
+            {% endif %}
+
             <!--sse-->
             <li id="contact">
               <div class="container">
@@ -182,6 +195,11 @@
               {% if current_events|length > 0 or past_events|length > 0 %}
               <a href="#event" class="nav-link">
                 <span>Events</span>
+              </a>
+              {% endif %}
+              {% if videos|length > 0 %}
+              <a href="#videos" class="nav-link">
+                <span>Videos</span>
               </a>
               {% endif %}
               <!--sse-->
