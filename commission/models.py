@@ -182,3 +182,6 @@ class Video(UniquelySlugable):
     title = models.CharField(max_length=1024)
     description = models.TextField()
     weight = models.PositiveIntegerField(default=0)
+
+    def __unicode__(self):
+        return "%s" % self.title
