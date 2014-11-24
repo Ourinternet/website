@@ -1,5 +1,5 @@
-Django>=1.6
-MySQL-python==1.2.4
+Django==1.6
+MySQL-python>=1.2.4
 South==0.8.4
 tweepy==2.1
 wsgiref==0.1.2
