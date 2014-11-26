@@ -374,6 +374,8 @@
 .media-contacts .title {
   font-weight: bold;
   text-transform: uppercase; }
+.media-contacts .media-contact {
+  padding-bottom: 1em; }
 
 .press-release {
   padding-top: 1em; }

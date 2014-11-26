@@ -8,9 +8,9 @@
     </div>
 
     <div class="media-contacts">
-        <div class="title">Media Contact: </div>
+        <div class="title">Media Contact{% if release.footer.media_contacts.all|length > 1 %}s{% endif %}: </div>
          {% for contact in release.footer.media_contacts.all %}
-            <div>
+            <div class="media-contact">
                 {{ contact.name }}, {{ contact.position }}, {{ contact.company }} <br>
                 Tel: {{ contact.telephone }}, Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
             </div>
