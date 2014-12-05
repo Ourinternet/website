@@ -10,3 +10,4 @@ local_settings.py
 **/video/
 **/faq.txt
 **/pages.txt
+.DS_Store
