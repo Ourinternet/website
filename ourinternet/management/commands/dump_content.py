@@ -41,6 +41,9 @@ class Command(BaseCommand):
         with open('commission/fixtures/faqs.json', 'w') as f:
             call_command('dumpdata', 'commission.FAQ', stdout=f)
 
+        with open('commission/fixtures/videos.json', 'w') as f:
+            call_command('dumpdata', 'commission.Video', indent=2, stdout=f)
+
         with open('structure/fixtures/sites.json', 'w') as f:
             call_command('dumpdata', 'sites', stdout=f)
 
