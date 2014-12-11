@@ -628,15 +628,17 @@
   display: table;
   border-top: 1px solid #e2dada;
   padding-top: 40px; }
-  .video-listings .video-link .description {
-    display: table-cell;
-    width: 90%;
-    vertical-align: middle;
-    font-size: 1em;
-    padding-top: 1em;
-    padding-bottom: 2em; }
-  .video-listings .video-link.active {
-    color: #5dd7fc; }
+  .video-listings .video-link {
+    cursor: pointer; }
+    .video-listings .video-link .description {
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em;
+      padding-top: 1em;
+      padding-bottom: 2em; }
+    .video-listings .video-link.active {
+      color: #5dd7fc; }
 
 .footer {
   width: 90%;
