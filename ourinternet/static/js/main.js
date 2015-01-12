@@ -339,7 +339,6 @@ SubPageHandler = {};
     _load_item("publication", publication);
   };
 
-
   var load_video = function(video){
     markLinkActive("video", video);
     resetAddressBar(hashes["video"], video);
@@ -357,7 +356,6 @@ SubPageHandler = {};
          "allowscriptaccess='always'" +
          "width='640' height='390'></embed>" +
          "</object>");
-
   }
 
   var load_subpage = function(mainPage, subPage){
