@@ -1,13 +1,7 @@
 <p class="heading">Videos</p>
 
 <div class="video-embed">
-<object width='640' height='390'>
-    <param name='movie' value='https://www.youtube.com/v/{{ videos.0.video_id }}?version=3' />
-    <param name='allowScriptAccess' value='always' />
-    <embed src='https://www.youtube.com/v/{{ videos.0.video_id }}?version=3'
-           type='application/x-shockwave-flash'
-           allowscriptaccess='always' width='640' height='390'></embed>
-</object>
+    <iframe width="640" height="390" src="https://www.youtube.com/embed/{{ videos.0.video_id }}" frameborder="0" allowfullscreen></iframe>
 </div>
 
 <div class="video-listings">

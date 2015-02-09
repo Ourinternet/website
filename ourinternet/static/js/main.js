@@ -347,16 +347,10 @@ SubPageHandler = {};
 
   var load_video_player = function(){
      var video_id = $(".video-listings .active").data("youtube-id");
-     $(".video-embed").html("<object width='640' height='390'>" +
-         "<param name='movie'" +
-         "value='https://www.youtube.com/v/" + video_id + "?version=3'></param>" +
-         "<param name='allowScriptAccess' value='always'></param>" +
-         "<embed src='https://www.youtube.com/v/" + video_id + "?version=3'" +
-         "type='application/x-shockwave-flash'" +
-         "allowscriptaccess='always'" +
-         "width='640' height='390'></embed>" +
-         "</object>");
-  }
+     $(".video-embed").html('<iframe width="640" height="390" src="https://www.youtube.com/embed/'
+         + video_id +
+         '" frameborder="0" allowfullscreen></iframe>');
+  };
 
   var load_subpage = function(mainPage, subPage){
     if (subPage != ""){
