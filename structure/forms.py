@@ -7,7 +7,7 @@ class ContactForm(forms.Form):
     sender = forms.EmailField(label="Your Email")
     cc_myself = forms.BooleanField(required=False, label="CC Your Email")
     message = forms.CharField(widget=forms.Textarea)
-    name = forms.CharField(max_length=100, widget=forms.HiddenInput,
+    name = forms.CharField(widget=forms.HiddenInput,
                            required=False)
     captcha = MathCaptchaField()
 
