@@ -320,11 +320,16 @@ SubPageHandler = {};
     currentLink.addClass("active");
   };
 
+  var scrollToItem = function(item){
+    $(".scrollable").scrollTo('#' + item);
+  };
+
   var _load_item = function(type, item){
     hideAllItems(type);
     showItem(item);
     resetAddressBar(hashes[type], item);
     markLinkActive(type, item);
+    scrollToItem(item);
   };
 
   var load_press_release = function(release){
@@ -343,6 +348,11 @@ SubPageHandler = {};
     markLinkActive("video", video);
     resetAddressBar(hashes["video"], video);
     load_video_player();
+    scrollToVideoPlayer();
+  };
+
+  var scrollToVideoPlayer = function(){
+    $(".scrollable").scrollTo('.video-embed');
   };
 
   var load_video_player = function(){
