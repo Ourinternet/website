@@ -324,6 +324,10 @@ SubPageHandler = {};
     $(".scrollable").scrollTo('#' + item);
   };
 
+  var resetScroll = function(){
+    $(".scrollable").scrollTo(0);
+  };
+
   var _load_item = function(type, item){
     hideAllItems(type);
     showItem(item);
@@ -376,16 +380,20 @@ SubPageHandler = {};
 
     } else {
       if (mainPage == "#press"){
-        showAllItems("press");
-        clearActiveLinks("press");
+        showAllItems("release");
+        clearActiveLinks("release");
+        resetScroll();
       } else if (mainPage == "#event"){
         showAllItems("event");
         clearActiveLinks("event");
+        resetScroll();
       } else if (mainPage == "#publications"){
         showAllItems("publication");
         clearActiveLinks("publication");
+        resetScroll();
       } else if (mainPage == "#videos"){
         clearActiveLinks("video");
+        resetScroll();
       }
     }
   };
