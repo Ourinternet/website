@@ -47,6 +47,7 @@ body{
     width: 100%;
   }
 
+  max-width: 824px;
   width: 60%;
   height: 90%;
   top:0;
@@ -56,6 +57,12 @@ body{
 
   margin: auto !important;
 
+}
+
+.page-content-wrapper{
+  .heading{
+    margin: 2.5em 0 1em 0;
+  }
 }
 
 /* Slide Container */

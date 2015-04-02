@@ -1,3 +1,7 @@
+{% extends 'structure/page.html' %}
+{% load staticfiles %}
+
+{% block page_content %}
 {% load tz %}
 <div class="publication" id="{{ publication.slug }}">
     <p class="heading">{{ publication.title|safe }}</p>
@@ -26,19 +30,21 @@
             <div class="description">{{ publication.description|safe }}</div>
         </div>
 
+        <div class="publication-content">
+            <div class="main-body">{{ publication.body|safe }}</div>
+        </div>
+
         <div class="download">
-        {% if publication.body %}
-             <a href="{% url 'publication' publication.slug %}">View &amp; Download <i class="fa fa-mail-forward"></i></a>
-        {% else %}
+        {% spaceless %}
              <a href="{% if publication.document_link %}
              {{ publication.document_link }}
              {% elif publication.document %}
              {{ publication.document.url }}
              {% endif %}">{{ publication.document_link_title }} <i class="fa fa-download"></i></a>
-        {% endif %}
+        {% endspaceless %}
         </div>
 
     </div>
 </div>
-
+{% endblock page_content %}
 

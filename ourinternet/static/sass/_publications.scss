@@ -25,13 +25,24 @@
 
   .publication-content{
     display: table;
+    vertical-align: top;
 
     @include screen-at-most($medium) {
       display: block;
     }
 
+    .main-body {
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 3em;
+
+      @include screen-at-most($medium) {
+        display: block;
+      }
+    }
     .description {
       display: table-cell;
+      vertical-align: top;
 
       @include screen-at-most($medium) {
         display: block;
@@ -39,6 +50,7 @@
     }
     .cover-image {
       display: table-cell;
+      vertical-align: top;
       width: 8.5 * 30px;
       height:11 * 30px;
       padding-right: 1em;

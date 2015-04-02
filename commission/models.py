@@ -143,6 +143,7 @@ class PublicationType(models.Model):
 class Publication(UniquelySlugable):
     title = models.TextField()
     description = models.TextField()
+    body = models.TextField(blank=True, null=True)
     publish_date = models.DateField()
     type = models.ForeignKey("PublicationType")
     authors = models.ManyToManyField("Author", through='PublicationAuthor',

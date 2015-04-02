@@ -522,17 +522,27 @@
         white-space: nowrap;
         font-size: 0.75em; }
   .publication .publication-content {
-    display: table; }
+    display: table;
+    vertical-align: top; }
     @media only screen and (max-width: 40em) {
       .publication .publication-content {
         display: block; } }
+    .publication .publication-content .main-body {
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 3em; }
+      @media only screen and (max-width: 40em) {
+        .publication .publication-content .main-body {
+          display: block; } }
     .publication .publication-content .description {
-      display: table-cell; }
+      display: table-cell;
+      vertical-align: top; }
       @media only screen and (max-width: 40em) {
         .publication .publication-content .description {
           display: block; } }
     .publication .publication-content .cover-image {
       display: table-cell;
+      vertical-align: top;
       width: 255px;
       height: 330px;
       padding-right: 1em; }
@@ -686,6 +696,7 @@ body {
     margin-top: 10%; }
 
 .content-page {
+  max-width: 824px;
   width: 60%;
   height: 90%;
   top: 0;
@@ -698,6 +709,9 @@ body {
   @media only screen and (max-width: 75em) {
     .content-page {
       width: 100%; } }
+
+.page-content-wrapper .heading {
+  margin: 2.5em 0 1em 0; }
 
 /* Slide Container */
 .slides-container li {

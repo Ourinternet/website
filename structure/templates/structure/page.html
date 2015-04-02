@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block page_title %}ourinternet.org{% endblock %}
+{% block css %}
+    <link rel="stylesheet"
+          href="{% static 'css/vendor/font-awesome.min.css' %}"/>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}"/>
+{% endblock %}
+
+{% block jquery_plugins %}
+    <script>
+        videoNumber = {{ video_number }};
+        videoBaseUrl = "{{ VIDEO_BASE_URL }}";
+    </script>
+{% endblock jquery_plugins %}
+
+
+{% block content %}
+    <img id="background" src="/static/img/bg_{{ video_number }}.jpg"
+         alt="Background Image">
+    <div class="content">
+        <nav id="top-menu" class="custom-slides-pagination">
+            <a href="{% url 'home' %}#home" class="home">
+                <span>home</span>
+            </a>
+            <a href="{% url 'home' %}#about" class="nav-link">
+                <span>About</span>
+            </a>
+            <a href="{% url 'home' %}#partners" class="nav-link">
+                <span>Partners & Sponsors</span>
+            </a>
+            <a href="{% url 'home' %}#commission" class="nav-link">
+                <span>Commission</span>
+            </a>
+            {% if research_advisers|length > 0 %}
+                <a href="{% url 'home' %}#research_advisers" class="nav-link">
+                    <span>Research Advisers</span>
+                </a>
+            {% endif %}
+            <a href="{% url 'home' %}#press" class="nav-link">
+                <span>Press</span>
+            </a>
+            {% if publications|length > 0 %}
+                <a href="{% url 'home' %}#publications" class="nav-link">
+                    <span>Publications</span>
+                </a>
+            {% endif %}
+            {% if current_events|length > 0 or past_events|length > 0 %}
+                <a href="{% url 'home' %}#event" class="nav-link">
+                    <span>Events</span>
+                </a>
+            {% endif %}
+            {% if videos|length > 0 %}
+                <a href="{% url 'home' %}#videos" class="nav-link">
+                    <span>Videos</span>
+                </a>
+            {% endif %}
+            <!--sse-->
+            <a href="{% url 'home' %}#contact" class="nav-link">
+                <span>Contact</span>
+            </a>
+            <!--/sse-->
+            <a href="{% url 'home' %}#faq" class="nav-link">
+                <span>FAQ</span>
+            </a>
+
+            <a href="{% url 'home' %}#activities" class="nav-link icon">
+                <span class="fa fa-twitter"></span>
+            </a>
+
+        </nav>
+
+        <nav id="responsive-menu"
+             class="compressed custom-slides-pagination clearfix">
+            <a href="{% url 'home' %}#home" class="home">
+                <span>home</span>
+            </a>
+
+            <a href="#" id="responsive-menu-toggle"><i class="fa fa-bars"></i></a>
+            <ul id="responsive-menu-list" class="clearfix">
+            </ul>
+            <a href="{% url 'home' %}#activities" class="nav-link icon">
+                <span class="fa fa-twitter"></span>
+            </a>
+        </nav>
+
+        <div class="page-content-wrapper">
+            <div class="container">
+                <div class="content-page">
+                    {% block page_content %}
+                    {% endblock page_content %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+{% endblock content %}
