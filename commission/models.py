@@ -193,7 +193,7 @@ class Feature(models.Model):
     type_line = models.CharField(max_length=1024, blank=True, null=True)
     title = models.CharField(max_length=1024, blank=True, null=True)
     description = models.TextField(blank=True, null=True)
-    link = models.URLField(null=True, blank=True)
+    link = models.CharField(max_length=1024,null=True, blank=True)
     date = models.DateField(null=True, blank=True)
     date_title = models.CharField(max_length=128, default="Release Date")
     disable = models.BooleanField(default=False)
