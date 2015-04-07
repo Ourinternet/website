@@ -133,6 +133,7 @@ class Event(UniquelySlugable):
     def __unicode__(self):
         return self.title
 
+
 class PublicationType(models.Model):
     name = models.CharField(max_length=40)
 
@@ -186,3 +187,20 @@ class Video(UniquelySlugable):
 
     def __unicode__(self):
         return "%s" % self.title
+
+
+class Feature(models.Model):
+    type_line = models.CharField(max_length=1024, blank=True, null=True)
+    title = models.CharField(max_length=1024, blank=True, null=True)
+    description = models.TextField(blank=True, null=True)
+    link = models.URLField(null=True, blank=True)
+    date = models.DateField(null=True, blank=True)
+    date_title = models.CharField(max_length=128, default="Release Date")
+    disable = models.BooleanField(default=False)
+    weight = models.PositiveIntegerField(default=0)
+
+    def __unicode__(self):
+        return "%s - %s - %d" % (self.type_line, self.title, self.weight)
+
+    class Meta:
+        ordering = ('weight', )

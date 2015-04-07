@@ -314,7 +314,8 @@
   width: 556px !important;
   height: 201px !important;
   position: static !important;
-  z-index: 10 !important; }
+  z-index: 10 !important;
+  margin-bottom: 1em; }
   @media only screen and (max-width: 556px) {
     .heading .logo img {
       width: 278px !important;
@@ -694,6 +695,48 @@ body {
   .lt-ie8 .main-page {
     position: static;
     margin-top: 10%; }
+  .main-page .features {
+    padding-top: 2em;
+    border-top: 1px solid #e2dada;
+    font-size: 0.66666666em; }
+    .main-page .features .feature {
+      display: table; }
+      .main-page .features .feature .feature-display-row {
+        display: table-row; }
+        .main-page .features .feature .feature-display-row .feature-type {
+          display: table-cell;
+          text-transform: uppercase;
+          font-size: 0.9em; }
+        .main-page .features .feature .feature-display-row .feature-date {
+          display: table-cell;
+          text-transform: uppercase;
+          font-size: 0.9em; }
+        .main-page .features .feature .feature-display-row .title {
+          display: table-cell; }
+        .main-page .features .feature .feature-display-row .description {
+          display: table-cell;
+          padding-top: 2em; }
+        .main-page .features .feature .feature-display-row .download {
+          display: table-cell;
+          text-align: center;
+          margin-top: 2em;
+          text-align: center; }
+          .main-page .features .feature .feature-display-row .download a {
+            font-size: 0.91em;
+            padding: 0.4em 1em;
+            width: 11em;
+            text-transform: uppercase;
+            border: 1px solid #5dd7fc;
+            -webkit-border-radius: 0.273em;
+            -moz-border-radius: 0.273em;
+            border-radius: 0.273em;
+            background-color: rgba(29, 65, 95, 0.5); }
+            .main-page .features .feature .feature-display-row .download a:hover {
+              background-color: rgba(93, 215, 252, 0.125); }
+    @media only screen and (max-width: 75em) {
+      .main-page .features {
+        max-width: 90%;
+        margin: auto; } }
 
 .content-page {
   max-width: 824px;

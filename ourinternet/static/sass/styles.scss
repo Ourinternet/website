@@ -37,6 +37,69 @@ body{
     position: static;
     margin-top: 10%;
   }
+
+  .features {
+    padding-top: 2em;
+    border-top: 1px solid $main_color;
+    font-size: 0.66666666em;
+
+    .feature{
+      display: table;
+
+      .feature-display-row{
+        display: table-row;
+
+        .feature-type{
+          display: table-cell;
+          text-transform: uppercase;
+          font-size: 0.9em;
+        }
+        .feature-date{
+          display: table-cell;
+          text-transform: uppercase;
+          font-size: 0.9em;
+        }
+
+        .title{
+          display: table-cell;
+//          font-size: 1.5em;
+        }
+        .description{
+          display: table-cell;
+          padding-top: 2em;
+        }
+        .download{
+          display: table-cell;
+          text-align: center;
+          margin-top: 2em;
+          text-align: center;
+          a {
+            font-size: 0.91em;
+            padding: 0.4em 1em;
+            width: 11em;
+            text-transform: uppercase;
+            border: 1px solid $link_color;
+            -webkit-border-radius: 0.273em;
+            -moz-border-radius: 0.273em;
+            border-radius: 0.273em;
+            background-color: $button_background_color;
+
+            &:hover {
+              background-color: $button_hover_background_color;
+            }
+          }
+        }
+      }
+
+
+    }
+
+    @include screen-at-most($large){
+      max-width: 90%;
+      margin: auto 0;
+    }
+
+  }
 }
 
 .content-page{

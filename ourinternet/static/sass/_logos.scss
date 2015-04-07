@@ -46,11 +46,14 @@
       height: 201px !important;
       position: static !important;
       z-index: 10 !important;
+      margin-bottom: 1em;
 
       @include screen-at-most(556px) {
         width: 278px !important;
         height: 100.5px !important;
       }
+
+
     }
 
 

@@ -1,7 +1,7 @@
 from django.contrib import admin
 from models import Member, Partner, FAQ, PressRelease, MediaContact, \
     PressReleaseFooter, Supporter, Event, Publication, Author,  \
-    PublicationType, PublicationAuthor, Video
+    PublicationType, PublicationAuthor, Video, Feature
 
 
 class PublicationAuthorInline(admin.TabularInline):
@@ -26,6 +26,6 @@ admin.site.register(PublicationType)
 admin.site.register(Author)
 admin.site.register(PublicationAuthor)
 admin.site.register(Video)
-
+admin.site.register(Feature)
 
 

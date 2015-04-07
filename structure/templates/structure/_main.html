@@ -4,8 +4,26 @@
 <div class="heading">
     <div class="logo"><img src="{% static 'img/OurinternetLogo.png' %}" alt="Ourinternet Logo"></div>
 </div>
-
-
+{% if features %}
+<div class="features">
+    {% for feature in features %}
+        <div class="feature">
+            <div class="feature-display-row">
+                {% if feature.link %}<a href="{{ feature.link }}">{% endif %}<div class="title heading">{{ feature.title }}</div> {% if feature.link %}</a>{% endif %}
+            </div>
+            <div class="feature-display-row">
+                <div class="feature-type">{{ feature.type_line }}</div>
+            </div>
+            <div class="feature-display-row">
+                <div class="feature-date">{{ feature.date_title }}: {{ feature.date }}</div>
+            </div>
+            <div class="feature-display-row">
+                <div class="description">{{ feature.description }}</div>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endif %}
 <div class="logos">
   {% for partner in partners %}
       {% if partner.logo %}
