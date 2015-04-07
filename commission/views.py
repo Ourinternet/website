@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from models import PressRelease, Publication
 from random import randint
 from django.conf import settings
+from django.contrib.flatpages.models import FlatPage
 
 
 def press_release(request, slug, template="commission/press_release.html"):
@@ -21,9 +22,11 @@ class PublicationPageView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(PublicationPageView, self).get_context_data(**kwargs)
 
+        footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
         video_number = randint(1, 3)
         context['video_number'] = video_number
         context['GA_SITE_ID'] = settings.GA_SITE_ID
         context['GA_SITE_URL'] = settings.GA_SITE_URL
         context['publication'] = Publication.objects.get(slug=kwargs['slug'])
+        context['footer_page'] = footer_page
         return context
