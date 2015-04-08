@@ -1,6 +1,6 @@
 {% load tz %}
 <div class="publication" id="{{ publication.slug }}">
-    <p class="heading">{{ publication.title|safe }}</p>
+    {% if publication.body %}<a href="{% url 'publication' publication.slug %}">{% endif %}<p class="heading">{{ publication.title|safe }}</p>{% if publication.body %}</a>{% endif %}
     <div class="publication-body">
 
         <div class="info">
