@@ -3,31 +3,41 @@
 
 {% block page_content %}
 {% load tz %}
-<div class="publication" id="{{ publication.slug }}">
-    <p class="heading">{{ publication.title|safe }}</p>
-    <div class="publication-body">
+<div class="publication page" id="{{ publication.slug }}">
 
-        <div class="info">
-            <div class="data">
-            {% spaceless %}
-                <div class="authors">{% for author in publication.get_authors %}
-                    {{ author.name }}{% if not forloop.last %}, {% endif %}
-                {% endfor %}
-                </div>
-            {% endspaceless %}
-                <div class="date">
-                    {% timezone "UTC" %}
-                    <span class="publish-date">Published: {{ publication.publish_date|date:"l, F j, Y" }} </span>
-                    {% endtimezone %}
-                </div>
-            </div>
-        </div>
+    <div class="publication-body">
 
         <div class="publication-content">
             {% if publication.image %}
             <div class="cover-image"><img src="{{ publication.image.url }}" alt="cover image"></div>
             {% endif %}
-            <div class="description">{{ publication.description|safe }}</div>
+            <div class="info">
+            <div class="data">
+                <p class="heading">{{ publication.title|safe }}</p>
+
+                {% spaceless %}
+                    <div class="authors">{% for author in publication.get_authors %}
+                        {{ author.name }}{% if not forloop.last %}, {% endif %}
+                    {% endfor %}
+                    </div>
+                {% endspaceless %}
+                    <div class="date">
+                        {% timezone "UTC" %}
+                        <span class="publish-date">Published: {{ publication.publish_date|date:"l, F j, Y" }} </span>
+                        {% endtimezone %}
+                    </div>
+
+                <div class="download">
+        {% spaceless %}
+             <a href="{% if publication.document_link %}
+             {{ publication.document_link }}
+             {% elif publication.document %}
+             {{ publication.document.url }}
+             {% endif %}">{{ publication.document_link_title }} <i class="fa fa-download"></i></a>
+        {% endspaceless %}
+        </div>
+                </div>
+            </div>
         </div>
 
         <div class="publication-content">

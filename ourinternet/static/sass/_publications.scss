@@ -4,6 +4,39 @@
 .publication{
   padding-top: 1em;
 
+  &.page{
+    .publication-body{
+      margin-top: 4em;
+
+      .data .download{
+        margin-top: 4em;
+
+        @include screen-at-most($medium) {
+          margin-top: 2em;
+        }
+      }
+      .heading{
+        margin: 0.5em 0 1em 0;
+      }
+
+      .cover-image{
+        width: 178px;
+        height: 231px;
+
+        @include screen-at-most($medium) {
+          width: 100%;
+          height: 100%;
+          margin-bottom: 1em;
+        }
+      }
+      .cover-image img{
+        width: 178px !important;
+        height: 231px !important;
+
+
+      }
+    }
+  }
   .info{
     font-style: italic;
     text-transform: uppercase;

@@ -508,6 +508,26 @@
 
 .publication {
   padding-top: 1em; }
+  .publication.page .publication-body {
+    margin-top: 4em; }
+    .publication.page .publication-body .data .download {
+      margin-top: 4em; }
+      @media only screen and (max-width: 40em) {
+        .publication.page .publication-body .data .download {
+          margin-top: 2em; } }
+    .publication.page .publication-body .heading {
+      margin: 0.5em 0 1em 0; }
+    .publication.page .publication-body .cover-image {
+      width: 178px;
+      height: 231px; }
+      @media only screen and (max-width: 40em) {
+        .publication.page .publication-body .cover-image {
+          width: 100%;
+          height: 100%;
+          margin-bottom: 1em; } }
+    .publication.page .publication-body .cover-image img {
+      width: 178px !important;
+      height: 231px !important; }
   .publication .info {
     font-style: italic;
     text-transform: uppercase;
