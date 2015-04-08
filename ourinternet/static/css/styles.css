@@ -720,7 +720,7 @@ body {
           display: table-cell;
           text-align: center;
           margin-top: 2em;
-          text-align: center; }
+          padding-top: 2em; }
           .main-page .features .feature .feature-display-row .download a {
             font-size: 0.91em;
             padding: 0.4em 1em;
@@ -736,7 +736,7 @@ body {
     @media only screen and (max-width: 75em) {
       .main-page .features {
         max-width: 90%;
-        margin: auto; } }
+        margin: auto 0; } }
 
 .content-page {
   max-width: 824px;

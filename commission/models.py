@@ -198,6 +198,8 @@ class Feature(models.Model):
     date_title = models.CharField(max_length=128, default="Release Date")
     disable = models.BooleanField(default=False)
     weight = models.PositiveIntegerField(default=0)
+    button_link = models.CharField(max_length=1024,null=True, blank=True)
+    button_link_title = models.CharField(max_length=1024,null=True, blank=True)
 
     def __unicode__(self):
         return "%s - %s - %d" % (self.type_line, self.title, self.weight)
