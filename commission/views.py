@@ -30,3 +30,18 @@ class PublicationPageView(TemplateView):
         context['publication'] = Publication.objects.get(slug=kwargs['slug'])
         context['footer_page'] = footer_page
         return context
+
+
+class WebCastPageView(TemplateView):
+    template_name = "commission/webcast_page.html"
+
+    def get_context_data(self, **kwargs):
+        context = super(WebCastPageView, self).get_context_data(**kwargs)
+
+        footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
+        video_number = randint(1, 3)
+        context['video_number'] = video_number
+        context['GA_SITE_ID'] = settings.GA_SITE_ID
+        context['GA_SITE_URL'] = settings.GA_SITE_URL
+        context['footer_page'] = footer_page
+        return context
