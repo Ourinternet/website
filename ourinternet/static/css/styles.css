@@ -511,12 +511,14 @@
   .publication.page .publication-body {
     margin-top: 4em; }
     .publication.page .publication-body .data .download {
-      margin-top: 4em; }
+      margin-top: 4em;
+      text-align: left; }
       @media only screen and (max-width: 40em) {
         .publication.page .publication-body .data .download {
           margin-top: 2em; } }
     .publication.page .publication-body .heading {
-      margin: 0.5em 0 1em 0; }
+      margin: 0.5em 0 0.5em 0;
+      text-transform: none; }
     .publication.page .publication-body .cover-image {
       width: 178px;
       height: 231px; }
