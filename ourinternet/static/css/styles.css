@@ -544,6 +544,8 @@
       .publication .info .data .publish-date {
         white-space: nowrap;
         font-size: 0.75em; }
+    .publication .info .heading {
+      font-style: normal; }
   .publication .publication-content {
     display: table;
     vertical-align: top; }
