@@ -17,8 +17,10 @@
 
 
 {% block content %}
+    {% block background %}
     <img id="background" src="/static/img/bg_{{ video_number }}.jpg"
          alt="Background Image">
+    {% endblock %}
     <div class="content">
         <nav id="top-menu" class="custom-slides-pagination">
             <a href="{% url 'home' %}#home" class="home">
