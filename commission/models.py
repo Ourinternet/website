@@ -220,8 +220,9 @@ class OrderedFeatureLink(models.Model):
 
 
 class FeatureLink(models.Model):
-    link = models.CharField(max_length=1024,null=True, blank=True)
-    link_title = models.CharField(max_length=1024,null=True, blank=True)
+    link = models.CharField(max_length=1024, null=True, blank=True)
+    link_title = models.CharField(max_length=1024, null=True, blank=True)
+    icon = models.CharField(max_length=1024, null=True, blank=True, default='fa-mail-forward')
 
     def __unicode__(self):
         return "%s" % (self.link_title)
