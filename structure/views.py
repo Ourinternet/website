@@ -132,7 +132,6 @@ def contact_submit(request):
         return redirect('contact_redirect_no_ajax')
 
 
-
 class CustomRedirectView(RedirectView):
     permanent = False
     query_string = False
