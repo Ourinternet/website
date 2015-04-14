@@ -17,6 +17,10 @@ Slider = {};
   var $slides = $('#slides');
 
   Slider.setupTouch = function(){
+    if ($slides.length === 0){
+      return;
+    }
+
     Hammer($slides[0]).on("swipeleft", function(e) {
       $slides.data('superslides').animate('next');
     });
@@ -36,6 +40,9 @@ Slider = {};
   };
 
   Slider.initialize = function(){
+    if ($slides.length === 0){
+      return;
+    }
     $slides.superslides({
       hashchange: true,
       pagination: false
@@ -46,21 +53,22 @@ Slider = {};
   };
 
   var highligtMenuHandler = function(){
-        var current_index = $(this).superslides('current');
-        $('.custom-slides-pagination a').removeClass('current');
-        $('.custom-slides-pagination a').eq(current_index).addClass('current');
-        if (current_index == 0){
-          $('.compressed.custom-slides-pagination a').eq(current_index).addClass('current');
-        }else {
-          $('.compressed.custom-slides-pagination a').eq(current_index + 1).addClass('current');
-        }
-
+    var current_index = $(this).superslides('current');
+    $('.custom-slides-pagination a').removeClass('current');
+    $('.custom-slides-pagination a').eq(current_index).addClass('current');
+    if (current_index == 0){
+      $('.compressed.custom-slides-pagination a').eq(current_index).addClass('current');
+    }else {
+      $('.compressed.custom-slides-pagination a').eq(current_index + 1).addClass('current');
+    }
   };
 
   Slider.hookupMenu = function(){
-    $('#slides').on('animated.slides', highligtMenuHandler);
+    if ($slides.length === 0){
+      return;
+    }
+    $slides.on('animated.slides', highligtMenuHandler);
   };
-
 
 })();
 
@@ -68,6 +76,9 @@ Video = {};
 (function(){
 
   Video.initialize = function(){
+    if (typeof $.BigVideo === "undefined"){
+      return;
+    }
     var BV;
     BV = new $.BigVideo();
     BV.init();
@@ -442,12 +453,14 @@ $(function(){
   GoogleAnalyticsExtension.hookupSubmit();
 
   var touch_support = $('html').hasClass("touch");
-  if (touch_support){
+  if (touch_support) {
     Slider.setupTouch();
   }
 
   Slider.initialize();
   Slider.hookupMenu();
+
+
 
   var is_ie7 = $('html').hasClass("lt-ie8");
   if (!Modernizr.touch && !is_ie7) {
