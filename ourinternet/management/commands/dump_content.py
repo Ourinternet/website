@@ -49,3 +49,6 @@ class Command(BaseCommand):
 
         with open('structure/fixtures/pages.json', 'w') as f:
             call_command('dumpdata', 'flatpages', stdout=f)
+
+        with open('structure/fixtures/aliases.json', 'w') as f:
+            call_command('dumpdata', 'structure.url_alias', stdout=f)
