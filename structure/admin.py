@@ -1,3 +1,5 @@
 from django.contrib import admin
+from .models import UrlAlias
 
-# Register your models here.
+
+admin.site.register(UrlAlias)

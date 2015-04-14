@@ -1,6 +1,7 @@
 from django.conf.urls import patterns, include, url
 from django.conf import settings
 from django.contrib import admin
+from structure.views import CustomRedirectView
 admin.autodiscover()
 
 urlpatterns = patterns('',
@@ -11,6 +12,8 @@ urlpatterns = patterns('',
 
     (r'^pages/', include('django.contrib.flatpages.urls')),
     url(r'^admin/', include(admin.site.urls)),
+
+    url(r'^(?P<source>[-\w]+)/$', CustomRedirectView.as_view(), name='redirect')
 
 )
 

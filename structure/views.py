@@ -1,14 +1,15 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from random import randint
 from django.conf import settings
 from forms import ContactForm
 from django.core.mail import EmailMessage
 from django.contrib import messages
 from django.contrib.flatpages.models import FlatPage
+from django.views.generic import RedirectView
 from tweet_cache.models import Tweet
 from commission.models import Member, FAQ, PressRelease, Partner, Supporter, \
     MediaContact, Event, Publication, Video, Feature
-
+from .models import UrlAlias
 from datetime import datetime
 import pytz
 
@@ -130,3 +131,14 @@ def contact_submit(request):
     else:
         return redirect('contact_redirect_no_ajax')
 
+
+
+class CustomRedirectView(RedirectView):
+    permanent = False
+    query_string = False
+
+    def get_redirect_url(self, *args, **kwargs):
+        url_alias = get_object_or_404(UrlAlias, source=kwargs['source'])
+        self.url = url_alias.destination
+
+        return super(CustomRedirectView, self).get_redirect_url(*args, **kwargs)
