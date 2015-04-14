@@ -3,15 +3,33 @@
 
 {% block page_content %}
 {% load tz %}
-<div class="webcast">
-    <div class="heading">GCIG Live</div>
-    <div class="video-embed">&lt;video embed&gt;</div>
-    <div class="instructions">
-        <div class="heading">Instructions</div>
-        <p>Broadcasts will begin automatically on this page; there is no log-in or verification required. We recommend the use of headphones for optimal audio quality.</p>
-        <p>Questions for the speakers can be submitted via Twitter using #GCIGLive. We ask that you include your name and location when submitting a question.</p>
-        <p>Should you experience any technical difficulties throughout the broadcast, please contact <a href="mailto:info@ourinternet.org">info@ourinternet.org</a>.</p>
+    <div class="webcasts">
+    {% for webcast in webcasts.all %}
+
+
+
+    <div class="webcast">
+        <div class="heading">{{ webcast.title }}</div>
+        {% if webcast.embed_type == 'None' %}
+        <div class="webcast-embed"></div>
+        {% elif webcast.embed_type == 'iframe' %}
+            <div class="webcast-embed"><iframe src="{{ webcast.embed_identifier }}"
+                                             width="640" height="390"
+                                             frameborder="0"
+                                             seamless allowfullscreen="true"
+                                             webkitAllowFullScreen="true"></iframe></div>
+        {% endif %}
     </div>
-</div>
+    {% empty %}
+        <div class="webcast">
+        <div class="heading">GCIG Live</div>
+        <div class="webcast-embed"></div>
+    </div>
+    {% endfor %}
+    <div class="instructions">
+        <div class="heading">{{ webcasts_instructions_page.title|title }}</div>
+        {{ webcasts_instructions_page.content|safe }}
+    </div>
+    </div>
 {% endblock page_content %}
 

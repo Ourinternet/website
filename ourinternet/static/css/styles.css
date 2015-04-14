@@ -651,6 +651,7 @@
         max-width: 46%;
         padding-right: 0.25em; } }
 
+.webcast-embed,
 .video-embed {
   text-align: center;
   width: 640px;

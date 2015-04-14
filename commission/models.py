@@ -206,3 +206,22 @@ class Feature(models.Model):
 
     class Meta:
         ordering = ('weight', )
+
+
+EMBED_TYPES = (
+    ('None', 'None'),
+    ('iframe', 'Basic iframe')
+)
+
+
+class Webcast(models.Model):
+    title = models.CharField(max_length=1024, default="GCIG Live")
+    embed_identifier = models.CharField(max_length=2048, blank=True, null=True)
+    embed_type = models.CharField(max_length=20, choices=EMBED_TYPES)
+    disabled = models.BooleanField(default=True)
+
+    def __unicode__(self):
+        state = "Active"
+        if self.disabled:
+            state = "Disabled"
+        return "%s - %s - %s" % (self.title, self.get_embed_type_display(), state)
