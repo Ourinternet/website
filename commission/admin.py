@@ -1,7 +1,8 @@
 from django.contrib import admin
-from models import Member, Partner, FAQ, PressRelease, MediaContact, \
-    PressReleaseFooter, Supporter, Event, Publication, Author,  \
-    PublicationType, PublicationAuthor, Video, Feature, Webcast
+from models import (Member, Partner, FAQ, PressRelease, MediaContact,
+    PressReleaseFooter, Supporter, Event, Publication, Author,
+    PublicationType, PublicationAuthor, Video, Feature, FeatureLink,
+    OrderedFeatureLink, Webcast)
 
 
 class PublicationAuthorInline(admin.TabularInline):
@@ -10,7 +11,16 @@ class PublicationAuthorInline(admin.TabularInline):
 
 
 class PublicationAdmin(admin.ModelAdmin):
-    inlines = (PublicationAuthorInline,)
+    inlines = (PublicationAuthorInline, )
+
+
+class FeatureLinkInline(admin.TabularInline):
+    model = OrderedFeatureLink
+    extra = 1
+
+
+class FeatureAdmin(admin.ModelAdmin):
+    inlines = (FeatureLinkInline, )
 
 
 admin.site.register(Member)
@@ -26,6 +36,7 @@ admin.site.register(PublicationType)
 admin.site.register(Author)
 admin.site.register(PublicationAuthor)
 admin.site.register(Video)
-admin.site.register(Feature)
+admin.site.register(Feature, FeatureAdmin)
+admin.site.register(FeatureLink)
 admin.site.register(Webcast)
 

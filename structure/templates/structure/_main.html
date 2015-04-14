@@ -20,12 +20,14 @@
             <div class="feature-display-row">
                 <div class="description">{{ feature.description }}</div>
             </div>
-            <div class="feature-display-row">
+
+            <div class="feature-display-row-{{ feature.feature_links.all|length }}">
+            {% for button_link in feature.feature_links.all %}
                 <div class="download">
-                {% if feature.button_link %}
-                     <a href="{{ feature.button_link }}">{{ feature.button_link_title }} <i class="fa fa-mail-forward"></i></a>
-                {% endif %}
+                     <a href="{{ button_link.link }}">{{ button_link.link_title }} <i class="fa fa-mail-forward"></i></a>
                 </div>
+
+            {% endfor %}
             </div>
         </div>
     {% endfor %}

@@ -198,14 +198,33 @@ class Feature(models.Model):
     date_title = models.CharField(max_length=128, default="Release Date")
     disable = models.BooleanField(default=False)
     weight = models.PositiveIntegerField(default=0)
-    button_link = models.CharField(max_length=1024,null=True, blank=True)
-    button_link_title = models.CharField(max_length=1024,null=True, blank=True)
+    feature_links = models.ManyToManyField('FeatureLink', null=True, blank=True, through='OrderedFeatureLink')
 
     def __unicode__(self):
         return "%s - %s - %d" % (self.type_line, self.title, self.weight)
 
     class Meta:
         ordering = ('weight', )
+
+
+class OrderedFeatureLink(models.Model):
+    feature = models.ForeignKey('Feature')
+    link = models.ForeignKey('FeatureLink')
+    weight = models.PositiveIntegerField(default=0)
+
+    def __unicode__(self):
+        return "%s - %s: %d" % (self.feature.title, self.link.link_title, self.weight)
+
+    class Meta:
+        ordering = ('feature', 'weight', )
+
+
+class FeatureLink(models.Model):
+    link = models.CharField(max_length=1024,null=True, blank=True)
+    link_title = models.CharField(max_length=1024,null=True, blank=True)
+
+    def __unicode__(self):
+        return "%s" % (self.link_title)
 
 
 EMBED_TYPES = (

@@ -92,12 +92,50 @@ body{
         }
       }
 
+      .feature-display-row-2{
+        display: table-row;
+        text-align: center;
+        .download{
+
+
+          display: inline-block;
+          width: 30%;
+          text-align: center;
+          margin-top: 2em;
+          padding-top: 2em;
+          a {
+            font-size: 0.91em;
+            padding: 0.4em 1em;
+            width: 11em;
+            text-transform: uppercase;
+            border: 1px solid $link_color;
+            -webkit-border-radius: 0.273em;
+            -moz-border-radius: 0.273em;
+            border-radius: 0.273em;
+            background-color: $button_background_color;
+
+            &:hover {
+              background-color: $button_hover_background_color;
+            }
+          }
+
+          @include screen-at-most($medium) {
+            display: block;
+            width: 100%;
+              margin-top: 1em;
+            padding-top: 1em;
+          }
+        }
+      }
+
+      @include screen-at-most($large){
+        max-width: 90%;
+      }
 
     }
 
     @include screen-at-most($large){
-      max-width: 90%;
-      margin: auto 0;
+      padding-left: 2em;
     }
 
   }
