@@ -44,6 +44,12 @@ class Command(BaseCommand):
         with open('commission/fixtures/videos.json', 'w') as f:
             call_command('dumpdata', 'commission.Video', indent=2, stdout=f)
 
+        with open('commission/fixtures/features.json', 'w') as f:
+            call_command('dumpdata', 'commission.Feature', 'commission.FeatureLink', 'commission.OrderedFeatureLink', indent=2, stdout=f)
+
+        with open('commission/fixtures/webcasts.json', 'w') as f:
+            call_command('dumpdata', 'commission.Webcast', indent=2, stdout=f)
+
         with open('structure/fixtures/sites.json', 'w') as f:
             call_command('dumpdata', 'sites', stdout=f)
 
@@ -51,4 +57,4 @@ class Command(BaseCommand):
             call_command('dumpdata', 'flatpages', stdout=f)
 
         with open('structure/fixtures/aliases.json', 'w') as f:
-            call_command('dumpdata', 'structure.url_alias', stdout=f)
+            call_command('dumpdata', 'structure.UrlAlias', stdout=f)

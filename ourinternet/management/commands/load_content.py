@@ -19,6 +19,9 @@ class Command(BaseCommand):
         call_command('loaddata', 'commission/fixtures/publication_authors.json')
         call_command('loaddata', 'commission/fixtures/faqs.json')
         call_command('loaddata', 'commission/fixtures/videos.json')
+        call_command('loaddata', 'commission/fixtures/features.json')
+        call_command('loaddata', 'commission/fixtures/webcasts.json')
+
         call_command('loaddata', 'structure/fixtures/sites.json')
         call_command('loaddata', 'structure/fixtures/pages.json')
         call_command('loaddata', 'structure/fixtures/aliases.json')
