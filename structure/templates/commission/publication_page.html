@@ -28,7 +28,9 @@
 
                 <div class="download">
         {% spaceless %}
-             <a href="{% if publication.document_link %}
+             <a
+                onclick="trackOutboundLink('{% if publication.document_link %}{{ publication.document_link }}{% elif publication.document %}{{ publication.document.url }}{% endif %}');"
+                href="{% if publication.document_link %}
              {{ publication.document_link }}
              {% elif publication.document %}
              {{ publication.document.url }}
@@ -45,7 +47,9 @@
 
         <div class="download">
         {% spaceless %}
-             <a href="{% if publication.document_link %}
+             <a
+                onclick="trackOutboundLink('{% if publication.document_link %}{{ publication.document_link }}{% elif publication.document %}{{ publication.document.url }}{% endif %}');"
+                href="{% if publication.document_link %}
              {{ publication.document_link }}
              {% elif publication.document %}
              {{ publication.document.url }}

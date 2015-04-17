@@ -16,7 +16,7 @@
 
 <div id="supporter-list">
     {% for supporter in supporters %}
-        <div class="supporter">{% if supporter.website %}<a href="{{ supporter.website.url }}">{{ supporter.name }}</a>{% else %}{{ supporter.name }}{% endif %}</div>
+        <div class="supporter">{% if supporter.website %}<a onclick="trackOutboundLink('{{ supporter.website.url }}');" href="{{ supporter.website.url }}">{{ supporter.name }}</a>{% else %}{{ supporter.name }}{% endif %}</div>
     {% endfor %}
 </div>
 

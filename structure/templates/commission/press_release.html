@@ -12,7 +12,7 @@
          {% for contact in release.footer.media_contacts.all %}
             <div class="media-contact">
                 {{ contact.name }}, {{ contact.position }}, {{ contact.company }} <br>
-                Tel: {{ contact.telephone }}, Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+                Tel: {{ contact.telephone }}, Email: <a onclick="trackOutboundLink('mailto:{{ contact.email }}');" href="mailto:{{ contact.email }}">{{ contact.email }}</a>
             </div>
          {% endfor %}
     </div>

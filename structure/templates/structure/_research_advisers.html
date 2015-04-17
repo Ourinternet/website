@@ -26,9 +26,9 @@
                 <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
                 {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
                 {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
-                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
+                {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a onclick="trackOutboundLink('http://twitter.com/{{ member.twitter_handle }}');" href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
                 {% if member.short_bio %}<div class="member-bio">{{ member.short_bio }}</div>{% endif %}
-                {% if member.website %}<div class="member-website"><a href="{{ member.website }}">Access Website <i class="fa fa-external-link"></i></a></div>{% endif %}
+                {% if member.website %}<div class="member-website"><a onclick="trackOutboundLink('{{ member.website }}');" href="{{ member.website }}">Access Website <i class="fa fa-external-link"></i></a></div>{% endif %}
             {% endif %}
         </div>
     {% endfor %}
