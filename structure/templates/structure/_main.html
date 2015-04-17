@@ -24,7 +24,7 @@
             <div class="feature-display-row-{{ feature.feature_links.all|length }}">
             {% for button_link in feature.feature_links.all %}
                 <div class="download">
-                     <a onclick="trackOutboundLink('{{ button_link.link }}');" href="{{ button_link.link }}">{{ button_link.link_title }} <i class="fa {{ button_link.icon }}"></i></a>
+                     <a href="{{ button_link.link }}">{{ button_link.link_title }} <i class="fa {{ button_link.icon }}"></i></a>
                 </div>
 
             {% endfor %}

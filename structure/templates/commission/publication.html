@@ -30,13 +30,11 @@
         {% if publication.body %}
              <a href="{% url 'publication' publication.slug %}">View &amp; Download <i class="fa fa-mail-forward"></i></a>
         {% else %}
-            {% spaceless %}
-             <a onclick="trackOutboundLink('{% if publication.document_link %}{{ publication.document_link }}{% elif publication.document %}{{ publication.document.url }}{% endif %}');" href="{% if publication.document_link %}
+             <a href="{% if publication.document_link %}
              {{ publication.document_link }}
              {% elif publication.document %}
              {{ publication.document.url }}
              {% endif %}">{{ publication.document_link_title }} <i class="fa fa-download"></i></a>
-            {% endspaceless %}
         {% endif %}
         </div>
 
