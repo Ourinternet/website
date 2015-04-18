@@ -27,7 +27,7 @@ class PublicationPageView(TemplateView):
             publication = Publication.objects.get(slug=kwargs['slug'])
         except Publication.DoesNotExist:
             alias = UrlAlias.objects.get(source='publication/{}'.format(kwargs['slug']))
-            publication = Publication.objects.get(slug=alias.destination[:13])
+            publication = Publication.objects.get(slug=alias.destination[13:])
 
         footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
         video_number = randint(1, 3)
