@@ -38,7 +38,7 @@
     .main-body {
       display: table-cell;
       vertical-align: top;
-      padding-top: 3em;
+      padding-top: 1.5em;
 
       @include screen-at-most($medium) {
         display: block;

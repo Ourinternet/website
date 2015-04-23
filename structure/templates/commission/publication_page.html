@@ -47,16 +47,6 @@
             {% endif %}
         </div>
 
-        <div class="download">
-        {% spaceless %}
-             <a href="{% if publication.document_link %}
-             {{ publication.document_link }}
-             {% elif publication.document %}
-             {{ publication.document.url }}
-             {% endif %}">{{ publication.document_link_title }} <i class="fa fa-download"></i></a>
-        {% endspaceless %}
-        </div>
-
     </div>
 </div>
 {% endblock page_content %}

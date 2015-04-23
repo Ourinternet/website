@@ -531,7 +531,7 @@
     .publication .publication-content .main-body {
       display: table-cell;
       vertical-align: top;
-      padding-top: 3em; }
+      padding-top: 1.5em; }
       @media only screen and (max-width: 40em) {
         .publication .publication-content .main-body {
           display: block; } }
@@ -925,7 +925,7 @@ body {
 .page .item-body {
   margin-top: 4em; }
   .page .item-body .data .download {
-    margin-top: 4em;
+    margin-top: 1em;
     text-align: left;
     font-style: normal; }
     @media only screen and (max-width: 40em) {
