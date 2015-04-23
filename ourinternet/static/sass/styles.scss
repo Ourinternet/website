@@ -389,22 +389,73 @@ body{
 }
 
 
-.page{
-    .item-body{
-      margin-top: 4em;
+.page {
+  .item-body {
+    margin-top: 4em;
 
-      .data .download{
-        margin-top: 1em;
-        text-align: left;
-        font-style: normal;
+    .data .download {
+      margin-top: 1em;
+      text-align: left;
+      font-style: normal;
 
-        @include screen-at-most($medium) {
-          margin-top: 2em;
-        }
+      @include screen-at-most($medium) {
+        margin-top: 2em;
       }
-      .heading{
-        margin: 0.5em 0 0.5em 0;
-        text-transform: none;
+    }
+    .heading {
+      margin: 0.5em 0 0.5em 0;
+      text-transform: none;
+    }
+
+    .info{
+    font-style: italic;
+    text-transform: uppercase;
+    margin-top: -1em;
+    padding-bottom: 1em;
+    display: table;
+
+    .data{
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em;
+      .publish-date {
+        white-space: nowrap;
+        font-size: 0.75em;
+      }
+    }
+    .heading{
+      font-style: normal;
+    }
+  }
+
+  
+  }
+
+  .item-content {
+    display: table;
+    vertical-align: top;
+
+    @include screen-at-most($medium) {
+      display: block;
+    }
+
+    .main-body {
+      display: table-cell;
+      vertical-align: top;
+      padding-top: 1.5em;
+
+      @include screen-at-most($medium) {
+        display: block;
+      }
+    }
+    .description {
+      display: table-cell;
+      vertical-align: top;
+
+      @include screen-at-most($medium) {
+        display: block;
       }
     }
   }
+}

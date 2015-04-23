@@ -506,67 +506,6 @@
 
 .publication {
   padding-top: 1em; }
-  .publication .info {
-    font-style: italic;
-    text-transform: uppercase;
-    margin-top: -1em;
-    padding-bottom: 1em;
-    display: table; }
-    .publication .info .data {
-      display: table-cell;
-      width: 90%;
-      vertical-align: middle;
-      font-size: 1em; }
-      .publication .info .data .publish-date {
-        white-space: nowrap;
-        font-size: 0.75em; }
-    .publication .info .heading {
-      font-style: normal; }
-  .publication .publication-content {
-    display: table;
-    vertical-align: top; }
-    @media only screen and (max-width: 40em) {
-      .publication .publication-content {
-        display: block; } }
-    .publication .publication-content .main-body {
-      display: table-cell;
-      vertical-align: top;
-      padding-top: 1.5em; }
-      @media only screen and (max-width: 40em) {
-        .publication .publication-content .main-body {
-          display: block; } }
-    .publication .publication-content .description {
-      display: table-cell;
-      vertical-align: top; }
-      @media only screen and (max-width: 40em) {
-        .publication .publication-content .description {
-          display: block; } }
-    .publication .publication-content .cover-image {
-      display: table-cell;
-      vertical-align: top;
-      width: 255px;
-      height: 330px;
-      padding-right: 1em; }
-      @media only screen and (max-width: 40em) {
-        .publication .publication-content .cover-image {
-          display: block;
-          text-align: center;
-          width: 100%;
-          padding-right: 0; } }
-      .publication .publication-content .cover-image img {
-        left: auto !important;
-        top: auto !important;
-        top: initial !important;
-        left: initial !important;
-        z-index: 10 !important;
-        width: 255px !important;
-        height: 330px !important; }
-        @media only screen and (max-width: 40em) {
-          .publication .publication-content .cover-image img {
-            left: 25% !important; } }
-        @media only screen and (max-width: 30em) {
-          .publication .publication-content .cover-image img {
-            left: 10% !important; } }
   .publication .download {
     margin-top: 2em;
     text-align: center; }
@@ -934,3 +873,38 @@ body {
   .page .item-body .heading {
     margin: 0.5em 0 0.5em 0;
     text-transform: none; }
+  .page .item-body .info {
+    font-style: italic;
+    text-transform: uppercase;
+    margin-top: -1em;
+    padding-bottom: 1em;
+    display: table; }
+    .page .item-body .info .data {
+      display: table-cell;
+      width: 90%;
+      vertical-align: middle;
+      font-size: 1em; }
+      .page .item-body .info .data .publish-date {
+        white-space: nowrap;
+        font-size: 0.75em; }
+    .page .item-body .info .heading {
+      font-style: normal; }
+.page .item-content {
+  display: table;
+  vertical-align: top; }
+  @media only screen and (max-width: 40em) {
+    .page .item-content {
+      display: block; } }
+  .page .item-content .main-body {
+    display: table-cell;
+    vertical-align: top;
+    padding-top: 1.5em; }
+    @media only screen and (max-width: 40em) {
+      .page .item-content .main-body {
+        display: block; } }
+  .page .item-content .description {
+    display: table-cell;
+    vertical-align: top; }
+    @media only screen and (max-width: 40em) {
+      .page .item-content .description {
+        display: block; } }

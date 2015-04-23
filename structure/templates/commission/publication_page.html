@@ -9,7 +9,7 @@
 
     <div class="item-body">
 
-        <div class="publication-content">
+        <div class="item-content">
             <div class="info">
             <div class="data">
                 <p class="heading">{{ publication.title|safe }}</p>
@@ -39,7 +39,7 @@
             </div>
         </div>
 
-        <div class="publication-content">
+        <div class="item-content">
             {% if publication.body %}
                 <div class="main-body">{{ publication.body|safe }}</div>
             {% else %}

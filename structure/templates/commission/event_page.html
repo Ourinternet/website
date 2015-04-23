@@ -4,37 +4,44 @@
 {% endblock %}
 
 {% block page_content %}
-{% load tz %}
+    {% load tz %}
     <div class="event page" id="{{ event.slug }}">
 
-    <p class="heading">{{ event.title|safe }}</p>
+        <div class="item-body">
+            <div class="item-content">
+                <div class="info">
+                    <div class="data">
+            <p class="heading">{{ event.title|safe }}</p>
+                        </div>
+                    </div>
+            </div>
+            <div class="item-content">
+                <div class="info">
+                    <div class="icon fa fa-map-marker"></div>
+                    <div class="data">
+                        <div class="location">{{ event.location }} </div>
+                        <div class="date">
+                            {% timezone "UTC" %}
+                                <span class="start-date">{{ event.start_date|date:"l, F j, Y" }}
+                                        {% if event.end_date != event.start_date %}
+                                            - </span>
+                                            <span class="end-date">{{ event.end_date|date:"l, F j, Y" }}</span>
+                                        {% else %}
+                                            </span>
+                                        {% endif %}
+                            {% endtimezone %}
+                        </div>
+                    </div>
+                </div>
 
-    <div class="item-body">
-
-        <div class="info">
-            <div class="icon fa fa-map-marker"></div>
-            <div class="data">
-                <div class="location">{{ event.location }} </div>
-                <div class="date">
-                    {% timezone "UTC" %}
-                    <span class="start-date">{{ event.start_date|date:"l, F j, Y" }}{%  if event.end_date != event.start_date %} - </span>
-                    <span class="end-date">{{ event.end_date|date:"l, F j, Y" }}</span>
-                    {% else %}
-                        </span>
-                    {% endif %}
-                    {% endtimezone %}
+                <div>
+                    {{ event.content|safe }}
                 </div>
             </div>
+
+
         </div>
-
-
-
-        <div>
-            {{ event.content|safe }}
-        </div>
-
     </div>
-</div>
 
 {% endblock page_content %}
 
