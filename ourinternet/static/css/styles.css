@@ -70,7 +70,7 @@
   width: 90%;
   margin: auto; }
 
-@media only screen and (min-width: 75em) {
+@media only screen and (min-width: 81em) {
   body {
     font-size: 1.0em;
     letter-spacing: 0.1em; } }
@@ -93,10 +93,10 @@
   @media only screen and (min-width: 30em) and (max-width: 40em) {
     .medium {
       font-size: 0.75em; } }
-  @media only screen and (min-width: 40em) and (max-width: 75em) {
+  @media only screen and (min-width: 40em) and (max-width: 81em) {
     .medium {
       font-size: 1.05em; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .medium {
       font-size: 1.25em; } }
 
@@ -105,7 +105,7 @@
   @media only screen and (min-width: 40em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .medium.wide {
       letter-spacing: 0.15em; } }
 
@@ -118,10 +118,10 @@
   @media only screen and (min-width: 30em) and (max-width: 40em) {
     .massive {
       font-size: 2.5em; } }
-  @media only screen and (min-width: 40em) and (max-width: 75em) {
+  @media only screen and (min-width: 40em) and (max-width: 81em) {
     .massive {
       font-size: 3.25em; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .massive {
       font-size: 4.25em; } }
 
@@ -130,7 +130,7 @@
   @media only screen and (min-width: 40em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .massive.wide {
       letter-spacing: 0.05em; } }
 
@@ -210,7 +210,7 @@
 .slides-navigation a {
   color: white;
   margin: 0 25px; }
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 81em) {
   .slides-navigation {
     display: none; } }
 
@@ -222,13 +222,13 @@
   #responsive-menu-toggle a {
     padding-right: 0; }
 
-@media only screen and (max-width: 75em) {
+@media only screen and (max-width: 81em) {
   #top-menu {
     display: none; } }
 
 #responsive-menu {
   display: none; }
-  @media only screen and (max-width: 75em) {
+  @media only screen and (max-width: 81em) {
     #responsive-menu {
       display: block; } }
 
@@ -293,11 +293,11 @@
 .logos {
   margin-top: 10%;
   height: 160px; }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .logos {
       margin-top: 10%;
       height: 80px; } }
-  @media only screen and (min-width: 75em) {
+  @media only screen and (min-width: 81em) {
     .logos {
       margin: 10% 5.555555555555555%; } }
   .logos .logo img {
@@ -427,7 +427,7 @@
       .press-release-link .column {
         max-width: 66%;
         padding-right: 0.25em; } }
-    @media only screen and (max-width: 75em) {
+    @media only screen and (max-width: 81em) {
       .press-release-link .column {
         max-width: 50%;
         padding-right: 0.25em; } }
@@ -495,7 +495,7 @@
       .event-link .column {
         max-width: 66%;
         padding-right: 0.25em; } }
-    @media only screen and (max-width: 75em) {
+    @media only screen and (max-width: 81em) {
       .event-link .column {
         max-width: 50%;
         padding-right: 0.25em; } }
@@ -556,7 +556,7 @@
       .publication-link .column {
         max-width: 66%;
         padding-right: 0.25em; } }
-    @media only screen and (max-width: 75em) {
+    @media only screen and (max-width: 81em) {
       .publication-link .column {
         max-width: 50%;
         padding-right: 0.25em; } }
@@ -699,10 +699,10 @@ body {
               width: 100%;
               margin-top: 1em;
               padding-top: 1em; } }
-      @media only screen and (max-width: 75em) {
+      @media only screen and (max-width: 81em) {
         .main-page .features .feature {
           max-width: 90%; } }
-    @media only screen and (max-width: 75em) {
+    @media only screen and (max-width: 81em) {
       .main-page .features {
         padding-left: 2em; } }
 
@@ -717,7 +717,7 @@ body {
   margin: auto !important; }
   .content-page .logo {
     text-align: center; }
-  @media only screen and (max-width: 75em) {
+  @media only screen and (max-width: 81em) {
     .content-page {
       width: 100%; } }
 
@@ -809,7 +809,7 @@ body {
   overflow: hidden;
   width: 100%;
   display: block; }
-  @media only screen and (max-width: 75em) {
+  @media only screen and (max-width: 81em) {
     .member-list {
       display: none; } }
   .member-list .member-name {
