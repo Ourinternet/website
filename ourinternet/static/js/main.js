@@ -277,135 +277,18 @@ SubPageHandler = {};
     }
   };
 
-  var hashes = {
-      "release": "#press",
-      "event": "#event",
-      "publication": "#publications",
-      "video": "#videos"
-  };
-
-  var sections = {
-      "release": ".press-release",
-      "event": ".event",
-      "publication": ".publication",
-      "video": ".video"
-  };
-
-  var listings = {
-      "release": ".press-release-listings",
-      "event": ".event-listings",
-      "publication": ".publication-listings",
-      "video": ".video-listings"
-  };
-
-  var linkIDs = {
-      "release": "data-release-id",
-      "event": "data-event-id",
-      "publication": "data-publication-id",
-      "video": "data-video-id"
-  };
-
-  var hideAllItems = function(type){
-    $(sections[type]).hide();
-  };
-
-   var showAllItems = function(type){
-    $(sections[type]).show();
-  };
-
-  var showItem = function(slug){
-    $("#" + slug).show();
-  };
-
-  var resetAddressBar = function(baseHash, subHash){
-    window.location = baseHash + "/" + subHash;
-  };
-
-  var clearActiveLinks = function(type){
-     $(listings[type] + " .active").removeClass("active");
-  };
-
-  var markLinkActive = function(type, item){
-    clearActiveLinks(type);
-    var currentLink = $(listings[type]).find("[" + linkIDs[type] + "='" + item + "']");
-    currentLink.addClass("active");
-  };
-
-  var scrollToItem = function(item){
-    $(".scrollable").scrollTo('#' + item);
-  };
-
-  var resetScroll = function(){
-    $(".scrollable").scrollTo(0);
-  };
-
-  var _load_item = function(type, item){
-    hideAllItems(type);
-    showItem(item);
-    resetAddressBar(hashes[type], item);
-    markLinkActive(type, item);
-    scrollToItem(item);
-  };
-
-  var load_press_release = function(release){
-     _load_item("release", release);
-  };
-
-  var load_event = function(event){
-    _load_item("event", event);
-  };
-
-  var load_publication = function(publication){
-    _load_item("publication", publication);
-  };
-
-  var load_video = function(video){
-    markLinkActive("video", video);
-    resetAddressBar(hashes["video"], video);
-    load_video_player();
-    scrollToVideoPlayer();
-  };
-
-  var scrollToVideoPlayer = function(){
-    $(".scrollable").scrollTo('.video-embed');
-  };
-
-  var load_video_player = function(){
-     var video_id = $(".video-listings .active").data("youtube-id");
-     $(".video-embed").html('<iframe width="640" height="390" src="https://www.youtube.com/embed/'
-         + video_id +
-         '" frameborder="0" allowfullscreen></iframe>');
-  };
-
   var load_subpage = function(mainPage, subPage){
     if (subPage != ""){
       if (mainPage == "#press"){
-          load_press_release(subPage);
+        window.location.replace("/press/" + subPage);
       } else if (mainPage == "#event"){
-        load_event(subPage);
+        window.location.replace("/event/" + subPage);
       } else if (mainPage == "#publications"){
-        load_publication(subPage);
+        window.location.replace("/publication/" + subPage);
       } else if (mainPage == "#videos"){
-        load_video(subPage);
+        window.location.replace("/video/" + subPage);
       }
 
-    } else {
-      if (mainPage == "#press"){
-        showAllItems("release");
-        clearActiveLinks("release");
-        resetScroll();
-      } else if (mainPage == "#event"){
-        showAllItems("event");
-        clearActiveLinks("event");
-        resetScroll();
-      } else if (mainPage == "#publications"){
-        showAllItems("publication");
-        clearActiveLinks("publication");
-        resetScroll();
-      } else if (mainPage == "#videos"){
-        clearActiveLinks("video");
-        resetScroll();
-      }
     }
   };
 
@@ -420,28 +303,6 @@ SubPageHandler = {};
   SubPageHandler.hookupBasics = function(){
     $(window).on('hashchange', pageLoadHandler);
     $(window).on('load' , pageLoadHandler);
-  };
-
-  SubPageHandler.hookupListItemLinks = function(){
-    $(".press-release-link").click( function(){
-       var release = $(this).data("release-id");
-       load_press_release(release)
-    });
-
-    $(".event-link").click( function(){
-       var event = $(this).data("event-id");
-       load_event(event)
-    });
-
-    $(".publication-link").click( function(){
-       var publication = $(this).data("publication-id");
-       load_publication(publication)
-    });
-
-    $(".video-link").click( function(){
-       var video = $(this).data("video-id");
-       load_video(video);
-    });
   };
 
 
@@ -474,5 +335,4 @@ $(function(){
   ContactFormHandler.hookupSubmit();
 
   SubPageHandler.hookupBasics();
-  SubPageHandler.hookupListItemLinks();
 });

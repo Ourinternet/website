@@ -1,0 +1,39 @@
+{% extends 'structure/page.html' %}
+{% load staticfiles %}
+{% block background %}
+{% endblock %}
+
+{% block page_content %}
+{% load tz %}
+    <div class="press-release page" id="{{ press_release.slug }}">
+    <p class="press-release-notice">
+        {{ press_release.release_tag }}
+    </p>
+    <p class="heading">{{ press_release.title|safe }}</p>
+    <div class="item-body">
+        <span class="info">{{ press_release.location }} – {{ press_release.release_date|date:"F d, Y" }}</span> – {{ press_release.content|safe }}
+    </div>
+
+    <div class="media-contacts">
+        <div class="title">Media Contact{% if press_release.footer.media_contacts.all|length > 1 %}s{% endif %}: </div>
+         {% for contact in press_release.footer.media_contacts.all %}
+            <div class="media-contact">
+                {{ contact.name }}, {{ contact.position }}, {{ contact.company }} <br>
+                Tel: {{ contact.telephone }}, Email: <a href="mailto:{{ contact.email }}">{{ contact.email }}</a>
+            </div>
+         {% endfor %}
+    </div>
+    <div class="partners">
+        {% for partner in press_release.footer.partners.all %}
+            <div class="partner">
+            <span class="name">{{ partner.name }}{% if partner.short_name %} ({{ partner.short_name }}) {% endif %}</span>{{ partner.press_description }} For more information, please visit <a href="{{ partner.website }}">{{ partner.website_display }}</a>.
+            </div>
+
+        {% endfor %}
+    </div>
+
+    <div class="press-release-end">{{ press_release.end_tag }}</div>
+</div>
+
+{% endblock page_content %}
+

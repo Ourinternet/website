@@ -1,0 +1,39 @@
+{% extends 'structure/page.html' %}
+{% load staticfiles %}
+{% block background %}
+{% endblock %}
+
+{% block page_content %}
+{% load tz %}
+    <div class="event page" id="{{ event.slug }}">
+
+    <div class="item-body">
+        <p class="heading">{{ event.title|safe }}</p>
+
+        <div class="info">
+            <div class="icon fa fa-map-marker"></div>
+            <div class="data">
+                <div class="location">{{ event.location }} </div>
+                <div class="date">
+                    {% timezone "UTC" %}
+                    <span class="start-date">{{ event.start_date|date:"l, F j, Y" }}{%  if event.end_date != event.start_date %} - </span>
+                    <span class="end-date">{{ event.end_date|date:"l, F j, Y" }}</span>
+                    {% else %}
+                        </span>
+                    {% endif %}
+                    {% endtimezone %}
+                </div>
+            </div>
+        </div>
+
+
+
+        <div>
+            {{ event.content|safe }}
+        </div>
+
+    </div>
+</div>
+
+{% endblock page_content %}
+

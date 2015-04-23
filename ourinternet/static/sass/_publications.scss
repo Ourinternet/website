@@ -4,42 +4,7 @@
 .publication{
   padding-top: 1em;
 
-  &.page{
-    .publication-body{
-      margin-top: 4em;
 
-      .data .download{
-        margin-top: 4em;
-        text-align: left;
-        font-style: normal;
-
-        @include screen-at-most($medium) {
-          margin-top: 2em;
-        }
-      }
-      .heading{
-        margin: 0.5em 0 0.5em 0;
-        text-transform: none;
-      }
-
-      .cover-image{
-        width: 178px;
-        height: 231px;
-
-        @include screen-at-most($medium) {
-          width: 100%;
-          height: 100%;
-          margin-bottom: 1em;
-        }
-      }
-      .cover-image img{
-        width: 178px !important;
-        height: 231px !important;
-
-
-      }
-    }
-  }
   .info{
     font-style: italic;
     text-transform: uppercase;
@@ -151,7 +116,6 @@
 }
 
 .publication-listings {
-  border-bottom: 1px solid $main_color;
   padding-bottom: 2em;
 
   .active{

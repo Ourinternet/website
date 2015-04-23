@@ -1,0 +1,27 @@
+{% extends 'structure/page.html' %}
+{% load staticfiles %}
+{% block background %}
+{% endblock %}
+
+{% block page_content %}
+{% load tz %}
+    <div class="video page" id="{{ event.slug }}">
+
+    <div class="item-body">
+
+        <p class="heading">{{ video.title|safe }}</p>
+
+        <div class="video-embed">
+            <iframe width="640" height="390" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+
+        <div>
+            {{ video.description|safe }}
+        </div>
+
+    </div>
+</div>
+
+{% endblock page_content %}
+

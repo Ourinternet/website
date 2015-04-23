@@ -1,16 +1,11 @@
 <p class="heading">Videos</p>
 
-<div class="video-embed">
-    <iframe width="640" height="390" src="https://www.youtube.com/embed/{{ videos.0.video_id }}" frameborder="0" allowfullscreen></iframe>
-</div>
-
 <div class="video-listings">
 
     <table>
         {% for video in videos %}
-            <tr class="video-link" data-video-id="{{ video.slug }}" data-youtube-id="{{ video.video_id }}">
-                <td><div class="heading">{{ video.title }}</div>
-                    <div class="description">{{ video.description }}</div>
+            <tr class="video-link">
+                <td class="title"><a href="{% url 'video'  video.slug %}">{{ video.title }}</a>
                 </td>
             </tr>
         {% endfor %}

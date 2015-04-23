@@ -4,23 +4,10 @@
     <table>
         {% for publication in publications %}
             <tr class="publication-link" data-publication-id="{{ publication.slug }}">
-                <td class="indicator"><i class="fa fa-circle dot"></i></td>
-                <td class="date">{{ publication.publish_date|date:"F d, Y" }}</td>
-                <td class="title">{{ publication.title }}</td>
+                <td class="date"><a href="{% url 'publication' publication.slug %}">{{ publication.publish_date|date:"F d, Y" }}</a></td>
+                <td class="title"><a href="{% url 'publication' publication.slug %}">{{ publication.title }}</a></td>
             </tr>
         {% endfor %}
     </table>
 
 </div>
-<div id="publication-content">
-    {% for publication in publications %}
-       {% include 'commission/publication.html' %}
-    {% endfor %}
-</div>
-{#    <p class="press-release-notice">#}
-{#    FOR IMMEDIATE RELEASE#}
-{#    </p>#}
-{#    <p class="heading">{{ press_page.title|safe }}</p>#}
-{#    {{ press_page.content|safe }}#}
-
-

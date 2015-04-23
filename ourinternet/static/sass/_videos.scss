@@ -12,14 +12,12 @@
 .video-listings{
 
   display: table;
-
-  border-top: 1px solid $main_color;
-
-  padding-top: 40px;
   .video-link{
     cursor: pointer;
+
     .title{
 
+    padding-bottom: 0.5em;
     }
 
     .description{

@@ -7,7 +7,7 @@
 {% load tz %}
 <div class="publication page" id="{{ publication.slug }}">
 
-    <div class="publication-body">
+    <div class="item-body">
 
         <div class="publication-content">
             <div class="info">
@@ -40,7 +40,11 @@
         </div>
 
         <div class="publication-content">
-            <div class="main-body">{{ publication.body|safe }}</div>
+            {% if publication.body %}
+                <div class="main-body">{{ publication.body|safe }}</div>
+            {% else %}
+                <div class="main-body">{{ publication.description|safe }}</div>
+            {% endif %}
         </div>
 
         <div class="download">

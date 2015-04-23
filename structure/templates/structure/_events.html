@@ -4,10 +4,9 @@
     <table>
         {% for event in current_events %}
             <tr class="event-link" data-event-id="{{ event.slug }}">
-                <td class="indicator"><i class="fa fa-circle dot"></i></td>
-                <td class="date">{{ event.start_date|date:"F d, Y" }}</td>
-                <td><div class="title">{{ event.title }}</div>
-                    <div class="location">{{ event.location }}</div>
+                <td class="date"><a href="{% url 'event' event.slug %}">{{ event.start_date|date:"F d, Y" }}</a></td>
+                <td><a href="{% url 'event' event.slug %}"><div class="title">{{ event.title }}</div>
+                    <div class="location">{{ event.location }}</div></a>
                 </td>
             </tr>
         {% endfor %}
@@ -18,10 +17,9 @@
     <table>
         {% for event in past_events %}
             <tr class="event-link" data-event-id="{{ event.slug }}">
-                <td class="indicator"><i class="fa fa-circle dot"></i></td>
-                <td class="date">{{ event.start_date|date:"F d, Y" }}</td>
-                <td><div class="title">{{ event.title }}</div>
-                    <div class="location">{{ event.location }}</div>
+                <td class="date"><a href="{% url 'event' event.slug %}">{{ event.start_date|date:"F d, Y" }}</a></td>
+                <td><a href="{% url 'event' event.slug %}"><div class="title">{{ event.title }}</div>
+                    <div class="location">{{ event.location }}</div></a>
                 </td>
             </tr>
         {% endfor %}
@@ -29,18 +27,5 @@
     {% endif %}
 
 </div>
-<div id="event-content">
-    {% for event in current_events %}
-       {% include 'commission/event.html' %}
-    {% endfor %}
-    {% for event in past_events %}
-       {% include 'commission/event.html' %}
-    {% endfor %}
-</div>
-{#    <p class="press-release-notice">#}
-{#    FOR IMMEDIATE RELEASE#}
-{#    </p>#}
-{#    <p class="heading">{{ press_page.title|safe }}</p>#}
-{#    {{ press_page.content|safe }}#}
 
 
