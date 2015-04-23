@@ -7,8 +7,9 @@
 {% load tz %}
     <div class="event page" id="{{ event.slug }}">
 
+    <p class="heading">{{ event.title|safe }}</p>
+
     <div class="item-body">
-        <p class="heading">{{ event.title|safe }}</p>
 
         <div class="info">
             <div class="icon fa fa-map-marker"></div>
