@@ -1,8 +1,7 @@
 .webcast-embed,
 .video-embed{
     text-align: center;
-    width: 640px;
-    height: 390px;
+    max-width: 640px;
     background-color: $background_color;
     border: 1px solid $main_color;
     margin: 40px auto ;
@@ -34,4 +33,40 @@
     }
   }
 
+}
+
+// Embeds responsive
+//
+// Credit: Nicolas Gallagher and SUIT CSS.
+
+.embed-responsive {
+  position: relative;
+  display: block;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+
+  .embed-responsive-item,
+  iframe,
+  embed,
+  object,
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    height: 100%;
+    width: 100%;
+    border: 0;
+  }
+
+  // Modifier class for 16:9 aspect ratio
+  &.embed-responsive-16by9 {
+    padding-bottom: 56.25%;
+  }
+
+  // Modifier class for 4:3 aspect ratio
+  &.embed-responsive-4by3 {
+    padding-bottom: 75%;
+  }
 }
