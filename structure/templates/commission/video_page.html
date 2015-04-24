@@ -4,24 +4,36 @@
 {% endblock %}
 
 {% block page_content %}
-{% load tz %}
+    {% load tz %}
     <div class="video page" id="{{ event.slug }}">
 
-    <div class="item-body">
+        <div class="item-body">
 
-        <p class="heading">{{ video.title|safe }}</p>
+            <p class="heading">{{ video.title|safe }}</p>
 
-        <div class="video-embed embed-responsive embed-responsive-16by9">
-            <iframe class="embed-responsive-item" src="https://www.youtube.com/embed/{{ video.video_id }}" frameborder="0" allowfullscreen></iframe>
+            <div class="info">
+                <div class="data">
+                    <div class="date">
+                        {% timezone "UTC" %}
+                            <span class="publish-date">Published: {{ video.date|date:"l, F j, Y" }} </span>
+                        {% endtimezone %}
+                    </div>
+                </div>
+            </div>
+
+            <div class="video-embed embed-responsive embed-responsive-16by9">
+                <iframe class="embed-responsive-item"
+                        src="https://www.youtube.com/embed/{{ video.video_id }}"
+                        frameborder="0" allowfullscreen></iframe>
+            </div>
+
+
+            <div>
+                {{ video.description|safe }}
+            </div>
+
         </div>
-
-
-        <div>
-            {{ video.description|safe }}
-        </div>
-
     </div>
-</div>
 
 {% endblock page_content %}
 

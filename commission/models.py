@@ -181,6 +181,7 @@ class PublicationAuthor(models.Model):
 
 class Video(UniquelySlugable):
     video_id = models.CharField(max_length=1024)
+    date = models.DateField(null=True, blank=True)
     title = models.CharField(max_length=1024)
     description = models.TextField()
     weight = models.PositiveIntegerField(default=0)

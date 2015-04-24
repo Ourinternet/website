@@ -15,8 +15,12 @@
     cursor: pointer;
 
     .title{
+      padding-bottom: 0.5em;
+    }
 
-    padding-bottom: 0.5em;
+    .date {
+      vertical-align: top;
+      width: 11em;
     }
 
     .description{

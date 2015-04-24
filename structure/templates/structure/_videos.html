@@ -5,6 +5,7 @@
     <table>
         {% for video in videos %}
             <tr class="video-link">
+             <td class="date"><a href="{% url 'video' video.slug %}">{{ video.date|date:"F d, Y" }}</a></td>
                 <td class="title"><a href="{% url 'video'  video.slug %}">{{ video.title }}</a>
                 </td>
             </tr>
