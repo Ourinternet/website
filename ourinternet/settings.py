@@ -98,6 +98,8 @@ TWITTER_USER = ''
 GA_SITE_ID = 'UA-XXXXX-X'
 GA_SITE_URL = 'yoursite.org'
 
+RAVEN_CONFIG = {}
+
 CONTACT_FORM_RECIPIENT_LIST = []
 
 VIDEO_BASE_URL = ''
@@ -107,6 +109,7 @@ X_UA_COMPATIBLE = {
     'chrome': '1',
 }
 
+EXTRA_INSTALLED_APPS = ()
 try:
     from secure_settings import *
 except ImportError:
@@ -116,5 +119,7 @@ try:
     from local_settings import *
 except ImportError:
     pass
+
+INSTALLED_APPS = INSTALLED_APPS + EXTRA_INSTALLED_APPS
 
 
