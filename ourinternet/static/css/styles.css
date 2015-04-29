@@ -568,7 +568,7 @@
 .webcast-embed,
 .video-embed {
   text-align: center;
-  max-width: 640px;
+  height: auto;
   background-color: #1d415f;
   border: 1px solid #e2dada;
   margin: 40px auto; }
