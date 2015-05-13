@@ -13,10 +13,10 @@
             </div>
             <div class="feature-display-row">
                 <div class="feature-type">{{ feature.type_line }}</div>
-            </div>
+            </div>{% if feature.date_title or feature.date %}
             <div class="feature-display-row">
                 <div class="feature-date">{{ feature.date_title }}{% if feature.date %}: {{ feature.date }}{% endif %}</div>
-            </div>
+            </div>{% endif %}
             <div class="feature-display-row">
                 <div class="description">{{ feature.description }}</div>
             </div>

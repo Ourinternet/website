@@ -196,7 +196,7 @@ class Feature(models.Model):
     description = models.TextField(blank=True, null=True)
     link = models.CharField(max_length=1024,null=True, blank=True)
     date = models.DateField(null=True, blank=True)
-    date_title = models.CharField(max_length=128, default="Release Date")
+    date_title = models.CharField(max_length=128, default="Release Date", null=True, blank=True)
     disable = models.BooleanField(default=False)
     weight = models.PositiveIntegerField(default=0)
     feature_links = models.ManyToManyField('FeatureLink', null=True, blank=True, through='OrderedFeatureLink')
