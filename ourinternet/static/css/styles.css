@@ -903,7 +903,6 @@ body {
     text-transform: uppercase;
     margin-top: -1em;
     padding-bottom: 1em;
-    display: table;
     width: 100%; }
     .page .item-body .info .data {
       display: table-cell;
