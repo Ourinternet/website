@@ -23,7 +23,7 @@
     {% for member in research_advisers %}
         <div class="member-profile">
             {% if member %}
-                <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+                <span class="member-name" id="adviser-{{ member.slug }}">{{ member.name }}</span>
                 {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
                 {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
                 {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}

@@ -34,7 +34,7 @@
     {% for member in chair_members %}
         <div class="member-profile">
             {% if member %}
-                <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+                <span class="member-name" id="chair-member-{{ member.slug }}">{{ member.name }}</span>
                 {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
                 {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
                 {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
@@ -45,7 +45,7 @@
     {% endfor %}
     {% for member in other_members %}
         <div class="member-profile">
-            <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+            <span class="member-name" id="member-{{ member.slug }}">{{ member.name }}</span>
             {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
             {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
             {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
@@ -58,7 +58,7 @@
         <div class="member-type supporting">
             <div class="heading">Commission Support</div>
             <div class="member-profile">
-                <span class="member-name" id="{{ member.slug }}">{{ member.name }}</span>
+                <span class="member-name" id="supporting-member-{{ member.slug }}">{{ member.name }}</span>
                 {% if member.position %}<span class="member-position">, {{ member.position }}</span>{% endif %}
                 {% if member.partner %}<span class="member-partner">, {{ member.partner.name }}</span>{% endif %}
                 {% if member.twitter_handle %}<span> / </span><span class="twitter-link"><a href="http://twitter.com/{{ member.twitter_handle }}" data-twitter-href="twitter://user?screen_name={{ member.twitter_handle }}">{{ member.twitter_handle }}</a></span>{% endif %}
