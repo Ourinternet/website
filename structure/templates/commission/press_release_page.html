@@ -7,13 +7,13 @@
 
 {% block page_content %}
 {% load tz %}
-    <div class="press-release page" id="{{ press_release.slug }}">
+    <div class="press-release page" id="{{ press_release.slug }}" vocab="http://schema.org/" typeof="NewsArticle">
     <p class="press-release-notice">
         {{ press_release.release_tag }}
     </p>
-    <p class="heading">{{ press_release.title|safe }}</p>
+    <p class="heading" property="headline">{{ press_release.title|safe }}</p>
     <div class="item-body">
-        <span class="info">{{ press_release.location }} – {{ press_release.release_date|date:"F d, Y" }}</span> – {{ press_release.content|safe }}
+        <span class="info"><span property="dateline">{{ press_release.location }}</span> – <span property="datePublished" content="{{ press_release.release_date|date:"c" }}">{{ press_release.release_date|date:"F d, Y" }}</span></span> – <span property="articleBody">{{ press_release.content|safe }}</span>
     </div>
 
     <div class="media-contacts">
