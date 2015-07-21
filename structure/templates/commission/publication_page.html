@@ -3,6 +3,8 @@
 {% block background %}
 {% endblock %}
 
+{% block page_title %}{{ publication.title|safe }}{% endblock %}
+
 {% block page_content %}
 {% load tz %}
 <div class="publication page" id="{{ publication.slug }}">

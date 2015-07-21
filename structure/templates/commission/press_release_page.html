@@ -3,6 +3,8 @@
 {% block background %}
 {% endblock %}
 
+{% block page_title %}{{ press_release.title|safe }}{% endblock %}
+
 {% block page_content %}
 {% load tz %}
     <div class="press-release page" id="{{ press_release.slug }}">

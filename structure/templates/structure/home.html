@@ -1,7 +1,6 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
 
-{% block page_title %}ourinternet.org{% endblock %}
 {% block css %}
     <link rel="stylesheet" href="{% static 'css/vendor/font-awesome.min.css' %}" />
     <link rel="stylesheet" href="{% static 'css/vendor/superslides.css' %}" />
@@ -25,6 +24,7 @@
     </script>
 {% endblock jquery_plugins %}
 
+{% block page_title %}OurInternet{% endblock %}
 
 {% block content %}
     <img id="background" src="/static/img/bg_{{ video_number }}.jpg" alt="Background Image">

@@ -3,6 +3,8 @@
 {% block background %}
 {% endblock %}
 
+{% block page_title %}{{ video.title|safe }}{% endblock %}
+
 {% block page_content %}
     {% load tz %}
     <div class="video page" id="{{ event.slug }}">

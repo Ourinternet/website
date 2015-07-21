@@ -1,6 +1,8 @@
 {% extends 'structure/page.html' %}
 {% load staticfiles %}
 
+{% block page_title %}{{ webcast.title }}{% endblock %}
+
 {% block page_content %}
 {% load tz %}
     <div class="webcasts">

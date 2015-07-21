@@ -288,6 +288,28 @@ SubPageHandler = {};
       } else if (mainPage == "#videos"){
         window.location.replace("/video/" + subPage);
       }
+    } else {
+      if (mainPage == "#about"){
+        document.title = "About - OurInternet";
+      } else if (mainPage == "#partners"){
+        document.title = "Partners & Sponsors - OurInternet";
+      } else if (mainPage == "#commission"){
+        document.title = "Commission - OurInternet";
+      } else if (mainPage == "#research_advisers"){
+        document.title = "Research Advisers - OurInternet";
+      } else if (mainPage == "#press"){
+        document.title = "Press - OurInternet";
+      } else if (mainPage == "#publications"){
+        document.title = "Publications - OurInternet";
+      } else if (mainPage == "#event"){
+        document.title = "Events - OurInternet";
+      } else if (mainPage == "#videos"){
+        document.title = "Videos - OurInternet";
+      } else if (mainPage == "#contact"){
+        document.title = "Contact - OurInternet";
+      } else if (mainPage == "#faq"){
+        document.title = "FAQ - OurInternet";
+      }
 
     }
   };
