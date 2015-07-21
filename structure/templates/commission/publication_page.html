@@ -7,14 +7,14 @@
 
 {% block page_content %}
 {% load tz %}
-<div class="publication page" id="{{ publication.slug }}">
+<div class="publication page" id="{{ publication.slug }}" vocab="http://schema.org/" typeof="ScholarlyArticle">
 
     <div class="item-body">
 
         <div class="item-content">
             <div class="info">
             <div class="data">
-                <p class="heading">{{ publication.title|safe }}</p>
+                <p class="heading" property="headline">{{ publication.title|safe }}</p>
 
                 {% spaceless %}
                     <div class="authors">{% for author in publication.get_authors %}
@@ -24,7 +24,7 @@
                 {% endspaceless %}
                     <div class="date">
                         {% timezone "UTC" %}
-                        <span class="publish-date">Published: {{ publication.publish_date|date:"l, F j, Y" }} </span>
+                        <span class="publish-date" property="datePublished" content="{{ publication.publish_date|date:"c }}">Published: {{ publication.publish_date|date:"l, F j, Y" }} </span>
                         {% endtimezone %}
                     </div>
 
@@ -43,9 +43,9 @@
 
         <div class="item-content">
             {% if publication.body %}
-                <div class="main-body">{{ publication.body|safe }}</div>
+                <div class="main-body" property="articleBody">{{ publication.body|safe }}</div>
             {% else %}
-                <div class="main-body">{{ publication.description|safe }}</div>
+                <div class="main-body" property="articleBody">{{ publication.description|safe }}</div>
             {% endif %}
         </div>
 
