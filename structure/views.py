@@ -137,6 +137,7 @@ class CustomRedirectView(RedirectView):
     query_string = False
 
     def get_redirect_url(self, *args, **kwargs):
+
         url_alias = get_object_or_404(UrlAlias, source=kwargs['source'])
         self.url = url_alias.destination
 

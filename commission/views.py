@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.views.generic import TemplateView
 from .models import PressRelease, Publication, Webcast, Video, Event
 from random import randint
@@ -26,7 +26,7 @@ class PublicationPageView(TemplateView):
         try:
             publication = Publication.objects.get(slug=kwargs['slug'])
         except Publication.DoesNotExist:
-            alias = UrlAlias.objects.get(source='publication/{}'.format(kwargs['slug']))
+            alias = get_object_or_404(UrlAlias, source='publication/{}'.format(kwargs['slug']))
             publication = Publication.objects.get(slug=alias.destination[13:])
 
         footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
@@ -48,7 +48,7 @@ class VideoPageView(TemplateView):
         try:
             video = Video.objects.get(slug=kwargs['slug'])
         except Video.DoesNotExist:
-            alias = UrlAlias.objects.get(source='video/{}'.format(kwargs['slug']))
+            alias = get_object_or_404(UrlAlias, source='video/{}'.format(kwargs['slug']))
             video = Video.objects.get(slug=alias.destination[13:])
 
         footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
@@ -70,7 +70,7 @@ class EventPageView(TemplateView):
         try:
             event = Event.objects.get(slug=kwargs['slug'])
         except Event.DoesNotExist:
-            alias = UrlAlias.objects.get(source='event/{}'.format(kwargs['slug']))
+            alias = get_object_or_404(UrlAlias, source='event/{}'.format(kwargs['slug']))
             event = Event.objects.get(slug=alias.destination[13:])
 
         footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
@@ -92,7 +92,7 @@ class PressReleasePageView(TemplateView):
         try:
             press_release = PressRelease.objects.get(slug=kwargs['slug'])
         except PressRelease.DoesNotExist:
-            alias = UrlAlias.objects.get(source='press/{}'.format(kwargs['slug']))
+            alias = get_object_or_404(UrlAlias, source='press/{}'.format(kwargs['slug']))
             press_release = PressRelease.objects.get(slug=alias.destination[13:])
 
         footer_page, created = FlatPage.objects.get_or_create(url='/footer/')
