@@ -146,6 +146,7 @@ class Publication(UniquelySlugable):
     description = models.TextField()
     body = models.TextField(blank=True, null=True)
     publish_date = models.DateField()
+    weight = models.PositiveIntegerField(default=0)
     type = models.ForeignKey("PublicationType")
     authors = models.ManyToManyField("Author", through='PublicationAuthor',
                                      blank=True, null=True)

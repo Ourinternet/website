@@ -49,7 +49,7 @@ def home(request, template="structure/home.html"):
     current_events = Event.objects.filter(end_date__gte=today).order_by("start_date")
     past_events = Event.objects.filter(end_date__lt=today).order_by("-start_date")
 
-    publications = Publication.objects.all().order_by("-publish_date")
+    publications = Publication.objects.all().order_by("-publish_date", "weight")
 
     videos = Video.objects.all().order_by("weight")
 
