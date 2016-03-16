@@ -158,7 +158,7 @@ class Publication(UniquelySlugable):
                               blank=True, null=True)
 
     def __unicode__(self):
-        return self.title
+        return u"%s" % self.title
 
     def get_authors(self):
         return self.authors.order_by('ordered_authors')
@@ -174,7 +174,7 @@ class PublicationAuthor(models.Model):
     weight = models.PositiveIntegerField(default=0)
 
     def __unicode__(self):
-        return "%s - %s - %d" % (self.publication, self.author, self.weight)
+        return u"%s - %s - %d" % (self.publication, self.author, self.weight)
 
     class Meta:
         ordering = ('weight', )
